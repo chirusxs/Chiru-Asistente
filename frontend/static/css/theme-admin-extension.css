@@ -722,7 +722,7 @@ html.dark .card-admin .card-body {
 
 html.dark .card-admin .card-footer {
 	background: #242830;
-	border-top-color: #191c21;
+	border-top-color: #181818;
 }
 
 html .card-primary .card-header {
@@ -2091,7 +2091,7 @@ html.dark .form-control {
 html.dark .form-control[disabled],
 html.dark .form-control[readonly],
 html.dark fieldset[disabled] .form-control {
-	background-color: #21262d;
+	background-color: #262626;
 }
 
 /* Form - Bootstrap Override */
@@ -2329,7 +2329,7 @@ input.input-rounded {
 
 html.dark .checkbox-custom label:before {
 	background: #181818;
-	border-color: #21262d;
+	border-color: #262626;
 }
 
 html.dark .checkbox-custom input[type="checkbox"]:checked + label:after {
@@ -2529,7 +2529,7 @@ html.dark .checkbox-text-dark input[type="checkbox"]:checked + label:after,
 
 html.dark .radio-custom label:before {
 	background: #181818;
-	border-color: #21262d;
+	border-color: #262626;
 }
 
 html.dark .radio-custom input[type="radio"]:checked + label:after {
@@ -2788,7 +2788,7 @@ html.dark .fileupload .uneditable-input {
 }
 
 html.dark .fileupload-new .input-append .btn-file {
-	border-color: #21262d;
+	border-color: #262626;
 }
 
 /* Form Group Invisible */
@@ -3591,7 +3591,7 @@ html.dark .select2-container--bootstrap .select2-search--dropdown .select2-searc
 }
 
 html.dark .ui-slider.ui-widget-content {
-	background: #21262d;
+	background: #262626;
 }
 
 /* Spinners */
@@ -4051,7 +4051,7 @@ html.dark .bootstrap-timepicker-widget table td a:hover {
 }
 
 html.dark .bootstrap-timepicker-widget table td input {
-	background-color: #21262d;
+	background-color: #262626;
 	border-color: #181818;
 	color: #EEE;
 }
@@ -4255,7 +4255,7 @@ html.dark .wizard-tabs ul > li.active a, html.dark .wizard-tabs ul > li.active a
 }
 
 html.dark .wizard-tabs ul > li.active a:before {
-	border-left-color: #21262d;
+	border-left-color: #262626;
 }
 
 html.dark .wizard-tabs ul > li.active a:after {
@@ -4268,7 +4268,7 @@ html.dark .wizard-tabs ul > li a, html.dark .wizard-tabs ul > li a:hover {
 }
 
 html.dark .wizard-tabs ul > li a:before {
-	border-left-color: #21262d;
+	border-left-color: #262626;
 }
 
 html.dark .wizard-tabs ul > li a:after {
