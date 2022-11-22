@@ -28,6 +28,8 @@ func (c *Context) tmplSendDM(s ...interface{}) string {
 
 	gIcon := discordgo.EndpointGuildIcon(c.GS.ID, c.GS.Icon)
 
+	info := fmt.Sprintf("Custom Command DM from the server **%s**", c.GS.Name)
+	embedInfo := fmt.Sprintf("Custom Command DM from the server %s", c.GS.Name)
 	msgSend := &discordgo.MessageSend{
 		AllowedMentions: discordgo.AllowedMentions{
 			Parse: []discordgo.AllowedMentionType{discordgo.AllowedMentionTypeUsers},
@@ -344,6 +346,8 @@ func (c *Context) tmplSendMessage(filterSpecialMentions bool, returnID bool) fun
 
 		isDM := cid != c.ChannelArgNoDM(channel)
 		gName := c.GS.Name
+		info := fmt.Sprintf("Custom Command DM from the server **%s**", gName)
+		embedInfo := fmt.Sprintf("Custom Command DM from the server %s", gName)
 		icon := discordgo.EndpointGuildIcon(c.GS.ID, c.GS.Icon)
 
 		var m *discordgo.Message
