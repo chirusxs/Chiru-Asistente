@@ -45,30 +45,30 @@
     <div class="collapse navbar-collapse poppins" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a id="link_to_about" class="nav-link js-anchor-link" href="#about">About</a>
+          <a id="link_to_about" class="nav-link js-anchor-link" href="#about">Acerca de</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link js-anchor-link" href="#features">Features</a>
+          <a class="nav-link js-anchor-link" href="#features">Características</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="/status">Status</a>
+          <a class="nav-link" href="/status">Estado</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="https://discordapp.com/oauth2/authorize?client_id={{.ClientID}}&scope=applications.commands%20bot&permissions=2146827767&response_type=code&redirect_uri={{urlquery (joinStr ""  "https://" .Host "/manage")}}">Add to server</a>
+          <a class="nav-link" href="https://discordapp.com/oauth2/authorize?client_id={{.ClientID}}&scope=applications.commands%20bot&permissions=2146827767&response_type=code&redirect_uri={{urlquery (joinStr ""  "https://" .Host "/manage")}}">Agregar bot</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="/premium">Premium</a>
         </li>
          <li class="nav-item active">
-          <a class="nav-link" target="_blank" href="https://discord.gg/4udtcA5">Support</a>
+          <a class="nav-link" target="_blank" href="https://discord.gg/4udtcA5">Soporte</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-2">
-        <a class="btn btn-outline-danger my-2 my-sm-0" href="/manage">Control Panel</a>
+        <a class="btn btn-outline-danger my-2 my-sm-0" href="/manage">Panel de Control</a>
       </form>
       {{if .User}}
       <form class="form-inline my-2 my-lg-0">
-        <a class="btn btn-outline-danger my-2 my-sm-0" href="/logout">Logout</a>
+        <a class="btn btn-outline-danger my-2 my-sm-0" href="/logout">Cerrar sesión</a>
       </form>
       {{end}}
     </div>
@@ -81,27 +81,27 @@
           <div class="row justify-content-md-center">
             <div class="col col-md-10">
               <h1 class="brand-heading bold intro_head">
-                <br/>YAGPDB</h1>
-              <p class="intro_headline">Yet Another General Purpose Discord Bot</p>
+                <br/>Chiru Asistente</h1>
+              <p class="intro_headline">Bot oficial de la Comunidad CHIRUSXS</p>
             </div>
           </div>
           {{if ne .DemoServerID "0"}}<div class="row justify-content-md-center">
             <div class="col col-md-10">
-              <p class="intro-text poppins"><a href="/manage/{{.DemoServerID}}/home">Click here for a live demo of the control panel</a></p>
+              <p class="intro-text poppins"><a href="/manage/{{.DemoServerID}}/home">Clic aquí para ver una demo del panel de control</a></p>
             </div>
           </div>{{end}}
           <div class="row justify-content-md-center">
             <div class="col col-md-5">
               <div class="numberbutton">
                 <img src="/static/img/button.png" alt="" class="btn_img">
-                <p class="intro-text poppins bold numbercentered">Joined Servers
+                <p class="intro-text poppins bold numbercentered">Servidores en total
                   <br> {{.JoinedServers}}</p>
               </div>
             </div>
             <div class="col col-md-5">
               <div class="numberbutton">
                 <img src="/static/img/button.png" alt="" class="btn_img">
-                <p class="intro-text poppins bold numbercentered">Commands ran today
+                <p class="intro-text poppins bold numbercentered">Comandos de hoy
                   <br> {{.Commands}}</p>
               </div>
             </div>
@@ -119,15 +119,16 @@
       <img class="img-responsive about aboutlogo" src="/static/img/logo_y.png" alt="logo of yagpdb">
       <div class="row justify-content-md-center">
         <div class="col col-lg-8 abouttext" style="padding-bottom: 3%;">
-          <h2 class="about poppins semibold">About YAGPDB</h2>
-          <p class="about">YAGPDB is a multi-purpose Discord bot that I've worked on for quite some time now. What does it do? Well, it does
-            a bunch of stuff right now, the best way to figure out what it does is to try it out by adding it onto a testing
-            server and see what it provides for yourself.</p>
-          <p class="about">
+          <h2 class="about poppins semibold">Acerca de Chiru Asistente</h2>
+          <p class="about">Chiru Asistente es una instancia del bot YAGPDB de la comunidad CHIRUSXS, utilizada principalmente como
+            herramienta de moderación. Por el momento el bot no está disponible para el público y solo es posible
+            agregarlo con autorización de la cúpula administrativa.
+          </p>
+          <!-- <p class="about">
             <b>Who am I?</b> I go by the name Jonas747 online and (unsurprisingly) my real name is also Jonas, although not 747,
             I'm not a plane. YAGPDB is a project that I have been developing in my spare time for roughly 3 years now, it
             started out because MEE6 (which I was currently using for my server) was lacking a lot of stuff that I wanted,
-            so I decided to make my own bot, and here I am.</p>
+            so I decided to make my own bot, and here I am.</p> -->
         </div>
       </div>
     </section>
@@ -145,12 +146,12 @@
       </div>
       <div id="reddit_feed" class="feature_element_l">
         <div class="text-left redbox first">
-          <h3>Feeds</h3>
+          <h3>Fuentes</h3>
           <ul>
-            <li>Fast Reddit feeds (within one minute)</li>
-            <li>Fast YouTube feeds (within a few minutes)</li>
-            <li>Join / Leave messages in a specific channel (configurable)</li>
-            <li>Direct messages on join (configurable)</li>
+            <li>Publicaciones de Reddit (within one minute)</li>
+            <li>Publicaciones de YouTube (within a few minutes)</li>
+            <li>Mensajes de ingreso y salida personalizables</li>
+            <li>Mensajes directos para nuevos miembros</li>
           </ul>
         </div>
         <img src="/static/img/reddit feed1.png" class="img-fluid f_image_r second" alt="Example of Reddit Feed from r/discordapp">
@@ -159,25 +160,25 @@
       <div id="rolemenu" class="feature_element_r">
         <img src="/static/img/rolemenu1.png" class="img-fluid f_image_l second" alt="Role Menu with reactions">
         <div class="redbox text_right first">
-          <h3>Self-assignable Roles</h3>
-          <p>This feature is very advanced. You can either give yourself a role with a command or with a role menu:</p>
+          <h3>Roles autoasignables</h3>
+          <p>Puedes configurar roles autoasignables con comandos o menús:</p>
           <ul>
-            <li>Group in several groups for multiple menus</li>
-            <li>Assign the roles via reactions on a message (role menu)</li>
-            <li>Different modes like single or multiple roles at once</li>
-            <li>Advanced options like require role or ignore role per group or role</li>
+            <li>Agrupar roles en un menú</li>
+            <li>Asignar roles mediante reacciones o mensajes</li>
+            <li>Diferentes modos (por ej. uno o más roles a la vez)</li>
+            <li>Opciones y condiciones avanzadas para recibir roles</li>
           </ul>
         </div>
         <img src="/static/img/line4.png" class="img-fluid line_image line2" alt="line">
       </div>
       <div id="automod" class="feature_element_l">
         <div class="text-left redbox first">
-          <h3>Automatic Moderator</h3>
-          <p>YAGPDB has a very configurable automoderator, for each rule you can set automoderator to mute, kick or ban after
-            a certain number of violations within a certain timeframe.</p>
+          <h3>Moderación automática</h3>
+          <p>Puedes crear reglas y establecer sanciones automáticas específicas, como silenciar, expulsar
+            o incluso banear después de cierta cantidad de violaciones en un determinado periodo de tiempo.</p>
           <p>
             <b>
-              <a href="https://docs.yagpdb.xyz/tools-and-utilities/automoderator-v2" target="_blank" rel="noopener" class="link">Click here for a list of rules, conditions, and effects</a>
+              <a href="https://docs.yagpdb.xyz/tools-and-utilities/automoderator-v2" target="_blank" rel="noopener" class="link">¡Clic aquí para ver una lista de reglas, condiciones y efectos!</a>
             </b>
           </p>
         </div>
@@ -187,15 +188,15 @@
       <div id="customcommands" class="feature_element_r">
         <img src="/static/img/custom commands1.png" class="img-fluid f_image_l second" alt="Custom Command example with invite">
         <div class="redbox text_right first">
-          <h3>Custom Commands</h3>
+          <h3>Comandos personalizados</h3>
           <ul>
-            <li>Triggers: Starts with, Contains, Exact match or Regex</li>
-            <li>Dynamic response</li>
-            <li>Useful for automatic responses to questions, command aliases or other fun stuff</li>
+            <li>Triggers: Comienza con, Contiene, Coincidencia o Expresión regular</li>
+            <li>Respuesta dinámica</li>
+            <li>Útil para responder preguntas frecuentes, crear alias u otras cosas</li>
           </ul>
           <p>
             <b>
-              <a href="https://docs.yagpdb.xyz/other-1/custom-command-examples" target="_blank" rel="noopener" class="link">Click here for custom command examples</a>
+              <a href="https://docs.yagpdb.xyz/other-1/custom-command-examples" target="_blank" rel="noopener" class="link">¡Clic para ver ejemplos de comandos!</a>
             </b>
           </p>
         </div>
@@ -203,12 +204,11 @@
       </div>
       <div id="serverstats" class="feature_element_l">
         <div class="text-left redbox first">
-          <h3>Server Stats (
-            <a href="http://yagpdb.xyz/public/140847179043569664/stats" target="_blank" rel="noopener" class="link">Example</a>)</h3>
+          <h3>Estadísticas</h3>
           <ul>
-            <li>Stats: Members joined / left, messages in the last 24h per channel, members online</li>
-            <li>Optionally make stats public</li>
-            <li>Graphs with message overview on the control panel</li>
+            <li>Estadísticas: Miembros, mensajes en un periodo de tiempo, miembros en línea</li>
+            <li>Mostrar públicamente las estadísticas (opcional)</li>
+            <li>Gráficos con resumen de mensajes en el panel de control</li>
           </ul>
         </div>
         <img src="/static/img/stats1.png" class="img-fluid f_image_r second" alt="Example of the status command">
@@ -217,19 +217,19 @@
       <div id="general_moderation" class="feature_element_r">
         <img src="/static/img/moderation1.png" class="img-fluid f_image_l second" alt="Example of Moderation with YAGPDB">
         <div class="redbox text_right first">
-          <h3>General Moderation</h3>
+          <h3>Moderación general</h3>
           <ul>
-            <li>Kick, Ban and Clean</li>
-            <li>Advanced cleaning parameters</li>
-            <li>Timed mutes and bans</li>
-            <li>Modlog with kicks, bans, mutes and warnings</li>
-            <li>Message to the person being warned / kicked / muted / banned</li>
-            <li>Message logs</li>
-            <li>Warnings</li>
+            <li>Silenciar, expulsar y banear</li>
+            <li>Parámetros de limpieza de mensajes avanzados</li>
+            <li>Sanciones temporales y permanentes</li>
+            <li>Registro de sanciones personalizable</li>
+            <li>Informar al usuario sancionado con un mensaje personalizable</li>
+            <li>Registros de mensajes</li>
+            <li>Advertencias</li>
           </ul>
         </div>
       </div>
-      <div class="row feature_item">
+      <!-- <div class="row feature_item">
         <div class="col-lg-12">
           <h2 class="centered big_margin">And finally, the feature I'm most proud of:</h2>
         </div>
@@ -242,23 +242,23 @@
             fetching new facts. It includes
             <b>over 250</b> different cat facts!</p>
         </div>
-      </div>
+      </div> -->
     </section>
     <!-- Questions and short FAQ -->
     <div class="questions">
       <section id="other" class="container content-section ">
         <div class="row justify-content-md-center">
           <div class="col col-lg-12 ">
-            <h2>Have questions? Check out these links!</h2>
+            <h2>¿Preguntas? ¡Revisa estos enlaces!</h2>
             <ul>
-              <li>The documentation can be found at
+              <li>La documentación original se puede encontrar en
                 <a class="link" href="https://docs.yagpdb.xyz/">docs.yagpdb.xyz</a>
               </li>
-              <li>The YAGPDB Community Server for support, suggestions, feedback and general talk can be joined
-                <a class="link" href="https://discord.gg/4udtcA5">here</a>
+              <li>Puedes ingresar a nuestro servidor de Discord y abrir un ticket haciendo
+                <a class="link" href="https://discord.gg/ZC8shhpSkf">clic aquí</a>
               </li>
-              <li>If you want to donate via Patreon, check out
-                <a class="link" href="https://docs.yagpdb.xyz/donating">this page</a>
+              <li>Envía un correo electrónico a
+                <a class="link" href="mailto:soporte@chirusxs.net?subject=Duda%20-%20Chiru%20Asistente">soporte@chirusxs.net</a>
               </li>
             </ul>
           </div>
@@ -270,9 +270,8 @@
       <div class="row justify-content-md-center footer">
         <div class="col col-lg-12">
           <p>
-            <b>YAGPDB</b> created by
-            <a class="link" href="https://github.com/jonas747" rel="noopener" target="_blank">Jonas747</a> | Landing Page by
-            <a class="link" href="https://github.com/michelhn/" rel="noopener" target="_blank">Michdi</a>
+            <b>Comunidad CHIRUSXS</b>, creada en el año 2020 | Revisa nuestros enlaces en 
+            <a class="link" href="https://www.chirusxs.net" rel="noopener" target="_blank">www.chirusxs.net</a>
           </p>
         </div>
       </div>
