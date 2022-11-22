@@ -234,7 +234,7 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 			<button type="submit" class="btn btn-danger">Desvincular mejora</button>
 		</form>`, ag.ID)
 
-				body.WriteString(fmt.Sprintf("<p>Mejora premium activa, proporcionada por <code>%s#%s (%d)</p></code>\n\n%s", tier.String(), html.EscapeString(username), html.EscapeString(discrim), premiumBy, detForm))
+				body.WriteString(fmt.Sprintf("<p>Mejora premium activa (<b>%s</b>) y proporcionada por <code>%s#%s (%d)</p></code>\n\n%s", tier.String(), html.EscapeString(username), html.EscapeString(discrim), premiumBy, detForm))
 			} else {
 				body.WriteString(fmt.Sprintf("<p class=\"mt-3\">Mejora premium activa, proporcionada por %s: %s</p>", tier.String(), v.Name(), status))
 			}
