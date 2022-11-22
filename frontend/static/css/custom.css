@@ -23,7 +23,7 @@ html.dark .tabs .nav-tabs {
 
 html.dark .tabs .nav-link {
 	background-color: #282d36;
-	border-color: #1d2127;
+	border-color: #121212;
 }
 
 html.dark .tabs .active .nav-link {
@@ -32,12 +32,12 @@ html.dark .tabs .active .nav-link {
 
 html.dark .tabs .nav-link:hover {
 	background-color: #282d36;
-	border-color: #1d2127;
+	border-color: #121212;
 }
 
 html.dark .tabs .nav-link:focus {
 	background-color: #2e353e;
-	border-color: #1d2127;
+	border-color: #121212;
 }
 
 .indicator::before {

@@ -1,14 +1,14 @@
 {{define "cp_selectserver"}}
 
 {{template "cp_head" .}}
-<header class="page-header"><h2>News and Updates</h2></header>
+<header class="page-header"><h2>Novedades</h2></header>
 <div class="row">
     <div class="col-lg-7">
 
         {{if .JoinedGuild}}
         <section class="card card-featured card-featured-success mb-4">
             <header class="card-header">
-                <h2 class="card-title">Bot added to <b>{{.JoinedGuild.Name}}!</b></h2>
+                <h2 class="card-title">Bot agregado a <b>{{.JoinedGuild.Name}}!</b></h2>
             </header>
             <div class="card-body">
                 <p>You manage this bot through a web control panel, if you need any help you can join the support server (There is a link above)</p>
@@ -39,10 +39,10 @@
 
         <p>
         {{if .CurrentPostsOffset}}
-        <a class="btn btn-default" href="/manage?offset={{.PreviousPostsOffset}}">Newer Posts</a>
+        <a class="btn btn-default" href="/manage?offset={{.PreviousPostsOffset}}">Publicaciones recientes</a>
         {{end}}
         {{if .NextPostsOffset}}
-        <a class="btn btn-default" href="/manage?offset={{.NextPostsOffset}}">Older Posts</a>
+        <a class="btn btn-default" href="/manage?offset={{.NextPostsOffset}}">Publicaciones antigüas</a>
         {{end}}
         {{end}}
         </p>
@@ -51,13 +51,13 @@
     <div class="col-lg-5">
         <section class="card">
             <header class="card-header">
-                <h2 class="card-title">Information</h2>
+                <h2 class="card-title">Información</h2>
             </header>
             <div class="card-body">
-                <p>To add this bot to your server, click login in the upper right corner, then afterwards select it in the "select server" dropdown up top.</p>
-                <p>Make sure you have manage server permissions and that you are logged into the right account.</p>
-                <p>Afterwards, explore a little to get familiar with the interface and the features it provides.</p>
-                <p>If you stumble into any issues and need help, join the <a href="https://discord.gg/4udtcA5">support server</a>.</p>
+                <p>Para agregar al bot a un servidor, inicia sesión y utiliza la opción "Seleccionar servidor".</p>
+                <p>Asegurate de tener el permiso "Gestionar servidor" y que has iniciado sesión en la cuenta correcta.</p>
+                <p>Revisa todo el panel para ver todas las funciones y características disponibles.</p>
+                <p>Si tienes alguna duda o encontraste un error, abre un ticket en el <a href="https://discord.gg/ZC8shhpSkf">servidor de Discord</a>.</p>
             </div>
         </section>
         {{if .patreonActive}}
@@ -77,12 +77,12 @@
         {{end}}
         <section class="card">
             <header class="card-header">
-                <h2 class="card-title">Check out...</h2>
+                <h2 class="card-title">Revisa también...</h2>
             </header>
             <div class="card-body">
-                <p>YAGPDB is open source! The project is hosted on GitHub here: <a href="https://github.com/botlabs-gg/yagpdb">botlabs-gg/yagpdb</a>.</p>
-                <p><a href="https://docs.yagpdb.xyz/donating" target="_blank">Donate via patreon!</a> Donating $3 or more will grant you premium slots you can assign to servers!</p>
-                <p>Looking for the YAGPDB <a href="https://discord.gg/4udtcA5">Discord server</a>?</p>
+                <p>¡Chiru Asistente es de código abierto! El proyecto está alojado en GitHub, <a href="https://github.com/chirusxs/Chiru-Asistente">chirusxs/Chiru-Asistente</a>.</p>
+                <p>¡Revisa nuestros enlaces en <a href="https://www.chirusxs.net/" target="_blank">www.chirusxs.net</a>!</p>
+                <p>¿Buscas el <a href="https://discord.gg/ZC8shhpSkf">servidor de Discord</a>?</p>
             </div>
         </section>
     </div>

@@ -28,31 +28,31 @@
         <ul class="notifications">
             <li>
                 <a href="#" onclick="toggleTheme()" target="_blank" class="notification-icon" data-toggle="tooltip"
-                    data-placement="bottom" title="" data-original-title="Toggle light/dark theme">
+                    data-placement="bottom" title="" data-original-title="Alternar tema">
                     <i class="fas fa-lightbulb"></i>
                 </a>
             </li>
             <li>
-                <a href="https://discord.gg/4udtcA5" target="_blank" class="notification-icon" data-toggle="tooltip"
-                    data-placement="bottom" title="" data-original-title="YAGPDB Community and support server">
+                <a href="https://discord.gg/ZC8shhpSkf" target="_blank" class="notification-icon" data-toggle="tooltip"
+                    data-placement="bottom" title="" data-original-title="Servidor de Discord">
                     <i class="fab fa-discord"></i>
                 </a>
             </li>
             <li>
                 <a href="/manage" class="notification-icon" data-toggle="tooltip" data-placement="bottom" title=""
-                    data-original-title="News and updates">
+                    data-original-title="Novedades">
                     <i class="far fa-newspaper"></i>
                 </a>
             </li>
             <li>
                 <a href="https://docs.yagpdb.xyz/" class="notification-icon" target="_blank" data-toggle="tooltip"
-                    data-placement="bottom" title="" data-original-title="Documentation">
+                    data-placement="bottom" title="" data-original-title="Documentación">
                     <i class="fas fa-question"></i>
                 </a>
             </li>
             <li>
                 <a href="/status" class="notification-icon" data-toggle="tooltip" data-placement="bottom" title=""
-                    data-original-title="Status">
+                    data-original-title="Estado">
                     <i class="fas fa-exclamation-triangle"></i>
                 </a>
             </li>
@@ -73,8 +73,8 @@
                 </figure>
                 <div class="profile-info" data-lock-name="Server Name">
                     <span class="name">{{if .ActiveGuild}}{{.ActiveGuild.Name}}{{if .IsGuildPremium}}<i
-                            class="fas fa-crown text-info ml-1"></i>{{end}}{{else}}Loading...{{end}}</span>
-                    <span class="role">loading....</span>
+                            class="fas fa-crown text-info ml-1"></i>{{end}}{{else}}Cargando...{{end}}</span>
+                    <span class="role">Cargando....</span>
                 </div>
                 <i class="fa custom-caret"></i>
             </a>
@@ -84,11 +84,10 @@
                     <li class="divider"></li>
 
                     <li>
-                        <a role="menuitem" tabindex="-1" href="#"><i class="fas fa-wrench"></i>Loading your servers</a>
+                        <a role="menuitem" tabindex="-1" href="#"><i class="fas fa-wrench"></i>Cargando servidores...</a>
                     </li>
                     <li>
-                        <a role="menuitem" tabindex="-1" href="#"><i class="fas fa-wrench"></i>Please wait, or refresh
-                            the page if broken.</a>
+                        <a role="menuitem" tabindex="-1" href="#"><i class="fas fa-wrench"></i>¡Sé paciente!</a>
                     </li>
                 </ul>
             </div>
@@ -111,7 +110,7 @@
                 </figure>
                 <div class="profile-info" data-lock-name="{{.User.Username}}" data-lock-email="">
                     <span class="name">{{.User.Username}}</span>
-                    <span class="role">{{adjective | title}}</span>
+                    <span class="role">Tu cuenta</span>
                 </div>
 
                 <i class="fa custom-caret"></i>
@@ -121,7 +120,7 @@
                 <ul class="list-unstyled mb-2">
                     <li class="divider"></li>
                     <li>
-                        <a role="menuitem" tabindex="-1" href="/logout"><i class="fas fa-power-off"></i> Logout</a>
+                        <a role="menuitem" tabindex="-1" href="/logout"><i class="fas fa-power-off"></i> Cerrar sesión</a>
                     </li>
                     <li>
                         <a role="menuitem" tabindex="-1" href="/premium"><i class="fas fa-crown"></i> Premium</a>
@@ -131,7 +130,7 @@
         </div>
         {{else}}
         <div class="userbox">
-            <a href="/login?goto={{urlquery .RequestURI}}"><i class="fas fa-power-off"></i> Login using discord</a>
+            <a href="/login?goto={{urlquery .RequestURI}}"><i class="fas fa-power-off"></i> Iniciar sesión con Discord</a>
         </div>
         <span class="separator"></span>
         {{end}}
@@ -155,7 +154,7 @@
 
     <div class="sidebar-header">
         <div class="sidebar-title">
-            Navigation
+            Navegación
         </div>
         <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html"
             data-fire-event="sidebar-left-toggle">
@@ -172,7 +171,7 @@
                     <li>
                         <a class="nav-link" data-partial-load="true" href="/manage/{{.ActiveGuild.ID}}/home">
                             <i class="fas fa-home" aria-hidden="true"></i>
-                            <span>Home</span>
+                            <span>Inicio</span>
                         </a>
                     </li>
                     {{range (index .SidebarItems "Top")}}
@@ -181,7 +180,7 @@
                     <li class="nav-parent">
                         <a class="nav-link" href="#">
                             <i class="fas fa-cogs" aria-hidden="true"></i>
-                            <span>Core</span>
+                            <span>Principal</span>
                         </a>
                         <ul class="nav nav-children">
                             {{range (index .SidebarItems "Core")}}
@@ -192,7 +191,7 @@
                     <li class="nav-parent   ">
                         <a class="nav-link" href="#">
                             <i class="fas fa-rss" aria-hidden="true"></i>
-                            <span>Notifications & Feeds</span>
+                            <span>Notificaciones & Feed</span>
                         </a>
                         <ul class="nav nav-children">
                             {{range (index .SidebarItems "Feeds")}}
@@ -203,7 +202,7 @@
                     <li class="nav-parent">
                         <a class="nav-link" href="#">
                             <i class="fas fa-bolt" aria-hidden="true"></i>
-                            <span>Tools & Utilities</span>
+                            <span>Herramientas & Utilidades</span>
                         </a>
                         <ul class="nav nav-children">
                             {{range (index .SidebarItems "Tools")}}
@@ -214,7 +213,7 @@
                     <li class="nav-parent">
                         <a class="nav-link" href="#">
                             <i class="fas fa-trophy" aria-hidden="true"></i>
-                            <span>Fun</span>
+                            <span>Diversión</span>
                         </a>
                         <ul class="nav nav-children">
                             {{range (index .SidebarItems "Fun")}}
@@ -226,7 +225,7 @@
                     <li class="mt-5">
                         <a class="nav-link" href="https://docs.yagpdb.xyz/" target="_blank">
                             <i class="fas fa-question" aria-hidden="true"></i>
-                            <span>Documentation</span>
+                            <span>Documentación</span>
                         </a>
                     </li>
                 </ul>
@@ -281,8 +280,8 @@
     </figure>
     <div class="profile-info" data-lock-name="Server Name">
         <span class="name">{{if .ActiveGuild}}{{.ActiveGuild.Name}}{{if .IsGuildPremium}}<i
-                class="fas fa-crown text-info ml-1"></i>{{end}}{{else}}Select Server{{end}}</span>
-        <span class="role">Change server</span>
+                class="fas fa-crown text-info ml-1"></i>{{end}}{{else}}Seleccionar servidor{{end}}</span>
+        <span class="role">Cambiar servidor</span>
     </div>
 
     <i class="fa custom-caret"></i>
@@ -321,7 +320,7 @@
         {{end}}{{end}}
         {{else}}
         <li>
-             <a role="menuitem" tabindex="-1" href="#">You do not own or have access to any server's settings.</a>
+             <a role="menuitem" tabindex="-1" href="#">No tienes acceso a la configuración de ningún servidor.</a>
         </li>
         {{end}}
     </ul>

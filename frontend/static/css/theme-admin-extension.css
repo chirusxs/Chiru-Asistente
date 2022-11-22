@@ -235,7 +235,7 @@ html.dark .text-muted {
 
 /* Colors */
 .text-dark {
-	color: #171717 !important;
+	color: #0a0a0a !important;
 }
 
 .text-light {
@@ -370,7 +370,7 @@ html.dark .text-muted {
 }
 
 .card-admin .card-header.bg-dark {
-	background: #171717;
+	background: #0a0a0a;
 	color: #FFF;
 	border-bottom: 0 none;
 	border-right: 0 none;
@@ -525,7 +525,7 @@ html.dark .text-muted {
 }
 
 .card-admin .card-body.bg-dark {
-	background: #171717;
+	background: #0a0a0a;
 	color: #FFF;
 }
 
@@ -594,11 +594,11 @@ html.dark .text-muted {
 }
 
 .card-featured-dark {
-	border-color: #171717;
+	border-color: #0a0a0a;
 }
 
 .card-featured-dark .card-title {
-	color: #171717;
+	color: #0a0a0a;
 }
 
 .card-highlight.card-admin .card-header {
@@ -683,7 +683,7 @@ html.dark .text-muted {
 }
 
 .card-admin .card-header-icon.bg-dark {
-	background: #171717;
+	background: #0a0a0a;
 	color: #FFF;
 }
 
@@ -709,7 +709,7 @@ html.dark .text-muted {
 /* Dark - Cards */
 html.dark .card-admin .card-header {
 	background: #282d36;
-	border-bottom-color: #1d2127;
+	border-bottom-color: #121212;
 }
 
 html.dark .card-admin .card-actions a:hover {
@@ -816,7 +816,7 @@ html .card-info .card-actions a {
 }
 
 html .card-dark .card-header {
-	background: #171717;
+	background: #0a0a0a;
 }
 
 html .card-dark .card-subtitle {
@@ -2428,13 +2428,13 @@ html.dark .checkbox-dark input[type="checkbox"]:checked + label:after,
 
 html.dark .checkbox-dark label:before,
 .checkbox-dark label:before {
-	background: #171717;
+	background: #0a0a0a;
 	border-color: #0a0a0a;
 }
 
 html.dark .checkbox-text-dark input[type="checkbox"]:checked + label:after,
 .checkbox-text-dark input[type="checkbox"]:checked + label:after {
-	color: #171717;
+	color: #0a0a0a;
 }
 
 /* Form - Custom Radio */
@@ -2578,9 +2578,9 @@ html.dark .radio-info input[type="radio"]:checked + label:after,
 
 html.dark .radio-dark input[type="radio"]:checked + label:after,
 .radio-dark input[type="radio"]:checked + label:after {
-	background: #171717;
-	-webkit-box-shadow: 0px 0px 1px #171717;
-	        box-shadow: 0px 0px 1px #171717;
+	background: #0a0a0a;
+	-webkit-box-shadow: 0px 0px 1px #0a0a0a;
+	        box-shadow: 0px 0px 1px #0a0a0a;
 }
 
 /* State */
@@ -2689,11 +2689,11 @@ html.dark .radio-dark input[type="radio"]:checked + label:after,
 .has-dark.checkbox label,
 .has-dark.radio-inline label,
 .has-dark.checkbox-inline label {
-	color: #171717;
+	color: #0a0a0a;
 }
 
 .has-dark .form-control {
-	border-color: #171717 !important;
+	border-color: #0a0a0a !important;
 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
 	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075) !important;
 }
@@ -2905,7 +2905,7 @@ label.error {
 }
 
 .switch.switch-dark .ios-switch .on-background {
-	background: #171717;
+	background: #0a0a0a;
 }
 
 .switch.switch-lg .ios-switch {
@@ -3136,7 +3136,7 @@ html.dark .md-editor > textarea {
 
 html.dark .md-editor > textarea {
 	color: #EEE;
-	border-color: #1d2127;
+	border-color: #121212;
 }
 
 /* Max Length */
@@ -3370,11 +3370,11 @@ html.dark .md-editor > textarea {
 }
 
 .modal-block-dark .fa, .modal-block-dark .fab, .modal-block-dark .fal, .modal-block-dark .far, .modal-block-dark .fas {
-	color: #171717;
+	color: #0a0a0a;
 }
 
 .modal-block-dark.modal-header-color .card-header {
-	background-color: #171717;
+	background-color: #0a0a0a;
 }
 
 .modal-block-dark.modal-full-color .card {
@@ -3382,7 +3382,7 @@ html.dark .md-editor > textarea {
 }
 
 .modal-block-dark.modal-full-color .card-header {
-	background-color: #171717;
+	background-color: #0a0a0a;
 }
 
 .modal-block-dark.modal-full-color .card-footer {
@@ -3390,7 +3390,7 @@ html.dark .md-editor > textarea {
 }
 
 html.dark .modal-content {
-	background-color: #1d2127;
+	background-color: #121212;
 }
 
 html.dark .modal-header,
@@ -3408,7 +3408,7 @@ html.dark .multiselect-container > li > a {
 }
 
 html.dark .multiselect-container > li > a:hover, html.dark .multiselect-container > li > a:focus {
-	background-color: #1d2127;
+	background-color: #121212;
 	color: #FFF;
 }
 
@@ -3575,19 +3575,19 @@ html.dark .select2-container--bootstrap .select2-search--dropdown .select2-searc
 
 .slider-dark .ui-slider-range,
 .slider-dark .ui-slider-handle {
-	background: #171717;
+	background: #0a0a0a;
 }
 
 .slider-gradient.slider-dark .ui-slider-range,
 .slider-gradient.slider-dark .ui-slider-handle {
-	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #313131), color-stop(50%, #171717), to(black));
-	background-image: linear-gradient(#313131 0, #171717 50%, black 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #313131), color-stop(50%, #0a0a0a), to(black));
+	background-image: linear-gradient(#313131 0, #0a0a0a 50%, black 100%);
 }
 
 .slider-gradient.ui-slider-vertical.slider-dark .ui-slider-range,
 .slider-gradient.ui-slider-vertical.slider-dark .ui-slider-handle {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #313131), color-stop(50%, #171717), to(black));
-	background-image: linear-gradient(to right, #313131 0, #171717 50%, black 100%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #313131), color-stop(50%, #0a0a0a), to(black));
+	background-image: linear-gradient(to right, #313131 0, #0a0a0a 50%, black 100%);
 }
 
 html.dark .ui-slider.ui-widget-content {
@@ -3716,16 +3716,16 @@ html.dark .note-editor {
 html.dark .note-editor .note-toolbar,
 html.dark .note-editor .note-statusbar {
 	background: #242830;
-	border-color: #1d2127;
+	border-color: #121212;
 }
 
 html.dark .note-editor .note-editable {
 	background: #282d36;
-	border-color: #1d2127;
+	border-color: #121212;
 }
 
 html.dark .note-editor .note-statusbar .note-resizebar {
-	border-color: #1d2127;
+	border-color: #121212;
 }
 
 html.dark .note-editor .note-statusbar .note-resizebar .note-icon-bar {
@@ -3981,7 +3981,7 @@ html.dark .table .actions-hover a {
 .table > tbody > tr.dark > th,
 .table > tfoot > tr.dark > th {
 	color: #FFF;
-	background-color: #171717 !important;
+	background-color: #0a0a0a !important;
 }
 
 .table > thead > tr > td.dark,
@@ -4027,7 +4027,7 @@ html.dark .bootstrap-timepicker-widget {
 }
 
 html.dark .bootstrap-timepicker-widget:before {
-	border-bottom-color: #1d2127;
+	border-bottom-color: #121212;
 }
 
 html.dark .bootstrap-timepicker-widget:after {
@@ -4035,7 +4035,7 @@ html.dark .bootstrap-timepicker-widget:after {
 }
 
 html.dark .bootstrap-timepicker-widget.timepicker-orient-bottom:before {
-	border-top-color: #1d2127;
+	border-top-color: #121212;
 }
 
 html.dark .bootstrap-timepicker-widget.timepicker-orient-bottom:after {
