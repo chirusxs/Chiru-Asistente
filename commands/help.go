@@ -103,11 +103,11 @@ func createInteractiveHelp(userID int64, helpEmbeds []*discordgo.MessageEmbed) (
 	// prepend a introductionairy first page
 	firstPage := &discordgo.MessageEmbed{
 		Title: "Chiru Asistente - Ayuda",
-		Description: fmt.Sprintf(`YAGPDB is an open-source multipurpose discord bot that is configured through the web interface at %s.
-For more in depth help and information you should visit https://docs.yagpdb.xyz/ as this command only shows information about commands.)
+		Description: fmt.Sprintf(`Chiru Asistente es un bot privado de la comunidad CHIRUSXS, puedes visitar su sitio web haciendo [clic aquí](%s).
+Si necesitas ayuda, abre un ticket en el canal <#832033137742708737>)
 		
 		
-**Use the emojis under to change pages**`, web.BaseURL()),
+**¡Cambia de páginas con los botones de debajo!**`, web.BaseURL()),
 	}
 
 	var pageLayout strings.Builder
