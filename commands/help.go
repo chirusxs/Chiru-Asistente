@@ -12,7 +12,7 @@ import (
 )
 
 var cmdHelp = &YAGCommand{
-	Name:        "Help",
+	Name:        "Ayuda",
 	Aliases:     []string{"commands", "h", "how", "command"},
 	Description: "Shows help about all or one specific command",
 	CmdCategory: CategoryGeneral,
@@ -26,7 +26,7 @@ var cmdHelp = &YAGCommand{
 }
 
 func CmdNotFound(search string) string {
-	return fmt.Sprintf("Couldn't find command '%s'", search)
+	return fmt.Sprintf("No se pudo encontrar el comando '%s'", search)
 }
 
 func cmdFuncHelp(data *dcmd.Data) (interface{}, error) {
@@ -67,16 +67,16 @@ func cmdFuncHelp(data *dcmd.Data) (interface{}, error) {
 				if len(h) == 1 {
 					humanizedPerms = append(humanizedPerms, h[0])
 				} else {
-					joined := strings.Join(h, " and ")
+					joined := strings.Join(h, " y ")
 					humanizedPerms = append(humanizedPerms, "("+joined+")")
 				}
 			}
-			requiredPerms = strings.Join(humanizedPerms, " or ")
+			requiredPerms = strings.Join(humanizedPerms, " o ")
 		}
 
 		embed := resp[0]
 		embed.Footer = &discordgo.MessageEmbedFooter{
-			Text: "Required permissions: " + requiredPerms,
+			Text: "Permiso(s) requerido(s): " + requiredPerms,
 		}
 		return embed, nil
 	}
@@ -91,13 +91,13 @@ func cmdFuncHelp(data *dcmd.Data) (interface{}, error) {
 		return nil, nil
 	}
 
-	return "You've got mail!", nil
+	return "📫 ¡Revisa tus mensajes privados!", nil
 }
 
 func createInteractiveHelp(userID int64, helpEmbeds []*discordgo.MessageEmbed) (interface{}, error) {
 	channel, err := common.BotSession.UserChannelCreate(userID)
 	if err != nil {
-		return "Something went wrong, maybe you have DMs disabled? I don't want to spam this channel so here's a external link to available commands: <https://docs.yagpdb.xyz/commands>", err
+		return "Algo salió mal. Revisa que el bot pueda enviarte mensajes privados.", err
 	}
 
 	// prepend a introductionairy first page
@@ -113,10 +113,10 @@ Si necesitas ayuda, abre un ticket en el canal <#832033137742708737>
 
 	var pageLayout strings.Builder
 	for i, v := range helpEmbeds {
-		pageLayout.WriteString(fmt.Sprintf("**Page %d**: %s\n", i+2, v.Title))
+		pageLayout.WriteString(fmt.Sprintf("**Página %d**: %s\n", i+2, v.Title))
 	}
 	firstPage.Fields = []*discordgo.MessageEmbedField{
-		{Name: "Help pages", Value: pageLayout.String()},
+		{Name: "Páginas de ayuda", Value: pageLayout.String()},
 	}
 
 	helpEmbeds = append([]*discordgo.MessageEmbed{firstPage}, helpEmbeds...)
@@ -126,7 +126,7 @@ Si necesitas ayuda, abre un ticket en el canal <#832033137742708737>
 		return embed, nil
 	})
 	if err != nil {
-		return "Something went wrong, make sure you don't have the bot blocked or your DMs closed!", err
+		return "Algo salió mal. Revisa que el bot pueda enviarte mensajes privados.", err
 
 	}
 
