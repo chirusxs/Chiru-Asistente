@@ -15,13 +15,13 @@ type MemberData struct {
 }
 
 const (
-	ChargeStatusPaid     = "Paid"
-	ChargeStatusDeclined = "Declined"
-	ChargeStatusDeleted  = "Deleted"
-	ChargeStatusPending  = "Pending"
-	ChargeStatusRefunded = "Refunded"
-	ChargeStatusFraud    = "Fraud"
-	ChargeStatusOther    = "Other"
+	ChargeStatusPaid     = "Pagada"
+	ChargeStatusDeclined = "Rechazada"
+	ChargeStatusDeleted  = "Eliminada"
+	ChargeStatusPending  = "Pendiente"
+	ChargeStatusRefunded = "Reembolsada"
+	ChargeStatusFraud    = "Fraude"
+	ChargeStatusOther    = "N/A"
 )
 
 type MemberAttributes struct {
