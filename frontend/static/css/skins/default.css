@@ -82,7 +82,7 @@ html .heading-dark,
 html .lnk-dark,
 html .text-color-dark,
 html .text-dark {
-	color: #2e353e !important;
+	color: #262626 !important;
 }
 
 html .heading.heading-dark h1,
@@ -91,7 +91,7 @@ html .heading.heading-dark h3,
 html .heading.heading-dark h4,
 html .heading.heading-dark h5,
 html .heading.heading-dark h6 {
-	border-color: #2e353e;
+	border-color: #262626;
 }
 
 html .heading-light,
@@ -132,7 +132,7 @@ html .background-color-quaternary {
 
 html .bg-dark,
 html .background-color-dark {
-	background-color: #2e353e !important;
+	background-color: #262626 !important;
 }
 
 html .bg-light,
@@ -736,15 +736,15 @@ html .show > .btn-quaternary.dropdown-toggle {
 }
 
 html .btn-dark {
-	background-color: #2e353e;
-	border-color: #2e353e #2e353e #181c21;
+	background-color: #262626;
+	border-color: #262626 #262626 #181c21;
 	color: #ffffff;
 }
 
 html .btn-dark:hover,
 html .btn-dark.hover {
 	background-color: #3e4854;
-	border-color: #444e5b #444e5b #2e353e;
+	border-color: #444e5b #444e5b #262626;
 	color: #ffffff;
 }
 
@@ -756,8 +756,8 @@ html .btn-dark.focus {
 
 html .btn-dark.disabled,
 html .btn-dark:disabled {
-	background-color: #2e353e;
-	border-color: #2e353e #2e353e #181c21;
+	background-color: #262626;
+	border-color: #262626 #262626 #181c21;
 }
 
 html .btn-dark:active,
@@ -1049,8 +1049,8 @@ p.drop-caps.drop-caps-style-2:first-letter {
 
 html.dark .timeline.timeline-simple .tm-body .tm-items > li:before {
 	background: #0088cc;
-	-webkit-box-shadow: 0 0 0 3px #2e353e, 0 0 0 6px #0088cc;
-	        box-shadow: 0 0 0 3px #2e353e, 0 0 0 6px #0088cc;
+	-webkit-box-shadow: 0 0 0 3px #262626, 0 0 0 6px #0088cc;
+	        box-shadow: 0 0 0 3px #262626, 0 0 0 6px #0088cc;
 }
 
 .pricing-table .most-popular {
@@ -1110,7 +1110,7 @@ html .accordion.accordion-quaternary .card-header a {
 }
 
 html .accordion.accordion-dark .card-header {
-	background-color: #2e353e !important;
+	background-color: #262626 !important;
 }
 
 html .accordion.accordion-dark .card-header a {
@@ -1190,19 +1190,19 @@ html .toggle-quaternary.toggle-simple .toggle > label:after {
 }
 
 html .toggle-dark .toggle label {
-	color: #2e353e;
-	border-left-color: #2e353e;
-	border-right-color: #2e353e;
+	color: #262626;
+	border-left-color: #262626;
+	border-right-color: #262626;
 }
 
 html .toggle-dark .toggle.active > label {
-	background-color: #2e353e !important;
-	border-color: #2e353e;
+	background-color: #262626 !important;
+	border-color: #262626;
 	color: #ffffff;
 }
 
 html .toggle-dark.toggle-simple .toggle > label:after {
-	background-color: #2e353e;
+	background-color: #262626;
 }
 
 html .toggle-light .toggle label {
@@ -1317,20 +1317,20 @@ html .card-group .card-accordion-quaternary {
 }
 
 html .card-dark .card-header {
-	background: #2e353e;
-	border-color: #2e353e;
+	background: #262626;
+	border-color: #262626;
 }
 
 html .card-featured-dark {
-	border-color: #2e353e;
+	border-color: #262626;
 }
 
 html .card-featured-dark .card-title {
-	color: #2e353e;
+	color: #262626;
 }
 
 html .card-group .card-accordion-dark {
-	background: #2e353e;
+	background: #262626;
 }
 
 html .card-light .card-header {
@@ -1898,14 +1898,14 @@ html body .tabs-dark .nav-tabs li .nav-link:hover,
 html.dark body .tabs-dark .nav-tabs li .nav-link:hover,
 html body .tabs-dark .nav-tabs.nav-justified li .nav-link:hover,
 html.dark body .tabs-dark .nav-tabs.nav-justified li .nav-link:hover {
-	color: #2e353e;
+	color: #262626;
 }
 
 html body .tabs-dark .nav-tabs li .nav-link:hover,
 html.dark body .tabs-dark .nav-tabs li .nav-link:hover,
 html body .tabs-dark .nav-tabs.nav-justified li .nav-link:hover,
 html.dark body .tabs-dark .nav-tabs.nav-justified li .nav-link:hover {
-	border-top-color: #2e353e;
+	border-top-color: #262626;
 }
 
 html body .tabs-dark .nav-tabs li.active .nav-link,
@@ -1920,15 +1920,15 @@ html body .tabs-dark .nav-tabs li.active .nav-link:focus,
 html.dark body .tabs-dark .nav-tabs li.active .nav-link:focus,
 html body .tabs-dark .nav-tabs.nav-justified li.active .nav-link:focus,
 html.dark body .tabs-dark .nav-tabs.nav-justified li.active .nav-link:focus {
-	border-top-color: #2e353e;
-	color: #2e353e;
+	border-top-color: #262626;
+	color: #262626;
 }
 
 html body .tabs-dark.tabs-bottom .nav-tabs li .nav-link:hover,
 html.dark body .tabs-dark.tabs-bottom .nav-tabs li .nav-link:hover,
 html body .tabs-dark.tabs-bottom .nav-tabs.nav-justified li .nav-link:hover,
 html.dark body .tabs-dark.tabs-bottom .nav-tabs.nav-justified li .nav-link:hover {
-	border-bottom-color: #2e353e;
+	border-bottom-color: #262626;
 }
 
 html body .tabs-dark.tabs-bottom .nav-tabs li.active .nav-link,
@@ -1943,12 +1943,12 @@ html body .tabs-dark.tabs-bottom .nav-tabs li.active .nav-link:focus,
 html.dark body .tabs-dark.tabs-bottom .nav-tabs li.active .nav-link:focus,
 html body .tabs-dark.tabs-bottom .nav-tabs.nav-justified li.active .nav-link:focus,
 html.dark body .tabs-dark.tabs-bottom .nav-tabs.nav-justified li.active .nav-link:focus {
-	border-bottom-color: #2e353e;
+	border-bottom-color: #262626;
 }
 
 html body .tabs-dark.tabs-vertical.tabs-left li .nav-link:hover,
 html.dark body .tabs-dark.tabs-vertical.tabs-left li .nav-link:hover {
-	border-left-color: #2e353e;
+	border-left-color: #262626;
 }
 
 html body .tabs-dark.tabs-vertical.tabs-left li.active .nav-link,
@@ -1957,12 +1957,12 @@ html body .tabs-dark.tabs-vertical.tabs-left li.active .nav-link:hover,
 html.dark body .tabs-dark.tabs-vertical.tabs-left li.active .nav-link:hover,
 html body .tabs-dark.tabs-vertical.tabs-left li.active .nav-link:focus,
 html.dark body .tabs-dark.tabs-vertical.tabs-left li.active .nav-link:focus {
-	border-left-color: #2e353e;
+	border-left-color: #262626;
 }
 
 html body .tabs-dark.tabs-vertical.tabs-right li .nav-link:hover,
 html.dark body .tabs-dark.tabs-vertical.tabs-right li .nav-link:hover {
-	border-right-color: #2e353e;
+	border-right-color: #262626;
 }
 
 html body .tabs-dark.tabs-vertical.tabs-right li.active .nav-link,
@@ -1971,7 +1971,7 @@ html body .tabs-dark.tabs-vertical.tabs-right li.active .nav-link:hover,
 html.dark body .tabs-dark.tabs-vertical.tabs-right li.active .nav-link:hover,
 html body .tabs-dark.tabs-vertical.tabs-right li.active .nav-link:focus,
 html.dark body .tabs-dark.tabs-vertical.tabs-right li.active .nav-link:focus {
-	border-right-color: #2e353e;
+	border-right-color: #262626;
 }
 
 html body .tabs-light .nav-tabs li .nav-link,

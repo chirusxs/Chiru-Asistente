@@ -708,7 +708,7 @@ html.dark .text-muted {
 
 /* Dark - Cards */
 html.dark .card-admin .card-header {
-	background: #282d36;
+	background: #181818;
 	border-bottom-color: #121212;
 }
 
@@ -717,7 +717,7 @@ html.dark .card-admin .card-actions a:hover {
 }
 
 html.dark .card-admin .card-body {
-	background: #2e353e;
+	background: #262626;
 }
 
 html.dark .card-admin .card-footer {
@@ -1499,7 +1499,7 @@ html .card-dark .card-title {
 }
 
 html.dark .chart-data-selector h2 .multiselect {
-	background-color: #282d36;
+	background-color: #181818;
 }
 
 /* CodeMirror */
@@ -1827,11 +1827,11 @@ html.dark .input-daterange .input-group-addon {
 
 html.dark .datepicker-dropdown {
 	color: #EEE;
-	background-color: #282d36;
+	background-color: #181818;
 }
 
 html.dark .datepicker-dropdown:after {
-	border-bottom-color: #282d36;
+	border-bottom-color: #181818;
 }
 
 html.dark .datepicker-dropdown.datepicker-orient-bottom:before {
@@ -1839,12 +1839,12 @@ html.dark .datepicker-dropdown.datepicker-orient-bottom:before {
 }
 
 html.dark .datepicker-dropdown.datepicker-orient-bottom:after {
-	border-top-color: #282d36;
+	border-top-color: #181818;
 }
 
 html.dark .datepicker.datepicker-primary {
-	border-color: #282d36;
-	background: #282d36;
+	border-color: #181818;
+	background: #181818;
 }
 
 /* Dropzone */
@@ -2083,8 +2083,8 @@ textarea:-ms-input-placeholder {
 }
 
 html.dark .form-control {
-	background-color: #282d36;
-	border-color: #282d36;
+	background-color: #181818;
+	border-color: #181818;
 	color: #EEE;
 }
 
@@ -2328,7 +2328,7 @@ input.input-rounded {
 }
 
 html.dark .checkbox-custom label:before {
-	background: #282d36;
+	background: #181818;
 	border-color: #21262d;
 }
 
@@ -2528,7 +2528,7 @@ html.dark .checkbox-text-dark input[type="checkbox"]:checked + label:after,
 }
 
 html.dark .radio-custom label:before {
-	background: #282d36;
+	background: #181818;
 	border-color: #21262d;
 }
 
@@ -2783,8 +2783,8 @@ html.dark .radio-dark input[type="radio"]:checked + label:after,
 }
 
 html.dark .fileupload .uneditable-input {
-	background-color: #282d36;
-	border-color: #282d36;
+	background-color: #181818;
+	border-color: #181818;
 }
 
 html.dark .fileupload-new .input-append .btn-file {
@@ -3121,7 +3121,7 @@ label.error {
 }
 
 html.dark .md-editor {
-	border-color: #282d36;
+	border-color: #181818;
 }
 
 html.dark .md-editor > .md-header,
@@ -3131,7 +3131,7 @@ html.dark .md-editor .md-footer {
 
 html.dark .md-editor > .md-preview,
 html.dark .md-editor > textarea {
-	background: #282d36;
+	background: #181818;
 }
 
 html.dark .md-editor > textarea {
@@ -3395,12 +3395,12 @@ html.dark .modal-content {
 
 html.dark .modal-header,
 html.dark .modal-footer {
-	border-color: #282d36;
+	border-color: #181818;
 }
 
 /* Multiselect */
 html.dark .multiselect-container {
-	background-color: #282d36;
+	background-color: #181818;
 }
 
 html.dark .multiselect-container > li > a {
@@ -3419,8 +3419,8 @@ html.dark .select2-container--bootstrap .select2-choices .select2-search-field i
 html.dark .select2-container--bootstrap .select2-choice,
 html.dark .select2-container--bootstrap .select2-choices {
 	color: #EEE;
-	background-color: #282d36;
-	border-color: #282d36;
+	background-color: #181818;
+	border-color: #181818;
 }
 
 html.dark .select2-container--bootstrap .select2-selection--single .select2-selection__rendered {
@@ -3430,8 +3430,8 @@ html.dark .select2-container--bootstrap .select2-selection--single .select2-sele
 html.dark .select2-container--bootstrap .select2-results__option[aria-selected="true"],
 html.dark .select2-container--bootstrap .select2-search--dropdown .select2-search__field {
 	color: #EEE;
-	background-color: #2e353e;
-	border-color: #2e353e;
+	background-color: #262626;
+	border-color: #262626;
 }
 
 /*	Slider - */
@@ -3709,7 +3709,7 @@ html.dark .ui-slider.ui-widget-content {
 }
 
 html.dark .note-editor {
-	border-color: #282d36;
+	border-color: #181818;
 	color: #EEE;
 }
 
@@ -3720,7 +3720,7 @@ html.dark .note-editor .note-statusbar {
 }
 
 html.dark .note-editor .note-editable {
-	background: #282d36;
+	background: #181818;
 	border-color: #121212;
 }
 
@@ -3862,7 +3862,7 @@ html.dark .table-bordered {
 
 html.dark .table-striped > tbody > tr:nth-child(2n+1) > td,
 html.dark .table-striped > tbody > tr:nth-child(2n+1) > th {
-	background-color: #282d36;
+	background-color: #181818;
 }
 
 html.dark .table-hover > tbody > tr:hover > td,
@@ -4017,13 +4017,13 @@ html.dark .table .actions-hover a {
 }
 
 html.dark .bootstrap-tagsinput {
-	background: #282d36;
-	border-color: #282d36;
+	background: #181818;
+	border-color: #181818;
 }
 
 /* Timepicker */
 html.dark .bootstrap-timepicker-widget {
-	background-color: #282d36;
+	background-color: #181818;
 }
 
 html.dark .bootstrap-timepicker-widget:before {
@@ -4031,7 +4031,7 @@ html.dark .bootstrap-timepicker-widget:before {
 }
 
 html.dark .bootstrap-timepicker-widget:after {
-	border-bottom-color: #282d36;
+	border-bottom-color: #181818;
 }
 
 html.dark .bootstrap-timepicker-widget.timepicker-orient-bottom:before {
@@ -4039,7 +4039,7 @@ html.dark .bootstrap-timepicker-widget.timepicker-orient-bottom:before {
 }
 
 html.dark .bootstrap-timepicker-widget.timepicker-orient-bottom:after {
-	border-top-color: #282d36;
+	border-top-color: #181818;
 }
 
 html.dark .bootstrap-timepicker-widget table td a {
@@ -4047,12 +4047,12 @@ html.dark .bootstrap-timepicker-widget table td a {
 }
 
 html.dark .bootstrap-timepicker-widget table td a:hover {
-	border-color: #282d36;
+	border-color: #181818;
 }
 
 html.dark .bootstrap-timepicker-widget table td input {
 	background-color: #21262d;
-	border-color: #282d36;
+	border-color: #181818;
 	color: #EEE;
 }
 
@@ -4242,15 +4242,15 @@ html.dark .bootstrap-timepicker-widget table td input {
 }
 
 html.dark .wizard-tabs ul > li {
-	border-color: #282d36;
+	border-color: #181818;
 }
 
 html.dark .wizard-tabs ul > li.active {
-	border-color: #2e353e;
+	border-color: #262626;
 }
 
 html.dark .wizard-tabs ul > li.active a, html.dark .wizard-tabs ul > li.active a:hover, html.dark .wizard-tabs ul > li.active a:active {
-	background: #2e353e;
+	background: #262626;
 	color: #EEE;
 }
 
@@ -4259,11 +4259,11 @@ html.dark .wizard-tabs ul > li.active a:before {
 }
 
 html.dark .wizard-tabs ul > li.active a:after {
-	border-left-color: #2e353e;
+	border-left-color: #262626;
 }
 
 html.dark .wizard-tabs ul > li a, html.dark .wizard-tabs ul > li a:hover {
-	background: #282d36;
+	background: #181818;
 	color: #EEE;
 }
 
@@ -4272,7 +4272,7 @@ html.dark .wizard-tabs ul > li a:before {
 }
 
 html.dark .wizard-tabs ul > li a:after {
-	border-left-color: #282d36;
+	border-left-color: #181818;
 }
 
 html .wizard-progress,
@@ -4564,13 +4564,13 @@ html.dark .form-wizard .pager li > a,
 html.dark .form-wizard .pager li > a:hover,
 html.dark .form-wizard .pager li > a:focus,
 html.dark .form-wizard .pager li > span {
-	background: #2e353e;
-	border-color: #282d36;
+	background: #262626;
+	border-color: #181818;
 	color: #EEE;
 }
 
 html.dark .form-wizard .pager .disabled > a, html.dark .form-wizard .pager .disabled > a:hover, html.dark .form-wizard .pager .disabled > a:focus, html.dark .form-wizard .pager .disabled > span {
-	background: #282d36;
-	border-color: #282d36;
+	background: #181818;
+	border-color: #181818;
 	color: #EEE;
 }

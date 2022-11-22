@@ -13,8 +13,8 @@
 }
 
 html.dark .tab-content {
-	background-color: #2e353e;
-	border-color: #2e353e;
+	background-color: #262626;
+	border-color: #262626;
 }
 
 html.dark .tabs .nav-tabs {
@@ -22,21 +22,21 @@ html.dark .tabs .nav-tabs {
 }
 
 html.dark .tabs .nav-link {
-	background-color: #282d36;
+	background-color: #181818;
 	border-color: #121212;
 }
 
 html.dark .tabs .active .nav-link {
-	background-color: #2e353e;
+	background-color: #262626;
 }
 
 html.dark .tabs .nav-link:hover {
-	background-color: #282d36;
+	background-color: #181818;
 	border-color: #121212;
 }
 
 html.dark .tabs .nav-link:focus {
-	background-color: #2e353e;
+	background-color: #262626;
 	border-color: #121212;
 }
 
