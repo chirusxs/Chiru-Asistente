@@ -673,7 +673,7 @@ func ControllerPostHandler(mainHandler ControllerHandlerFunc, extraHandler http.
 		}
 
 		if err == nil && !hasErrorAlert {
-			data.AddAlerts(SucessAlert("Success!"))
+			data.AddAlerts(SucessAlert("¡Éxito!"))
 		}
 	})
 

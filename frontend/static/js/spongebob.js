@@ -687,12 +687,12 @@ function updateUnsavedChangesPopup() {
 		$("#unsaved-changes-popup").attr("hidden", true)
 	} else {
 		if (unsavedChangesStack.length == 1) {
-			$("#unsaved-changes-message").text("You have unsaved changes, would you like to save them?");
+			$("#unsaved-changes-message").text("¡Tienes cambios sin guardar!");
 			if (!isSavingUnsavedForms)
 				$("#unsaved-changes-save-button").attr("hidden", false);
 
 		} else {
-			$("#unsaved-changes-message").text("You have unsaved changes on multiple forms, save them all?");
+			$("#unsaved-changes-message").text("¡Tienes múltiples cambios sin guardar!");
 			if (!isSavingUnsavedForms)
 				$("#unsaved-changes-save-button").attr("hidden", false);
 
