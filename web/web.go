@@ -339,7 +339,7 @@ func setupRoutes() *goji.Mux {
 	}
 
 	AddSidebarItem(SidebarCategoryCore, &SidebarItem{
-		Name: "Core",
+		Name: "Núcleo",
 		URL:  "core",
 		Icon: "fas fa-cog",
 	})
