@@ -460,7 +460,6 @@ func (c *Context) SendResponse(content string) (*discordgo.Message, error) {
 
 	var embeds []*discordgo.MessageEmbed
 	for _, v := range c.CurrentFrame.EmebdsToSend {
-		}
 		embeds = append(embeds, v)
 	}
 	common.BotSession.ChannelMessageSendEmbedList(channelID, embeds)
