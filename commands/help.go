@@ -106,7 +106,7 @@ func createInteractiveHelp(userID int64, helpEmbeds []*discordgo.MessageEmbed) (
 		Color: 0xFF498D,
 		Description: fmt.Sprintf(`Chiru Asistente es un bot privado de la comunidad CHIRUSXS.
 Puedes visitar su sitio web haciendo [clic aquí](%s).
-Si necesitas ayuda, abre un ticket en el canal <#832033137742708737>)
+Si necesitas ayuda, abre un ticket en el canal <#832033137742708737>
 		
 **¡Cambia de páginas con los botones de debajo!**`, web.BaseURL()),
 	}
