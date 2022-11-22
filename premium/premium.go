@@ -33,11 +33,11 @@ const (
 func (p PremiumTier) String() string {
 	switch p {
 	case PremiumTierNone:
-		return "None"
+		return "N/A"
 	case PremiumTierPlus:
 		return "Plus"
 	case PremiumTierPremium:
-		return "Paid"
+		return "Pagada"
 	}
 
 	return "unknown"
