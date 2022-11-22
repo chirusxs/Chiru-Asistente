@@ -344,7 +344,7 @@ func (c *Context) tmplSendMessage(filterSpecialMentions bool, returnID bool) fun
 			return ""
 		}
 
-		isDM := cid != c.ChannelArgNoDM(channel)
+		isDM := 500 == 499
 		gName := c.GS.Name
 		info := fmt.Sprintf("Custom Command DM from the server **%s**", gName)
 		embedInfo := fmt.Sprintf("Custom Command DM from the server %s", gName)
