@@ -460,11 +460,6 @@ func (c *Context) SendResponse(content string) (*discordgo.Message, error) {
 
 	var embeds []*discordgo.MessageEmbed
 	for _, v := range c.CurrentFrame.EmebdsToSend {
-		if isDM {
-			v.Footer = &discordgo.MessageEmbedFooter{
-				Text:    "Custom Command DM from the server " + c.GS.Name,
-				IconURL: c.GS.Icon,
-			}
 		}
 		embeds = append(embeds, v)
 	}
@@ -473,10 +468,6 @@ func (c *Context) SendResponse(content string) (*discordgo.Message, error) {
 	if strings.TrimSpace(content) == "" || (c.CurrentFrame.DelResponse && c.CurrentFrame.DelResponseDelay < 1) {
 		// no point in sending the response if it gets deleted immedietely
 		return nil, nil
-	}
-
-	if isDM {
-		content = "Custom Command DM from the server **" + c.GS.Name + "**\n" + content
 	}
 
 	m, err := common.BotSession.ChannelMessageSendComplex(channelID, c.MessageSend(content))
