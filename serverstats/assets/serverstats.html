@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/static/vendorr/chartist/chartist.min.css" />
 
 <header class="page-header">
-    <h2>Server stats - {{.ActiveGuild.Name}} {{if .Public}}<a href="/"><small>by YAGPDB.xyz</a>{{end}}</small></h2>
+    <h2>Estadísticas {{if .Public}}<a href="/"><small>by YAGPDB.xyz</a>{{end}}</small></h2>
 </header>
 
 {{template "cp_alerts" .}}
@@ -15,30 +15,30 @@
 <div class="row">
     <div class="col-lg-12">
         {{if (not .Config.Public | and .Public) }}
-        <h1>Public access has been disabled by the server admins.</h1>
+        <h1>El acceso público de las estadísticas ha sido deshabilitado por la administración.</h1>
         {{end}}
         {{if not .Public}}
         <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#stats-settings-collapse"
             aria-expanded="false" aria-controls="stats-settings-collapse">
-            Stats Settings
+            Ajustes de estadísticas
         </button>
         <a class="btn btn-primary {{if not .Config.Public}}disabled{{end}}" {{if .Config.Public}}
-            href="/public/{{.ActiveGuild.ID}}/stats" {{end}}>Public link (only works if stats are set to public)</a>
+            href="/public/{{.ActiveGuild.ID}}/stats" {{end}}>Enlace público</a>
         <div class="collapse" id="stats-settings-collapse">
             <section class="card">
                 <div class="card-body">
                     <form method="post" action="/manage/{{.ActiveGuild.ID}}/stats/settings" data-async-form>
 
-                        {{checkbox "Public" "stats-public-check" `Make server stats publicly accessible` .Config.Public}}
+                        {{checkbox "Public" "stats-public-check" `Hacer estadísticas públicas` .Config.Public}}
 
-                        <label>Ignore channels</label>
+                        <label>Ignorar canales</label>
                         <div class="form-group mb-4">
                             <select data-plugin-multiselect class="form-control populate" name="IgnoreChannels"
                                 id="IgnoreChannels" multiple="multiple">
                                 {{textChannelOptionsMulti .ActiveGuild.Channels .Config.ParsedChannels}}
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-success btn-sm">Save</button>
+                        <button type="submit" class="btn btn-success btn-sm">Guardar</button>
                     </form>
                 </div>
             </section>
@@ -50,17 +50,17 @@
 
 <div class="row">
     <!-- Stats widgets -->
-    {{mTemplate "serverstats_stats_widget" "Icon" "comments" "BG" "primary" "Content" "New messages so far today" "ValueID" "messages-24h"}}
-    {{mTemplate "serverstats_stats_widget" "Icon" "user-plus" "BG" "success" "Content" "Members joined/left so far today" "ValueID" "members-changed-24h"}}
-    {{mTemplate "serverstats_stats_widget" "Icon" "user" "BG" "tertiary" "Content" "Online members" "ValueID" "online-members"}}
-    {{mTemplate "serverstats_stats_widget" "Icon" "users" "BG" "quaternary" "Content" "Total members" "ValueID" "total-members"}}
+    {{mTemplate "serverstats_stats_widget" "Icon" "comments" "BG" "primary" "Content" "Mensajes de hoy" "ValueID" "messages-24h"}}
+    {{mTemplate "serverstats_stats_widget" "Icon" "user-plus" "BG" "success" "Content" "Miembros de hoy" "ValueID" "members-changed-24h"}}
+    {{mTemplate "serverstats_stats_widget" "Icon" "user" "BG" "tertiary" "Content" "Miembros en línea" "ValueID" "online-members"}}
+    {{mTemplate "serverstats_stats_widget" "Icon" "users" "BG" "quaternary" "Content" "Miembros totales" "ValueID" "total-members"}}
 </div>
 <div class="row">
     <!-- Graph -->
     <div class="col-12">
         <section class="card bg-default">
             <header class="card-header">
-                <h2 class="card-title">Channels last 24 hours</h2>
+                <h2 class="card-title">Canales en las últimas 24hs</h2>
             </header>
 
             <div class="card-body">
@@ -72,19 +72,18 @@
 
 <div class="row">
     <div class="col">
-        <h2>Charts<small><span id="serverstats-status"> Loading...</span></small></h2>
+        <h2>Gráficos<small><span id="serverstats-status"> Cargando...</span></small></h2>
     </div>
     <div class="col">
         <!-- <div class="form-group"> -->
         <select id="timespan-dropdown" class="form-control" onchange="timespanDropdownChanged()">
-            <option value="2"> Past 2 days (testing)</option>
-            <option value="7" {{if not .IsGuildPremium}} selected{{end}}> Past 7 days</option>
-            <option value="30" {{if .IsGuildPremium}} selected {{else}} disabled {{end}}> Past 30 days
-                {{if not .IsGuildPremium}}(premium only){{end}}</option>
-            <option value="365" {{if not .IsGuildPremium}} disabled{{end}}> Past 365 days
-                {{if not .IsGuildPremium}}(premium only){{end}}</option>
-            <option value="-1" {{if not .IsGuildPremium}} disabled{{end}}> All time {{if not .IsGuildPremium}}(premium
-                only){{end}}</option>
+            <option value="2"> Últimos dos días</option>
+            <option value="7" {{if not .IsGuildPremium}} selected{{end}}> Últimos 7 días</option>
+            <option value="30" {{if .IsGuildPremium}} selected {{else}} disabled {{end}}> Últimos 30 días
+                {{if not .IsGuildPremium}}(req. premium){{end}}</option>
+            <option value="365" {{if not .IsGuildPremium}} disabled{{end}}> Últimos 365 días
+                {{if not .IsGuildPremium}}(req. premium){{end}}</option>
+            <option value="-1" {{if not .IsGuildPremium}} disabled{{end}}> Desde siempre {{if not .IsGuildPremium}}(req. premium){{end}}</option>
         </select>
         <!-- </div> -->
     </div>
@@ -95,7 +94,7 @@
     <div class="col-lg-6">
         <section class="card bg-default">
             <header class="card-header">
-                <h2 class="card-title">Joins / Leaves</h2>
+                <h2 class="card-title">Ingresos / Salidas</h2>
             </header>
 
             <div class="card-body">
@@ -108,7 +107,7 @@
     <div class="col-lg-6">
         <section class="card bg-default">
             <header class="card-header">
-                <h2 class="card-title">Total Members</h2>
+                <h2 class="card-title">Miembros totales</h2>
             </header>
 
             <div class="card-body">
@@ -123,7 +122,7 @@
     <div class="col-12">
         <section class="card bg-default">
             <header class="card-header">
-                <h2 class="card-title">Number of messages (excl. Bots)</h2>
+                <h2 class="card-title">Número de mensajes (excl. bots)</h2>
             </header>
 
             <div class="card-body">
@@ -312,7 +311,7 @@
                     <div class="summary">
                         <h4 class="title">{{.Content}}</h4>
                         <div class="info">
-                            <strong class="amount" id="{{.ValueID}}">Loading...</strong>
+                            <strong class="amount" id="{{.ValueID}}">Cargando...</strong>
                         </div>
                     </div>
                 </div>
