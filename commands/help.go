@@ -12,9 +12,9 @@ import (
 )
 
 var cmdHelp = &YAGCommand{
-	Name:        "Ayuda",
-	Aliases:     []string{"commands", "h", "how", "command"},
-	Description: "Shows help about all or one specific command",
+	Name:        "ayuda",
+	Aliases:     []string{"comandos", "help"},
+	Description: "Muestra ayuda sobre los comandos",
 	CmdCategory: CategoryGeneral,
 	RunInDM:     true,
 	Arguments: []*dcmd.ArgDef{
