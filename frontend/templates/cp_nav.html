@@ -183,7 +183,7 @@
                             <span>Principal</span>
                         </a>
                         <ul class="nav nav-children">
-                            {{range (index .SidebarItems "Core")}}
+                            {{range (index .SidebarItems "Núcleo")}}
                             {{template "sidebar_item" (dict "ActiveGuild" $ag "Item" .)}}
                             {{end}}
                         </ul>

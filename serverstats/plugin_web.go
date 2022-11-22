@@ -42,7 +42,7 @@ func (p *Plugin) InitWeb() {
 	web.AddHTMLTemplate("serverstats/assets/serverstats.html", PageHTML)
 
 	web.AddSidebarItem(web.SidebarCategoryTopLevel, &web.SidebarItem{
-		Name: "Stats",
+		Name: "Estadísticas",
 		URL:  "stats",
 		Icon: "fas fa-chart-bar",
 	})
