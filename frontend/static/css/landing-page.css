@@ -1,5 +1,5 @@
 .navbar {
-  background-color: #0f1e34 !important;
+  background-color: #121212 !important;
   border-bottom: 1px solid #3c5272;
 }
 
@@ -60,7 +60,7 @@ a.link:hover {
 }
 
 body {
-  background-color: #0f1e34;
+  background-color: #121212;
   font-family: "Lato", sans-serif;
   overflow-x: hidden;
   /*font-family: 'Montserrat', sans-serif;*/
@@ -196,14 +196,14 @@ body {
 }
 
 .blank {
-  background-color: #0f1e34 !important;
+  background-color: #121212 !important;
   background-image: url("../img/feature_background_wout.png");
   background-size: cover;
   z-index: -2;
 }
 
 .blank_no_bg {
-  background-color: #0f1e34 !important;
+  background-color: #121212 !important;
 }
 
 @media only screen and (max-device-width: 600px) {
