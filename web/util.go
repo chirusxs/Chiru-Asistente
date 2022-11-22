@@ -346,10 +346,10 @@ func Indicator(enabled bool) string {
 func EnabledDisabledSpanStatus(enabled bool) (str string) {
 	indicator := Indicator(enabled)
 
-	enabledStr := "disabled"
+	enabledStr := "desactivado/a"
 	enabledClass := "danger"
 	if enabled {
-		enabledStr = "enabled"
+		enabledStr = "activado/a"
 		enabledClass = "success"
 	}
 
