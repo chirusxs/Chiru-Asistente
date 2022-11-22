@@ -445,7 +445,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	ag, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Commands"
+	templateData["WidgetTitle"] = "Comandos"
 	templateData["SettingsPath"] = "/commands/settings"
 	templateData["WidgetEnabled"] = true
 
@@ -460,8 +460,8 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	const format = `<ul>
-	<li>Command prefix: <code>%s</code></li>
-	<li>Active channel overrides: <code>%d</code></li>
+	<li>Prefijo del bot: <code>%s</code></li>
+	<li>Anulaciones de canales activas: <code>%d</code></li>
 </ul>`
 
 	templateData["WidgetBody"] = template.HTML(fmt.Sprintf(format, html.EscapeString(prefix), count))

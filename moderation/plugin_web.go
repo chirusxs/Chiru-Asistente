@@ -112,7 +112,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	activeGuild, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Moderation"
+	templateData["WidgetTitle"] = "Moderación"
 	templateData["SettingsPath"] = "/moderation"
 
 	config, err := GetConfig(activeGuild.ID)
@@ -121,13 +121,13 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	format := `<ul>
-	<li>Report command: %s</li>
-	<li>Clean command: %s</li>
-	<li>Giverole/Takerole commands: %s</li>
-	<li>Kick command: %s</li>
-	<li>Ban command: %s</li>
-	<li>Mute/Unmute commands: %s</li>
-	<li>Warning commands: %s</li>
+	<li>Comando report: %s</li>
+	<li>Comando clean: %s</li>
+	<li>Comandos giverole/takerole: %s</li>
+	<li>Comando kick: %s</li>
+	<li>Comando ban: %s</li>
+	<li>Comando mute/unmute: %s</li>
+	<li>Comando warn: %s</li>
 </ul>`
 
 	if config.ReportEnabled || config.CleanEnabled || config.GiveRoleCmdEnabled || config.ActionChannel != "" ||

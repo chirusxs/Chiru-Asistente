@@ -316,7 +316,7 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 		templateData["WidgetDisabled"] = true
 	}
 
-	const format = `<p>Soundboard sounds: <code>%d</code></p>`
+	const format = `<p>Sonidos del soundboard: <code>%d</code></p>`
 	templateData["WidgetBody"] = template.HTML(fmt.Sprintf(format, len(sounds)))
 
 	return templateData, nil

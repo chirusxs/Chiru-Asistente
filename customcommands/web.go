@@ -587,12 +587,12 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	ag, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Custom Commands"
+	templateData["WidgetTitle"] = "Comandos personalizados"
 	templateData["SettingsPath"] = "/customcommands"
 
 	numCustomCommands, err := models.CustomCommands(qm.Where("guild_id = ?", ag.ID)).CountG(r.Context())
 
-	format := `<p>Number of custom commands: <code>%d</code></p>`
+	format := `<p>Cantidad de comandos personalizados: <code>%d</code></p>`
 
 	templateData["WidgetBody"] = template.HTML(fmt.Sprintf(format, numCustomCommands))
 

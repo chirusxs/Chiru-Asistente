@@ -109,7 +109,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	ag, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Streaming"
+	templateData["WidgetTitle"] = "Transmisión"
 	templateData["SettingsPath"] = "/streaming"
 
 	config, err := GetConfig(ag.ID)
@@ -118,9 +118,9 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	format := `<ul>
-	<li>Streaming status: %s</li>
-	<li>Streaming role: <code>%s</code>%s</li>
-	<li>Streaming message: <code>#%s</code>%s</li>
+	<li>Estado de transmisión: %s</li>
+	<li>Rol de transmisión: <code>%s</code>%s</li>
+	<li>Mensaje de transmisión: <code>#%s</code>%s</li>
 </ul>`
 
 	status := web.EnabledDisabledSpanStatus(config.Enabled)
@@ -131,7 +131,7 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 		templateData["WidgetDisabled"] = true
 	}
 
-	roleStr := "none / unknown"
+	roleStr := "ninguno / desconocido"
 	indicatorRole := ""
 	if role := ag.GetRole(config.GiveRole); role != nil {
 		roleStr = html.EscapeString(role.Name)
@@ -141,7 +141,7 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	indicatorMessage := ""
-	channelStr := "none / unknown"
+	channelStr := "ninguno / desconocido"
 
 	if channel := ag.GetChannel(config.AnnounceChannel); channel != nil {
 		indicatorMessage = web.Indicator(true)

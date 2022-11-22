@@ -80,7 +80,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	ag, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "General notifications"
+	templateData["WidgetTitle"] = "Notificaciones generales"
 	templateData["SettingsPath"] = "/notifications/general"
 
 	config, err := GetConfig(ag.ID)
@@ -89,10 +89,10 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	format := `<ul>
-	<li>Join Server message: %s</li>
-	<li>Join DM message: %s</li>
-	<li>Leave message: %s</li>
-	<li>Topic change message: %s</li>
+	<li>Mensaje de nuevo miembro: %s</li>
+	<li>Bienvenida por mensaje privado: %s</li>
+	<li>Mensaje de abandono: %s</li>
+	<li>Mensaje de cambio de tema: %s</li>
 </ul>`
 
 	if config.JoinServerEnabled || config.JoinDMEnabled || config.LeaveEnabled || config.TopicEnabled {
@@ -110,8 +110,8 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 
 func enabledDisabled(b bool) string {
 	if b {
-		return "enabled"
+		return "activado"
 	}
 
-	return "disabled"
+	return "desactivado"
 }

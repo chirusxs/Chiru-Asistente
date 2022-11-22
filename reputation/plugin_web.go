@@ -240,7 +240,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	ag, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Reputation"
+	templateData["WidgetTitle"] = "Reputación"
 	templateData["SettingsPath"] = "/reputation"
 
 	settings, err := GetConfig(r.Context(), ag.ID)
@@ -249,8 +249,8 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	const format = `<ul>
-	<li>Reputation is: %s</li>
-	<li>Reputation name: <code>%s</code></li>
+	<li>Sistema de reputación: %s</li>
+	<li>Comando de reputación: <code>%s</code></li>
 </ul>`
 
 	name := html.EscapeString(settings.PointsName)

@@ -313,7 +313,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	activeGuild, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Server Stats"
+	templateData["WidgetTitle"] = "Estadísticas del servidor"
 	templateData["SettingsPath"] = "/stats"
 	templateData["WidgetEnabled"] = true
 
@@ -323,8 +323,8 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	const format = `<ul>
-	<li>Public stats: %s</li>
-	<li>Blacklisted channnels: <code>%d</code></li>
+	<li>Estadísticas públicas: %s</li>
+	<li>Canales en la lista negra: <code>%d</code></li>
 </ul>`
 
 	templateData["WidgetBody"] = template.HTML(fmt.Sprintf(format, web.EnabledDisabledSpanStatus(config.Public), len(config.ParsedChannels)))

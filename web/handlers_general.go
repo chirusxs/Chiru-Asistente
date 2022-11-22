@@ -441,7 +441,7 @@ var _ PluginWithServerHomeWidget = (*ControlPanelPlugin)(nil)
 func (p *ControlPanelPlugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (TemplateData, error) {
 	_, templateData := GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Control Panel"
+	templateData["WidgetTitle"] = "Panel de control"
 	templateData["SettingsPath"] = "/core"
 
 	templateData["WidgetEnabled"] = true
@@ -449,10 +449,10 @@ func (p *ControlPanelPlugin) LoadServerHomeWidget(w http.ResponseWriter, r *http
 	config := r.Context().Value(common.ContextKeyCoreConfig).(*models.CoreConfig)
 
 	const format = `<ul>
-	<li>Read-only roles: <code>%d</code></li>
-	<li>Write roles: <code>%d</code></li>
-	<li>All members read-only: %s</li>
-	<li>Allow absolutely everyone read-only access: %s</li>
+	<li>Roles de solo lectura: <code>%d</code></li>
+	<li>Roles de escritura: <code>%d</code></li>
+	<li>Miembros tienen acceso de lectura: %s</li>
+	<li>Todos tienen acceso de lectura: %s</li>
 </ul>`
 	templateData["WidgetBody"] = template.HTML(fmt.Sprintf(format, len(config.AllowedReadOnlyRoles), len(config.AllowedWriteRoles), EnabledDisabledSpanStatus(config.AllowAllMembersReadOnly), EnabledDisabledSpanStatus(config.AllowNonMembersReadOnly)))
 

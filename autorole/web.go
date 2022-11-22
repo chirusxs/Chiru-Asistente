@@ -164,7 +164,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	ag, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Autorole"
+	templateData["WidgetTitle"] = "Auto roles"
 	templateData["SettingsPath"] = "/autorole"
 
 	general, err := GetGeneralConfig(ag.ID)
@@ -173,7 +173,7 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	enabledDisabled := ""
-	autoroleRole := "none"
+	autoroleRole := "ninguno"
 
 	if role := ag.GetRole(general.Role); role != nil {
 		templateData["WidgetEnabled"] = true
@@ -185,8 +185,8 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	format := `<ul>
-	<li>Autorole status: %s</li>
-	<li>Autorole role: <code>%s</code></li>
+	<li>Sistema de autoroles: %s</li>
+	<li>Autorol: <code>%s</code></li>
 </ul>`
 
 	templateData["WidgetBody"] = template.HTML(fmt.Sprintf(format, enabledDisabled, autoroleRole))

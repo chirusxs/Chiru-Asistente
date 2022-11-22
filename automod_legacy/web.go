@@ -79,7 +79,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	g, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Basic Automod"
+	templateData["WidgetTitle"] = "Automoderación básica"
 	templateData["SettingsPath"] = "/automod_legacy"
 
 	config, err := GetConfig(g.ID)
@@ -94,12 +94,12 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	const format = `<ul>
-	<li>Slowmode: %s</li>
-	<li>Mass mention: %s</li>
-	<li>Server invites: %s</li>
-	<li>Any links: %s</li>
-	<li>Banned words: %s</li>
-	<li>Banned websites: %s</li>
+	<li>Modo lento: %s</li>
+	<li>Menciones masivas: %s</li>
+	<li>Invitaciones a servidores: %s</li>
+	<li>Enlaces: %s</li>
+	<li>Palabras baneadas: %s</li>
+	<li>Sitios web baneados: %s</li>
 </ul>`
 
 	slowmode := web.EnabledDisabledSpanStatus(config.Spam.Enabled)

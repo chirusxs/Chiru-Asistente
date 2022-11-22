@@ -197,9 +197,9 @@ var _ web.ServerHomeWidgetWithOrder = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	ag, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Premium Status"
+	templateData["WidgetTitle"] = "Mejora premium"
 
-	footer := "<p><a href=\"/premium\">Manage your user premium slots</a></p>"
+	footer := "<p><a href=\"/premium\">Gestiona tus mejoras premium</a></p>"
 
 	if ContextPremium(r.Context()) {
 		body := strings.Builder{}
@@ -231,12 +231,12 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 				}
 
 				detForm := fmt.Sprintf(`<form data-async-form action="/manage/%d/premium/detach">
-			<button type="submit" class="btn btn-danger">Detach premium slot</button>
+			<button type="submit" class="btn btn-danger">Desvincular mejora</button>
 		</form>`, ag.ID)
 
-				body.WriteString(fmt.Sprintf("<p>Premium tier <b>%s</b> active and provided by user <code>%s#%s (%d)</p></code>\n\n%s", tier.String(), html.EscapeString(username), html.EscapeString(discrim), premiumBy, detForm))
+				body.WriteString(fmt.Sprintf("<p>Mejora premium activa, proporcionada por <code>%s#%s (%d)</p></code>\n\n%s", tier.String(), html.EscapeString(username), html.EscapeString(discrim), premiumBy, detForm))
 			} else {
-				body.WriteString(fmt.Sprintf("<p class=\"mt-3\">Premium tier <b>%s</b> active and provided by %s: %s</p>", tier.String(), v.Name(), status))
+				body.WriteString(fmt.Sprintf("<p class=\"mt-3\">Mejora premium activa, proporcionada por %s: %s</p>", tier.String(), v.Name(), status))
 			}
 		}
 
@@ -246,7 +246,7 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 		return templateData, nil
 	} else {
 		templateData["WidgetDisabled"] = true
-		templateData["WidgetBody"] = template.HTML(fmt.Sprintf("<p>Premium not active on this server :(</p>\n\n%s", footer))
+		templateData["WidgetBody"] = template.HTML(fmt.Sprintf("<p>La mejora premium no está activa en este servidor :(</p>\n\n%s", footer))
 	}
 
 	return templateData, nil
@@ -262,7 +262,7 @@ func HandlePostDetachGuildSlot(w http.ResponseWriter, r *http.Request) (tmpl web
 	slot, err := models.PremiumSlots(qm.Where("guild_id = ?", activeGuild.ID)).OneG(r.Context())
 	if err != nil {
 		if err == sql.ErrNoRows {
-			templateData.AddAlerts(web.ErrorAlert("No premium slot attached to this server"))
+			templateData.AddAlerts(web.ErrorAlert("No hay una mejora premium vinculada a este servidor"))
 			return templateData, nil
 		}
 

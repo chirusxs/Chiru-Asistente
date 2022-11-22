@@ -124,7 +124,7 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	const format = `<ul>
-	<li>Tickets enabled: %s</li>
+	<li>Sistema de tickets: %s</li>
  </ul>`
 
 	templateData["WidgetBody"] = template.HTML(fmt.Sprintf(format, web.EnabledDisabledSpanStatus(enabled)))

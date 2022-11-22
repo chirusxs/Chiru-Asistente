@@ -10,10 +10,10 @@ type PluginCategory struct {
 }
 
 var (
-	PluginCategoryCore       = &PluginCategory{Name: "Core", Order: 0}
-	PluginCategoryModeration = &PluginCategory{Name: "Moderation", Order: 10}
-	PluginCategoryMisc       = &PluginCategory{Name: "Misc", Order: 20}
-	PluginCategoryFeeds      = &PluginCategory{Name: "Feeds", Order: 30}
+	PluginCategoryCore       = &PluginCategory{Name: "Núcleo", Order: 0}
+	PluginCategoryModeration = &PluginCategory{Name: "Moderación", Order: 10}
+	PluginCategoryMisc       = &PluginCategory{Name: "Misceláneo", Order: 20}
+	PluginCategoryFeeds      = &PluginCategory{Name: "Notificaciones", Order: 30}
 )
 
 // PluginInfo represents basic plugin information

@@ -511,7 +511,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	g, templateData := web.GetBaseCPContextData(r.Context())
-	templateData["WidgetTitle"] = "Role commands"
+	templateData["WidgetTitle"] = "Roles asignables"
 	templateData["SettingsPath"] = "/rolecommands/"
 
 	numCommands, err := models.RoleCommands(qm.Where("guild_id = ?", g.ID)).CountG(r.Context())
@@ -529,8 +529,8 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	templateData["WidgetBody"] = template.HTML(fmt.Sprintf(`<ul>
-		<li>Active role commands: <code>%d</code></li>
-		<li>Active role groups: <code>%d</code></li>
+		<li>Roles asignables: <code>%d</code></li>
+		<li>Grupos de roles asignalbes: <code>%d</code></li>
 		</ul>`, numCommands, numGroups))
 
 	return templateData, err

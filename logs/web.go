@@ -415,7 +415,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	activeGuild, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Logging"
+	templateData["WidgetTitle"] = "Registro"
 	templateData["SettingsPath"] = "/logging/"
 
 	config, err := GetConfig(common.PQ, r.Context(), activeGuild.ID)
@@ -431,9 +431,9 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	format := `<ul>
-	<li>Username logging: %s</li>
-	<li>Nickname logging: %s</li>
-	<li>Blacklisted channels from creating message logs: <code>%d</code></li>
+	<li>Registro de usuarios: %s</li>
+	<li>Registro de apodos: %s</li>
+	<li>Canales deshabilitados: <code>%d</code></li>
 </ul>`
 
 	templateData["WidgetEnabled"] = true

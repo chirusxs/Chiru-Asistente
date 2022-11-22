@@ -819,7 +819,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	g, templateData := web.GetBaseCPContextData(r.Context())
-	templateData["WidgetTitle"] = "Automod v2"
+	templateData["WidgetTitle"] = "Automoderación v2"
 	templateData["SettingsPath"] = "/automod"
 
 	rulesets, err := models.AutomodRulesets(qm.Where("guild_id = ?", g.ID), qm.Where("enabled = true")).CountG(r.Context())
@@ -833,8 +833,8 @@ func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (w
 	}
 
 	templateData["WidgetBody"] = template.HTML(fmt.Sprintf(`<ul>
-    <li>Active and enabled Rulesets: <code>%d</code></li>
-    <li>Total rules: <code>%d</code></li>
+    <li>Grupos de reglas activos y habilitados: <code>%d</code></li>
+    <li>Reglas totales: <code>%d</code></li>
 </ul>`, rulesets, rules))
 
 	if rulesets > 0 {

@@ -3,7 +3,7 @@
 {{template "cp_head" .}}
 
 <header class="page-header">
-	<h2>Combined Overview</h2>
+	<h2>Vista general</h2>
 </header>
 
 {{template "cp_alerts" .}}
@@ -18,7 +18,7 @@
 		        <h2 class="card-title">{{.HumanName}}</h2>
 		    </header>
 		    <div class="card-body">
-		    	Loading...
+		    	Cargando...
 		    </div>
 		</section>
 	</div>
@@ -47,7 +47,7 @@ $(function(){
     	{{.WidgetBody}}
     </div>
     {{if .SettingsPath}}<div class="card-footer">
-    	<a href="/manage/{{.ActiveGuild.ID}}{{.SettingsPath}}" data-partial-load>Change settings here</a>
+    	<a href="/manage/{{.ActiveGuild.ID}}{{.SettingsPath}}" data-partial-load>Cambiar configuración aquí</a>
     </div>{{end}}
 </section>
 {{end}}
