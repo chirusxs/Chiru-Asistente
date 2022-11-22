@@ -24,7 +24,7 @@ h5 {
 }
 
 .questions {
-  background-color: #0d1624;
+  background-color: #0a0a0a;
   padding-top: 4%;
   padding-bottom: 4%;
 }
@@ -38,7 +38,7 @@ ul {
 
 a.link:link,
 a.link:visited {
-  color: #ffcd00;
+  color: #FF498D;
 }
 
 a.link:hover {
@@ -82,7 +82,7 @@ body {
 }
 
 .feature_title {
-  color: #ec7261 !important;
+  color: #FC944C !important;
   padding-top: 2%;
   padding-bottom: 2%;
 }
@@ -213,7 +213,7 @@ body {
 }
 
 .about {
-  background-color: #0d1624;
+  background-color: #0a0a0a;
   padding-top: 1%;
   padding-bottom: 1%;
 }
@@ -246,17 +246,17 @@ body {
 }
 
 .btn-outline-danger {
-  color: #ec7760;
-  border-color: #ec7760;
+  color: #FC944C;
+  border-color: #FC944C;
 }
 
 .btn-outline-danger:hover {
-  background-color: #ec7760;
-  border-color: #ec7760;
+  background-color: #FC944C;
+  border-color: #FC944C;
 }
 
 .cp_link {
-  color: #ec7760 !important;
+  color: #FC944C !important;
   padding-right: 1rem;
 }
 
