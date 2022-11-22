@@ -71,7 +71,7 @@ var (
 func (p *Plugin) InitWeb() {
 	web.AddHTMLTemplate("commands/assets/commands.html", PageHTML)
 	web.AddSidebarItem(web.SidebarCategoryCore, &web.SidebarItem{
-		Name: "Command settings",
+		Name: "Ajustes de comandos",
 		URL:  "commands/settings",
 		Icon: "fas fa-terminal",
 	})

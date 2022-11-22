@@ -57,7 +57,7 @@ var (
 func (p *Plugin) InitWeb() {
 	web.AddHTMLTemplate("automod/assets/automod.html", PageHTML)
 	web.AddSidebarItem(web.SidebarCategoryTools, &web.SidebarItem{
-		Name: "Automoderator v2",
+		Name: "Automoderación v2",
 		URL:  "automod",
 		Icon: "fas fa-robot",
 	})

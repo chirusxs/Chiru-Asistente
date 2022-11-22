@@ -345,7 +345,7 @@ func setupRoutes() *goji.Mux {
 	})
 
 	AddSidebarItem(SidebarCategoryCore, &SidebarItem{
-		Name: "Control panel logs",
+		Name: "Registros del panel",
 		URL:  "cplogs",
 		Icon: "fas fa-database",
 	})

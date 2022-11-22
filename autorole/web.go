@@ -52,7 +52,7 @@ func (p *Plugin) InitWeb() {
 	web.AddHTMLTemplate("autorole/assets/autorole.html", PageHTML)
 
 	web.AddSidebarItem(web.SidebarCategoryTools, &web.SidebarItem{
-		Name: "Autorole",
+		Name: "Auto rol",
 		URL:  "autorole",
 		Icon: "fas fa-user-plus",
 	})
@@ -164,7 +164,7 @@ var _ web.PluginWithServerHomeWidget = (*Plugin)(nil)
 func (p *Plugin) LoadServerHomeWidget(w http.ResponseWriter, r *http.Request) (web.TemplateData, error) {
 	ag, templateData := web.GetBaseCPContextData(r.Context())
 
-	templateData["WidgetTitle"] = "Auto roles"
+	templateData["WidgetTitle"] = "Auto rol"
 	templateData["SettingsPath"] = "/autorole"
 
 	general, err := GetGeneralConfig(ag.ID)

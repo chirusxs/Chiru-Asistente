@@ -14,7 +14,7 @@ type Plugin struct{}
 
 func (p *Plugin) PluginInfo() *common.PluginInfo {
 	return &common.PluginInfo{
-		Name:     "Streaming",
+		Name:     "Transmisión",
 		SysName:  "streaming",
 		Category: common.PluginCategoryMisc,
 	}
