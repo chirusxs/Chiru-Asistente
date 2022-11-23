@@ -47,13 +47,13 @@ type GroupForm struct {
 }
 
 var (
-	panelLogKeyNewCommand     = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_new_command", FormatString: "Se creó un nuevo comando: %d"})
-	panelLogKeyUpdatedCommand = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_updated_command", FormatString: "Se actualizó un comando: %d"})
-	panelLogKeyRemovedCommand = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_removed_command", FormatString: "Se eliminó un comando: %d"})
+	panelLogKeyNewCommand     = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_new_command", FormatString: "Se creó un nuevo comando personalizado: %d"})
+	panelLogKeyUpdatedCommand = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_updated_command", FormatString: "Se actualizó un comando personalizado: %d"})
+	panelLogKeyRemovedCommand = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_removed_command", FormatString: "Se eliminó un comando personalizado: %d"})
 
-	panelLogKeyNewGroup     = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_new_group", FormatString: "Se creó un nuevo grupo de comandos: %s"})
-	panelLogKeyUpdatedGroup = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_updated_group", FormatString: "Se actualizó un grupo de comandos: %s"})
-	panelLogKeyRemovedGroup = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_removed_group", FormatString: "Se eliminó un grupo de comandos: %d"})
+	panelLogKeyNewGroup     = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_new_group", FormatString: "Se creó un nuevo grupo de comandos personalizados: %s"})
+	panelLogKeyUpdatedGroup = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_updated_group", FormatString: "Se actualizó un grupo de comandos personalizados: %s"})
+	panelLogKeyRemovedGroup = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "customcommands_removed_group", FormatString: "Se eliminó un grupo de comandos personalizados: %d"})
 )
 
 // InitWeb implements web.Plugin
