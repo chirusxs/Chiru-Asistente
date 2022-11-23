@@ -63,14 +63,14 @@
                             <div class="form-group">
                                 <label>Roles permitidos</label>
                                 <select class="form-control" name="require_role">
-                                    {{roleOptions .ActiveGuild.Roles nil .StreamingConfig.RequireRole "None"}}
+                                    {{roleOptions .ActiveGuild.Roles nil .StreamingConfig.RequireRole "Ninguno"}}
                                 </select>
                                 <p class="help-block">Solo se dará el rol de transmisión a los roles de la lista.</p>
                             </div>
                             <div class="form-group">
                                 <label>Roles ignorados</label>
                                 <select class="form-control" name="ignore_role">
-                                    {{roleOptions .ActiveGuild.Roles nil .StreamingConfig.IgnoreRole "None"}}
+                                    {{roleOptions .ActiveGuild.Roles nil .StreamingConfig.IgnoreRole "Ninguno"}}
                                 </select>
                                 <p class="help-block">Ignore people with this role.</p>
                             </div>
