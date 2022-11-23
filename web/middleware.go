@@ -734,7 +734,7 @@ func RequirePermMW(perms ...int64) func(http.Handler) http.Handler {
 			if missing != "" {
 				tmpl.AddAlerts(&Alert{
 					Style:   AlertWarning,
-					Message: fmt.Sprint("This plugin is missing the following permissions: ", missing, ", It may continue to work without the functionality that requires those permissions."),
+					Message: fmt.Sprint("Este plugin necesita los siguientes permisos: ", missing, ". Podrían presentarse problemas."),
 				})
 			}
 			if has != "" {
