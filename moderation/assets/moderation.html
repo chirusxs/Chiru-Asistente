@@ -4,7 +4,7 @@ the punishment, is an <a href="https://docs.yagpdb.xyz/reference/templates#user"
 {{define "cp_moderation"}}
 {{template "cp_head" .}}
 <header class="page-header">
-    <h2>Moderation tools</h2>
+    <h2>Moderación</h2>
 </header>
 
 {{template "cp_alerts" .}}
@@ -21,27 +21,27 @@ the punishment, is an <a href="https://docs.yagpdb.xyz/reference/templates#user"
                         </a></li>
                     <li class="nav-item"><a class="nav-link" href="#timeout" aria-controls="timeout" role="tab"
                             data-toggle="tab">
-                            Timeout <span
+                            Aislar <span
                                 class="indicator indicator-{{if .ModConfig.TimeoutEnabled}}success{{else}}danger{{end}}"></span>
                         </a></li>
                     <li class="nav-item"><a class="nav-link" href="#mute" aria-controls="mute/unmute" role="tab"
                             data-toggle="tab">
-                            Mute <span
+                            Silenciar <span
                                 class="indicator indicator-{{if .ModConfig.MuteEnabled}}success{{else}}danger{{end}}"></span>
                         </a></li>
                     <li class="nav-item"><a class="nav-link" href="#kick" aria-controls="kick" role="tab"
                             data-toggle="tab">
-                            Kick <span
+                            Expulsar <span
                                 class="indicator indicator-{{if .ModConfig.KickEnabled}}success{{else}}danger{{end}}"></span>
                         </a></li>
                     <li class="nav-item"><a class="nav-link" href="#ban" aria-controls="ban" role="tab"
                             data-toggle="tab">
-                            Ban <span
+                            Banear <span
                                 class="indicator indicator-{{if .ModConfig.BanEnabled}}success{{else}}danger{{end}}"></span>
                         </a></li>
                     <li class="nav-item"><a class="nav-link" href="#warn" aria-controls="warnings" role="tab"
                             data-toggle="tab">
-                            Warnings <span
+                            Advertir <span
                                 class="indicator indicator-{{if .ModConfig.WarnCommandsEnabled}}success{{else}}danger{{end}}"></span>
                         </a></li>
                 </ul>
@@ -66,7 +66,7 @@ the punishment, is an <a href="https://docs.yagpdb.xyz/reference/templates#user"
 <div id="clear-server-warnings-modal" class="modal-block modal-full-color modal-block-danger mfp-hide">
     <section class="card">
         <header class="card-header">
-            <h2 class="card-title">Danger!</h2>
+            <h2 class="card-title">¡Cuidado!</h2>
         </header>
         <div class="card-body">
             <div class="modal-wrapper">
@@ -74,8 +74,8 @@ the punishment, is an <a href="https://docs.yagpdb.xyz/reference/templates#user"
                     <i class="fas fa-times-circle"></i>
                 </div>
                 <div class="modal-text">
-                    <h4>Delete ALL server warnings?</h4>
-                    <p>This cannot be undone.</p>
+                    <h4>¿Eliminar todas las advertencias?</h4>
+                    <p>Esto no se puede deshacer.</p>
                 </div>
             </div>
         </div>
@@ -84,8 +84,8 @@ the punishment, is an <a href="https://docs.yagpdb.xyz/reference/templates#user"
                 <div class="col-md-12 text-right">
                     <form action="/manage/{{.ActiveGuild.ID}}/moderation/clear_server_warnings" data-async-form
                         method="post">
-                        <button class="btn btn-default modal-dismiss">Cancel</button>
-                        <button type="submit" class="btn btn-danger">Delete them all!</button>
+                        <button class="btn btn-default modal-dismiss">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
                     </form>
                 </div>
             </div>
@@ -110,85 +110,81 @@ the punishment, is an <a href="https://docs.yagpdb.xyz/reference/templates#user"
 {{end}}
 
 {{define "moderation_general"}}
-<p>A set of moderation tools and commands to help you run a server.</p>
-<p>Commands for performing moderation actions such as kicks and bans, as well as mutes, timed bans, warnings, mass
-    deleting messages and so on.<br>
-    It is highly recommended to couple the moderation actions with the message logs, this means that whenever your mods
-    decide to perform an action on someone, a message log of the channel they ran the command in will be recorded and
-    added to the mod log.</p>
-<p>The moderation actions coupled with the message logs have been one of the most useful tools for me personally when
-    running servers with thousands of members.</p>
-<p><a href="https://docs.yagpdb.xyz/moderation" target="_blank">More documentation</a></p>
+<p>Un conjunto de herramientas de moderación y comandos para ayudarte con el servidor.</p>
+<p>Aquí podrás encontrar comandos para sancionar miembros y mantener el orden y la paz.<br>
+    Se recomienda totalmente acompañar las sanciones con registros de estas mismas, para mantener un seguimiento de las deciciones del
+    personal en general.</p>
+<p>Recuerda configurar este sistema con mucho cuidado para evitar problemas de seguridad.</p>
+<p>Revisa la <a href="https://docs.yagpdb.xyz/moderation" target="_blank">documentación oficial</a>.</p>
 <div class="row">
     <div class="col-sm">
         <div class="form-group">
-            <label>Channel to announce bans and kicks through the bot in (modlog)</label>
+            <label>Canal para anunciar las sanciones aplicadas con el bot</label>
             <select class="form-control" name="ActionChannel" data-requireperms-embed>
-                {{textChannelOptions .ActiveGuild.Channels .ModConfig.ActionChannel true "None"}}
+                {{textChannelOptions .ActiveGuild.Channels .ModConfig.ActionChannel true "Ninguno"}}
             </select>
         </div>
         <hr />
 
         <div class="form-group">
-            <label>Channel to send error messages of the moderation DMs</label>
+            <label>Canal para enviar mensajes de error del sistema de moderación</label>
             <select class="form-control" name="ErrorChannel" data-requireperms-embed>
-                {{textChannelOptions .ActiveGuild.Channels .ModConfig.ErrorChannel true "None"}}
+                {{textChannelOptions .ActiveGuild.Channels .ModConfig.ErrorChannel true "Ninguno"}}
             </select>
         </div>
         <hr />
 
-        {{checkbox "ReportEnabled" "report-enabled" "Enable report command?" .ModConfig.ReportEnabled}}
-        <p><code>(mention or prefix) report @user some reason</code><br />
-            Everyone can use this.<br />
-            Report will upload a log of the last 100 messages in the channel and send a message about it in the
-            report channel.
+        {{checkbox "ReportEnabled" "report-enabled" "Activar comando de reportes" .ModConfig.ReportEnabled}}
+        <p><code>(mention or prefix)report @user por romper las reglas</code><br />
+            Todo el mundo podrá utilizar el comando.<br />
+            Un reporte enviará un registro de los últimos 100 mensajes en el canal junto a un aviso en el canal de reportes.
         </p>
         <hr />
 
-        {{checkbox "LogUnbans" "log-unbans" "Log unban events in the modlog channel" .ModConfig.LogUnbans}}
-        <p>For the author to show up when this is used you need to give the bot "audit log" permissions.</p>
+        {{checkbox "LogUnbans" "log-unbans" "Enviar registros de desbaneos al canal de sanciones" .ModConfig.LogUnbans}}
+        <p>Para utilizar esta opción, el bot necesita el permiso de "Ver el registro de auditoría".</p>
         <hr />
 
-        {{checkbox "GiveRoleCmdEnabled" "give-role-enabled" "Enable the <code>giverole/addrole and removerole</code> commands" .ModConfig.GiveRoleCmdEnabled}}
-        <p>People with manage roles permissions plus extra roles set below can use this.</p>
+        {{checkbox "GiveRoleCmdEnabled" "give-role-enabled" "Activar comandos <code>giverole/addrole</code> y <code>removerole</code>" .ModConfig.GiveRoleCmdEnabled}}
+        <p>Quienes tengan permisos de gestión de roles o un rol establecido en la lista de debajo pueden usar estos comandos.</p>
         <div class="form-group">
-            <label>Users with the following roles will have permission to use the
-                <code>giverole/addrole and removerole</code> commands</label><br>
+            <label>Los roles de esta lista podrán utilizar los comandos 
+                <code>giverole/addrole</code> y <code>removerole</code>.</label><br>
             <select class="multiselect" name="GiveRoleCmdRoles" data-plugin-multiselect multiple="multiple">
                 {{roleOptionsMulti .ActiveGuild.Roles nil .ModConfig.GiveRoleCmdRoles}}
             </select>
         </div>
-        {{checkbox "GiveRoleCmdModlog" "give-role-modlog" "Log <code>giverole/addrole and removerole</code> to modlog?" .ModConfig.GiveRoleCmdModlog}}
+        {{checkbox "GiveRoleCmdModlog" "give-role-modlog" "Enviar registros de los comandos <code>giverole/addrole</code> y <code>removerole</code> al canal de sanciones" .ModConfig.GiveRoleCmdModlog}}
         <hr />
 
     </div>
     <div class="col-sm">
         <div class="form-group">
-            <label>Channel to send messages for the mods/admins in (reports and such)</label>
+            <label>Canal para enviar anuncios para el personal (reportes, etc)</label>
             <select class="form-control" name="ReportChannel" data-requireperms-send>
-                {{textChannelOptions .ActiveGuild.Channels .ModConfig.ReportChannel true "None"}}
+                {{textChannelOptions .ActiveGuild.Channels .ModConfig.ReportChannel true "Ninguno"}}
             </select>
         </div>
         <hr />
-        {{checkbox "CleanEnabled" "clean-enabled" "Enable clean command?" .ModConfig.CleanEnabled}}
+        {{checkbox "CleanEnabled" "clean-enabled" "Activar comando de limpieza" .ModConfig.CleanEnabled}}
         <p>
-            <code>(mention or prefix) clean NUM {@user <- optional}</code><br />
-            Manage Messages permission is required for this command.<br />
-            Clean command can delete up to a 1000 messages back in history (max 100 messages at a time).<br />
-            See <code>-help clean</code> for more advanced usage.
+            <code>(mention or prefix)clean <número> {@user <- opcional}</code><br />
+            Se requiere el permiso de "Gestionar mensajes" para usar este comando.<br />
+            Este comando puede eliminar hasta 1000 mensajes (máx. 100 mensajes a la vez).<br />
+            Revisa <code>-help clean</code> para ver más información.
         </p>
 
         <hr />
-        {{checkbox "LogBans" "log-bans" "Log ban events not made through the bot" .ModConfig.LogBans}}
-        <p>For the author and reason to show up when this is used you need to give the bot "audit log" permissions.</p>
+        {{checkbox "LogBans" "log-bans" "Registrar baneos realizados sin el bot" .ModConfig.LogBans}}
+        <p>Para utilizar esta opción, el bot necesita el permiso de "Ver el registro de auditoría".</p>
 
         <hr />
-        {{checkbox "LogKicks" "log-kicks" "Log kick events not made through the bot" .ModConfig.LogKicks}}
-        <p>For the author and reason to show up when this is used you need to give the bot "audit log" permissions.</p>
+        {{checkbox "LogKicks" "log-kicks" "Registrar expulsiones realizados sin el bot" .ModConfig.LogKicks}}
+        <p>Para utilizar esta opción, el bot necesita el permiso de "Ver el registro de auditoría".</p>
 
          <hr />
-        {{checkbox "LogTimeouts" "log-timeouts" "Log timeout events not made through the bot" .ModConfig.LogTimeouts}}
-        <p>For the author and reason to show up when this is used you need to give the bot "audit log" permissions.</p>
+        {{checkbox "LogTimeouts" "log-timeouts" "Registrar aislamientos realizados sin el bot" .ModConfig.LogTimeouts}}
+        <p>Para utilizar esta opción, el bot necesita el permiso de "Ver el registro de auditoría".</p>
     </div>
 </div>
 {{end}}
