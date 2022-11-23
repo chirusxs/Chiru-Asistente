@@ -69,7 +69,7 @@ func (p *Plugin) InitWeb() {
 	web.AddHTMLTemplate("rolecommands/assets/rolecommands.html", PageHTML)
 
 	web.AddSidebarItem(web.SidebarCategoryTools, &web.SidebarItem{
-		Name: "Role Commands",
+		Name: "Roles asignables",
 		URL:  "rolecommands/",
 		Icon: "fas fa-tags",
 	})
