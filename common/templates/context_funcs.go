@@ -28,8 +28,8 @@ func (c *Context) tmplSendDM(s ...interface{}) string {
 
 	gIcon := "https://i.imgur.com/Bje0ySw.png"
 
-	info := fmt.Sprintf("Comunidad CHIRUSXS - www.chirusxs.net ☄️")
-	embedInfo := fmt.Sprintf("Comunidad CHIRUSXS - www.chirusxs.net ☄️")
+	info := fmt.Sprintf("Comunidad CHIRUSXS 🌀")
+	embedInfo := fmt.Sprintf("Comunidad CHIRUSXS 🌀")
 	msgSend := &discordgo.MessageSend{
 		AllowedMentions: discordgo.AllowedMentions{
 			Parse: []discordgo.AllowedMentionType{discordgo.AllowedMentionTypeUsers},
