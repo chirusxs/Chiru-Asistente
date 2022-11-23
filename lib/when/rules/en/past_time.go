@@ -18,7 +18,7 @@ func PastTime(s rules.Strategy) rules.Rule {
 		RegExp: regexp.MustCompile(
 			"(?i)(?:\\W|^)\\s*" +
 				"(" + INTEGER_WORDS_PATTERN + "|[0-9]+|an?(?:\\s*few)?|half(?:\\s*an?)?)\\s*" +
-				"(seconds?|min(?:ute)?s?|hours?|days?|weeks?|months?|years?) (ago)\\s*" +
+				"(hace) (seconds?|min(?:ute)?s?|hours?|days?|weeks?|months?|years?)\\s*" +
 				"(?:\\W|$)"),
 		Applier: func(m *rules.Match, c *rules.Context, o *rules.Options, ref time.Time) (bool, error) {
 
