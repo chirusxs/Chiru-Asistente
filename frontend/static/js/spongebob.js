@@ -485,7 +485,7 @@ function formSubmissionEvents() {
 		}
 
 		// console.log("aaaaa", evt, evt.preventDefault);
-		if (!confirm("Are you sure you want to do this?")) {
+		if (!confirm("¿Estás seguro/a?")) {
 			evt.preventDefault(true);
 			evt.stopPropagation();
 		}
@@ -532,13 +532,13 @@ function formSubmissionEvents() {
 		if (target.hasClass("btn-danger") || target.attr("data-open-confirm") || target.hasClass("delete-button")) {
 			var title = target.attr("title");
 			if (title !== undefined) {
-				if (!confirm("Deleting " + title + ". Are you sure you want to do this?")) {
+				if (!confirm("Eliminando " + title + "... ¿Estás seguro/a?")) {
 					event.preventDefault(true);
 					event.stopPropagation();
 					return;
 				}
 			} else {
-				if (!confirm("Are you sure you want to do this?")) {
+				if (!confirm("¿Estás seguro/a?")) {
 					event.preventDefault(true);
 					event.stopPropagation();
 					return;

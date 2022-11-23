@@ -146,7 +146,7 @@ var cmdListCommands = &commands.YAGCommand{
 		}
 
 		groupMap := make(map[int64]string)
-		groupMap[0] = "Ungrouped"
+		groupMap[0] = "Sin grupo"
 		for _, group := range groups {
 			groupMap[group.ID] = group.Name
 		}

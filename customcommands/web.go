@@ -251,7 +251,7 @@ func handleNewCommand(w http.ResponseWriter, r *http.Request) (web.TemplateData,
 		TimeTriggerExcludingDays:  []int64{},
 		TimeTriggerExcludingHours: []int64{},
 
-		Responses: []string{"Edit this to change the output of the custom command {{.CCID}}!"},
+		Responses: []string{"¡Edita este mensaje para personalizar tu comando!"},
 	}
 
 	if groupID != 0 {
@@ -287,7 +287,7 @@ func handleUpdateCommand(w http.ResponseWriter, r *http.Request) (web.TemplateDa
 		}
 
 		if c < 1 {
-			return templateData.AddAlerts(web.ErrorAlert("Unknown group")), nil
+			return templateData.AddAlerts(web.ErrorAlert("Grupo desconocido")), nil
 		}
 	}
 

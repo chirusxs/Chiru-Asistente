@@ -34,7 +34,7 @@
                 <li class="nav-item">
                     <form class="form-horizontal" method="post"
                         action="/manage/{{.ActiveGuild.ID}}/customcommands/creategroup" data-async-form>
-                        <input type="text" class="hidden" name="Name" value="Unnamed group">
+                        <input type="text" class="hidden" name="Name" value="Grupo sin nombre">
                         <input clasS="nav-link show" type="submit" value="+"></input>
                     </form>
                 </li>
@@ -152,7 +152,7 @@
                                                 <div class="input-group-prepend" id="command-trigger-prepended-prefix">
                                                     <div class="input-group-text">{{.CommandPrefix}}</div>
                                                 </div>
-                                                <input id="trigger" type="text" class="form-control" name="trigger" placeholder="fun"
+                                                <input id="trigger" type="text" class="form-control" name="trigger" placeholder="ip"
                                                     value="{{.CC.TextTrigger}}">
                                             </div>
 
@@ -310,11 +310,11 @@
 
                                 <h4>Último error</h4>
                                 <p>{{if .CC.LastError}}<b>{{formatTime .CC.LastErrorTime.Time.UTC}}</b> - <code>
-                                    {{.CC.LastError}}</code>{{else}}None{{end}}</p>
+                                    {{.CC.LastError}}</code>{{else}}¡Ninguno!{{end}}</p>
 
                                 <div class="row">
                                     <div class="col-auto">
-                                        <h4>Run count</h4>
+                                        <h4>Cantidad de usos</h4>
                                         <p><code>{{.CC.RunCount}}</code></p>
                                     </div>
                                   
@@ -383,17 +383,17 @@
                                     formaction="/manage/{{$guild}}/customcommands/commands/{{.CC.LocalID}}/update"
                                     data-async-form-alertsonly
                                     id = "save-custom-command"
-                                >Save</button>
+                                >Guardar</button>
                             </div>
                             <div class="col">
                                 <button type="submit" class="btn btn-danger btn-block"
-                                    formaction="/manage/{{$guild}}/customcommands/commands/{{.CC.LocalID}}/delete">Delete</button>
+                                    formaction="/manage/{{$guild}}/customcommands/commands/{{.CC.LocalID}}/delete">Eliminar</button>
                             </div>
                         </div>
                         <div class="row mt-4" id="interval-cc-run-now">
                             <div class="col">
                                 <button type="submit" class="btn btn-secondary btn-block" title="This will trigger this custom command immediately"
-                                    formaction="/manage/{{$guild}}/customcommands/commands/{{.CC.LocalID}}/update_and_run">Run now</button>
+                                    formaction="/manage/{{$guild}}/customcommands/commands/{{.CC.LocalID}}/update_and_run">Ejecutar</button>
                             </div>
                         </div>
                         <p class="help-block">Pro Tip: Puedes guardar el comando personalizado con <b>Alt + Shift + S</b></p>

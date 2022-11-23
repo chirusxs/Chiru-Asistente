@@ -35,7 +35,7 @@
             <ul class="nav nav-tabs">
                 <li class="nav-item {{if and (not .CurrentCommandGroup)}}active{{end}}">
                     <a data-partial-load="true" class="nav-link show {{if not .CurrentCommandGroup}}active{{end}}"
-                        href="/manage/{{.ActiveGuild.ID}}/customcommands/">Ungrouped</a>
+                        href="/manage/{{.ActiveGuild.ID}}/customcommands/">Sin grupo</a>
                 </li>
                 {{$dot := .}}
                 {{range .CommandGroups}}
@@ -49,7 +49,7 @@
                 <li class="nav-item">
                     <form class="form-horizontal" method="post"
                         action="/manage/{{.ActiveGuild.ID}}/customcommands/creategroup" data-async-form>
-                        <input type="text" class="hidden" name="Name" value="Unnamed group">
+                        <input type="text" class="hidden" name="Name" value="Grupo sin nombre">
                         <input clasS="nav-link show" type="submit" value="+"></input>
                     </form>
                 </li>
