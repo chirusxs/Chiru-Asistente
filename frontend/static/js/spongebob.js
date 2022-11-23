@@ -342,15 +342,15 @@ function initPlugins(partial) {
 
 var discordPermissions = {
 	read: {
-		name: "Read Messages",
+		name: "Leer mensajes",
 		perm: BigInt(0x400),
 	},
 	send: {
-		name: "Send Messages",
+		name: "Enviar mensajes",
 		perm: BigInt(0x800),
 	},
 	embed: {
-		name: "Embed Links",
+		name: "Insertar enlaces",
 		perm: BigInt(0x4000),
 	},
 }
@@ -449,7 +449,7 @@ function validateChannelDropdown(dropdown, currentElem, channel, perms) {
 			currentElem.addClass("text-danger");
 			currentElem.removeClass("text-success");
 
-			currentElem.text("Missing " + missing.join(", "));
+			currentElem.text("Req. el permiso " + missing.join(", "));
 		}
 	}
 }
