@@ -213,6 +213,34 @@
         </div>
     </div>
     <div class="form-row">
+        <div class="form-group col-md-5 ml-2">
+            <label>Autoeliminar después de (segundos)</label>
+            <div class="input-group mb-3">
+                <span class="input-group-prepend">
+                    <span class="input-group-text">
+                        <input type="checkbox" name="AutodeleteTrigger"
+                            {{if .Override.AutodeleteTrigger}}checked{{end}}>
+                    </span>
+                </span>
+                <input type="number" min="0" max="2678400" class="form-control" placeholder="Segundos..."
+                    value="{{if .Override}}{{.Override.AutodeleteTriggerDelay}}{{else}}10{{end}}"
+                    name="AutodeleteTriggerDelay">
+            </div>
+        </div>
+        <div class="form-group col-md-5">
+            <label>Autoeliminar respuesta después de (segundos)</label>
+            <div class="input-group mb-3">
+                <span class="input-group-prepend">
+                    <span class="input-group-text">
+                        <input type="checkbox" name="AutodeleteResponse"
+                            {{if .Override.AutodeleteResponse}}checked{{end}}>
+                    </span>
+                </span>
+                <input type="number" min="0" max="2678400" class="form-control" placeholder="Segundos..."
+                    value="{{if .Override}}{{.Override.AutodeleteResponseDelay}}{{else}}10{{end}}"
+                    name="AutodeleteResponseDelay">
+            </div>
+        </div>
         {{$desc := "¿Todos los comandos activados?"}}
         {{$commandsEnabled := true}}
         {{if .Override}}{{$commandsEnabled = .Override.CommandsEnabled}}{{end}}
@@ -228,43 +256,12 @@
             </div>
         {{end}}
         <hr />
-
-        <div class="form-group col-md-5 ml-2">
-            <label>Autodelete trigger after (seconds)</label>
-            <div class="input-group mb-3">
-                <span class="input-group-prepend">
-                    <span class="input-group-text">
-                        <input type="checkbox" name="AutodeleteTrigger"
-                            {{if .Override.AutodeleteTrigger}}checked{{end}}>
-                    </span>
-                </span>
-                <input type="number" min="0" max="2678400" class="form-control" placeholder="Seconds..."
-                    value="{{if .Override}}{{.Override.AutodeleteTriggerDelay}}{{else}}10{{end}}"
-                    name="AutodeleteTriggerDelay">
-            </div>
-        </div>
-        <div class="form-group col-md-5">
-            <label>Autodelete response after (seconds)</label>
-            <div class="input-group mb-3">
-                <span class="input-group-prepend">
-                    <span class="input-group-text">
-                        <input type="checkbox" name="AutodeleteResponse"
-                            {{if .Override.AutodeleteResponse}}checked{{end}}>
-                    </span>
-                </span>
-                <input type="number" min="0" max="2678400" class="form-control" placeholder="Seconds..."
-                    value="{{if .Override}}{{.Override.AutodeleteResponseDelay}}{{else}}10{{end}}"
-                    name="AutodeleteResponseDelay">
-            </div>
-        </div>
     </div>
     {{if .Override}}
-    <button type="submit" class="btn btn-success" value="Save" data-async-form-alertsonly>Save channel
-        override</button>
+    <button type="submit" class="btn btn-success" value="Save" data-async-form-alertsonly>Guardar ajustes</button>
     {{if not .Override.Global}}
     <button type="submit" class="btn btn-danger" value="Delete"
-        formaction="/manage/{{.ActiveGuild.ID}}/commands/settings/channel_overrides/{{.Override.ID}}/delete">Delete
-        Channel override</button>
+        formaction="/manage/{{.ActiveGuild.ID}}/commands/settings/channel_overrides/{{.Override.ID}}/delete">Eliminar ajustes de canal</button>
     {{end}}
     {{else}}
     <input type="submit" class="btn btn-success" value="Create">
@@ -307,9 +304,9 @@
                     href="#cmd-accordion-{{.Parent.ID}}-{{if .Override}}{{.Override.ID}}{{else}}new{{end}}"
                     aria-expanded="false">
                     {{if .Override}}
-                    Cmd Override #{{add .Index 1}}
+                    Ajustes de comando #{{add .Index 1}}
                     {{else}}
-                    New command override
+                    Nuevos ajustes de comando
                     {{end}}
                 </a>
             </h4>
@@ -332,13 +329,6 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    {{$id := ""}}
-                    {{if .Override}}{{$id = joinStr "" "cmd-override-commands-enabled-" .Override.ID}}{{else}}{{$id = joinStr "" "cmd-override-commands-enabled-" .Parent.ID "-new"}}{{end}}
-
-                    {{$commandsEnabled := true}}
-                    {{if .Override}}{{$commandsEnabled = .Override.CommandsEnabled}}{{end}}
-
-                    {{checkbox "CommandsEnabled" $id "¿Activar los comandos especificados?" $commandsEnabled}}
                     <!-- <div class="form-check col-md-2 pt-4 pl-4">
                         <input class="form-check-input" type="checkbox" {{if .Override.CommandsEnabled}}checked{{end}}
                             id="cmd-override-commands-enabled-{{if.Override}}{{.Override.ID}}{{else}}{{.Parent.ID}}-new{{end}}"
@@ -348,9 +338,6 @@
                             Specified commands enabled in this command override?
                         </label>
                     </div> -->
-                    <div class="col-lg-6">
-                        <i>⠀</i>
-                    </div>
                     <div class="form-group col-md-5 ml-2">
                         <label>Autoeliminar después de (segundos)</label>
                         <div class="input-group mb-3">
@@ -394,6 +381,18 @@
                         </select>
                     </div>
                 </div>
+                {{$id := ""}}
+                {{if .Override}}{{$id = joinStr "" "cmd-override-commands-enabled-" .Override.ID}}{{else}}{{$id = joinStr "" "cmd-override-commands-enabled-" .Parent.ID "-new"}}{{end}}
+
+                {{$commandsEnabled := true}}
+                {{if .Override}}{{$commandsEnabled = .Override.CommandsEnabled}}{{end}}
+
+                {{checkbox "CommandsEnabled" $id "¿Activar los comandos especificados?" $commandsEnabled}}
+                
+                <div class="col-lg-6">
+                    <i>⠀</i>
+                </div>
+
                 {{if .Override}}
                 <button type="submit" class="btn btn-success" value="Save command override"
                     data-async-form-alertsonly>Guardar ajuste de comando</button>
