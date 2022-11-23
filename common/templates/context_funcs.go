@@ -26,10 +26,10 @@ func (c *Context) tmplSendDM(s ...interface{}) string {
 		return ""
 	}
 
-	gIcon := discordgo.EndpointGuildIcon(c.GS.ID, c.GS.Icon)
+	gIcon := "https://i.imgur.com/Bje0ySw.png"
 
-	info := fmt.Sprintf("Custom Command DM from the server **%s**", c.GS.Name)
-	embedInfo := fmt.Sprintf("Custom Command DM from the server %s", c.GS.Name)
+	info := fmt.Sprintf("Comunidad CHIRUSXS - www.chirusxs.net ☄️")
+	embedInfo := fmt.Sprintf("Comunidad CHIRUSXS - www.chirusxs.net ☄️")
 	msgSend := &discordgo.MessageSend{
 		AllowedMentions: discordgo.AllowedMentions{
 			Parse: []discordgo.AllowedMentionType{discordgo.AllowedMentionTypeUsers},
