@@ -103,19 +103,19 @@ const (
 func (d DurationFormatPrecision) String() string {
 	switch d {
 	case DurationPrecisionSeconds:
-		return "second"
+		return "segundo"
 	case DurationPrecisionMinutes:
-		return "minute"
+		return "minuto"
 	case DurationPrecisionHours:
-		return "hour"
+		return "hora"
 	case DurationPrecisionDays:
-		return "day"
+		return "día"
 	case DurationPrecisionWeeks:
-		return "week"
+		return "semana"
 	case DurationPrecisionYears:
-		return "year"
+		return "año"
 	}
-	return "Unknown"
+	return "Desconocido"
 }
 
 func (d DurationFormatPrecision) FromSeconds(in int64) int64 {
@@ -164,7 +164,7 @@ func HumanizeDuration(precision DurationFormatPrecision, in time.Duration) strin
 
 	for i := len(out) - 1; i >= 0; i-- {
 		if i == 0 && i != len(out)-1 {
-			outStr += " and "
+			outStr += " y "
 		} else if i != len(out)-1 {
 			outStr += " "
 		}
@@ -172,7 +172,7 @@ func HumanizeDuration(precision DurationFormatPrecision, in time.Duration) strin
 	}
 
 	if outStr == "" {
-		outStr = "less than 1 " + precision.String()
+		outStr = "menos de 1 " + precision.String()
 	}
 
 	return outStr
@@ -183,10 +183,10 @@ func HumanizeTime(precision DurationFormatPrecision, in time.Time) string {
 	now := time.Now()
 	if now.After(in) {
 		duration := now.Sub(in)
-		return HumanizeDuration(precision, duration) + " ago"
+		return "hace " + HumanizeDuration(precision, duration)
 	} else {
 		duration := in.Sub(now)
-		return "in " + HumanizeDuration(precision, duration)
+		return "en " + HumanizeDuration(precision, duration)
 	}
 }
 
