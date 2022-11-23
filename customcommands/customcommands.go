@@ -86,13 +86,13 @@ var (
 	}
 
 	triggerStrings = map[CommandTriggerType]string{
-		CommandTriggerCommand:    "Command",
-		CommandTriggerStartsWith: "StartsWith",
-		CommandTriggerContains:   "Contains",
-		CommandTriggerRegex:      "Regex",
-		CommandTriggerExact:      "Exact",
-		CommandTriggerInterval:   "Interval",
-		CommandTriggerReaction:   "Reaction",
+		CommandTriggerCommand:    "Comando",
+		CommandTriggerStartsWith: "Comienza con",
+		CommandTriggerContains:   "Contiene",
+		CommandTriggerRegex:      "Expresión regular",
+		CommandTriggerExact:      "Exacto",
+		CommandTriggerInterval:   "Intervalo",
+		CommandTriggerReaction:   "Reacción",
 	}
 )
 

@@ -20,7 +20,7 @@
             <ul class="nav nav-tabs">
                 <li class="nav-item {{if and (not .CurrentCommandGroup)}}active{{end}}">
                     <a data-partial-load="true" class="nav-link show {{if not .CurrentCommandGroup}}active{{end}}"
-                        href="/manage/{{.ActiveGuild.ID}}/customcommands/">Ungrouped</a>
+                        href="/manage/{{.ActiveGuild.ID}}/customcommands/">Sin grupo</a>
                 </li>
                 {{$dot := .}}
                 {{range .CommandGroups}}
@@ -62,9 +62,9 @@
                             {{index .CCTriggerTypes .CC.TriggerType}}{{if and (ne .CC.TriggerType 5) (ne .CC.TriggerType 6)}}:
                             <span
                                 class="cc-text-trigger-span">{{.CC.TextTrigger}}</span>{{else if ne .CC.TriggerType 6}}:
-                            Every
+                            Cada
                             {{call .GetCCInterval .CC}}
-                            {{if eq (call .GetCCIntervalType .CC) 1}}hour(s){{else}}minute(s){{end}}{{end}}
+                            {{if eq (call .GetCCIntervalType .CC) 1}}hora(s){{else}}minuto(s){{end}}{{end}}
                         </h2>
                         <input type="text" class="hidden form-control" name="id" value="{{.CC.LocalID}}">
                         <div class="row">
@@ -73,32 +73,32 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label>Trigger type</label>
+                                            <label>Tipo de activador</label>
                                             <select class="form-control" id="trigger-type-dropdown" name="type"
                                                 onchange="triggerTypeChanged(this)">
 
-                                                <option value="none" {{if eq .CC.TriggerType 10}}selected{{end}}>None
+                                                <option value="none" {{if eq .CC.TriggerType 10}}selected{{end}}>N/A
                                                 </option>
-                                                <option value="cmd" {{if eq .CC.TriggerType 0}} selected{{end}}>Command
-                                                    (mention/cmd
-                                                    prefix)</option>
+                                                <option value="cmd" {{if eq .CC.TriggerType 0}} selected{{end}}>Comando
+                                                    (mención/prefijo)</option>
                                                 <option value="prefix" {{if eq .CC.TriggerType 1}} selected{{end}}>
-                                                    Starts with</option>
+                                                    Comienza con</option>
                                                 <option value="contains" {{if eq .CC.TriggerType 2}} selected{{end}}>
-                                                    Contains</option>
-                                                <option value="regex" {{if eq .CC.TriggerType 3}} selected{{end}}>Regex
+                                                    Contiene</option>
+                                                <option value="regex" {{if eq .CC.TriggerType 3}} selected{{end}}>Expresión
+                                                    regular
                                                 </option>
-                                                <option value="exact" {{if eq .CC.TriggerType 4}} selected{{end}}>Exact
-                                                    match</option>
+                                                <option value="exact" {{if eq .CC.TriggerType 4}} selected{{end}}>Coincidencia
+                                                    exacta</option>
                                                 <option value="reaction" {{if eq .CC.TriggerType 6}} selected{{end}}>
-                                                    Reaction</option>
+                                                    Reacción</option>
                                                 <option value="interval_hours"
                                                     {{if eq (call .GetCCIntervalType .CC) 1}}selected{{end}}>
-                                                    Hourly interval
+                                                    Intervalo de horas
                                                 </option>
                                                 <option value="interval_minutes"
                                                     {{if eq (call .GetCCIntervalType .CC) 0}}selected{{end}}>
-                                                    Minute interval
+                                                    Intervalo de minutos
                                                 </option>
                                             </select>
                                         </div>
@@ -107,34 +107,38 @@
                                 <div class="row">
                                     <div class="col" id="trigger-help">
                                         <p id="trigger-desc-none" class="text-danger">
-                                            No trigger: can only be triggered manually by other custom
-                                            commands
+                                            Sin activador solo es posible utilizar este
+                                            comando con otros comandos 
                                         </p>
                                         <p id="trigger-desc-cmd">
-                                            <b>Command Trigger</b>: Works the same way as normal commands by using the
-                                            command
-                                            prefix or bot mention followed by the trigger.<br />
+                                            Funciona de la misma manera que
+                                            un comando normal, utilizando el prefijo o mencionando al bot<br />
                                         </p>
                                         <p id="trigger-desc-prefix">
-                                            Any message that starts with the trigger will run the command.
+                                            Cualquier mensaje que comience con el activador
+                                            ejecutará el comando
                                         </p>
                                         <p id="trigger-desc-contains">
-                                            Any message that contains the trigger will run the command.
+                                            Cualquier mensaje que contenga el activador
+                                            ejecutará el comando
                                         </p>
                                         <p id="trigger-desc-regex">
-                                            Any message that matches the provided regex will trigger the command.
+                                            Cualquier mensaje que coincida con la expresión regular
+                                            ejecutará el comando
                                         </p>
                                         <p id="trigger-desc-exact">
-                                            Any message that is equal to the trigger will run the command.
+                                            Cualquier mensaje que sea exactamente igual al activador
+                                            ejecutará el comando
                                         </p>
                                         <p id="trigger-desc-reaction">
-                                            The command will trigger on the specified reaction events.
+                                            Los eventos de reacciones especificados
+                                            ejecutarán el comando
                                         </p>
                                         <p id="trigger-desc-interval_hours">
-                                            The command will run at a hourly interval, for example every 5 hours.
+                                            El comando se ejecutará cada hora especificada.
                                         </p>
                                         <p id="trigger-desc-interval_minutes">
-                                            The command will run at a minute interval, for example every 10 minutes.
+                                            El comando se ejecutará cada minuto especificado.
                                         </p>
                                     </div>
                                 </div>
@@ -152,7 +156,7 @@
                                                     value="{{.CC.TextTrigger}}">
                                             </div>
 
-                                            {{checkbox "case_sensitive" "case_sensitive" "Case Sensitive?" .CC.TextTriggerCaseSensitive}}
+                                            {{checkbox "case_sensitive" "case_sensitive" "¿Sensible a mayúsculas?" .CC.TextTriggerCaseSensitive}}
 
                                             <!-- <div class="checkbox">
                                                 <label>
@@ -171,7 +175,7 @@
                                                 id="reaction-mode-both-{{.CC.LocalID}}" value="0"
                                                 {{if eq .CC.ReactionTriggerMode 0}}checked{{end}}>
                                             <label class="form-check-label" for="reaction-mode-both-{{.CC.LocalID}}">
-                                                Added + Removed reactions
+                                                Reacciones agregadas y eliminadas
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -179,7 +183,7 @@
                                                 id="reaction-mode-added-{{.CC.LocalID}}" value="1"
                                                 {{if eq .CC.ReactionTriggerMode 1}}checked{{end}}>
                                             <label class="form-check-label" for="reaction-mode-added-{{.CC.LocalID}}">
-                                                Added reactions only
+                                                Reacciones agregadas
                                             </label>
                                         </div>
                                         <div class="form-check">
@@ -187,7 +191,7 @@
                                                 id="reaction-mode-removed-{{.CC.LocalID}}" value="2"
                                                 {{if eq .CC.ReactionTriggerMode 2}}checked{{end}}>
                                             <label class="form-check-label" for="reaction-mode-removed-{{.CC.LocalID}}">
-                                                Removed reactions only
+                                                Reacciones eliminadas
                                             </label>
                                         </div>
                                     </div>
@@ -197,14 +201,14 @@
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label>Interval</label>
+                                            <label>Intervalo</label>
                                             <input type="number" min="0" class="form-control" name="time_trigger_interval"
                                                 placeholder="" value="{{call $dot.GetCCInterval .CC}}">
                                         </div>
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="form-group">
-                                            <label>Channel</label>
+                                            <label>Canal</label>
                                             <select id="time-trigger-channel" name="context_channel" class="form-control">
                                                 {{textChannelOptions $g.Channels .CC.ContextChannel true "None"}}
                                             </select>
@@ -214,7 +218,7 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="trigger">Excluding hours (UTC)</label><br>
+                                            <label for="trigger">Horas excluidas (UTC)</label><br>
                                             <select name="time_trigger_excluding_hours" class="multiselect form-control"
                                                 multiple="multiple" data-plugin-multiselect>
                                                 {{$selectedExclHours := .CC.TimeTriggerExcludingHours}}
@@ -226,30 +230,30 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label for="trigger">Excluding weekdays (UTC)</label><br>
+                                            <label for="trigger">Días excluidos (UTC)</label><br>
                                             <select name="time_trigger_excluding_days" class="multiselect form-control"
                                                 multiple="multiple" data-plugin-multiselect>
                                                 <option value="1"
                                                     {{if in .CC.TimeTriggerExcludingDays 1}}selected{{end}}>
-                                                    Monday</option>
+                                                    Lunes</option>
                                                 <option value="2"
                                                     {{if in .CC.TimeTriggerExcludingDays 2}}selected{{end}}>
-                                                    Tuesday</option>
+                                                    Martes</option>
                                                 <option value="3"
                                                     {{if in .CC.TimeTriggerExcludingDays 3}}selected{{end}}>
-                                                    Wednesday</option>
+                                                    Miercoles</option>
                                                 <option value="4"
                                                     {{if in .CC.TimeTriggerExcludingDays 4}}selected{{end}}>
-                                                    Thursday</option>
+                                                    Sábado</option>
                                                 <option value="5"
                                                     {{if in .CC.TimeTriggerExcludingDays 5}}selected{{end}}>
-                                                    Friday</option>
+                                                    Viernes</option>
                                                 <option value="6"
                                                     {{if in .CC.TimeTriggerExcludingDays 6}}selected{{end}}>
-                                                    Saturday</option>
+                                                    Sábado</option>
                                                 <option value="0"
                                                     {{if in .CC.TimeTriggerExcludingDays 0}}selected{{end}}>
-                                                    Sunday</option>
+                                                    Domingo</option>
                                             </select>
                                         </div>
                                     </div>
@@ -259,7 +263,7 @@
                         <div class="row mb-2">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <label for="responses">Response (<span
+                                    <label for="responses">Respuesta (<span
                                             class="cc-length-counter">x</span>/10000)</label>
                                     <!-- Use .btn-add for simplicity and let the page loader adjust. -->
                                     {{range .CC.Responses}}
@@ -293,10 +297,10 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>Custom command group</label>
+                                    <label>Grupo de comando personalizado</label>
                                     {{$selectedGroup := .CC.GroupID.Int64}}
                                     <select Name="GroupID" class="form-control">
-                                        <option {{if eq $selectedGroup 0}}selected{{end}} value="0">None
+                                        <option {{if eq $selectedGroup 0}}selected{{end}} value="0">Ninguno
                                         </option>
                                         {{range $dot.CommandGroups}}<option value="{{.ID}}"
                                             {{if eq $selectedGroup .ID}}selected{{end}}>{{.Name}}</option>
@@ -304,7 +308,7 @@
                                     </select>
                                 </div>
 
-                                <h4>Last error</h4>
+                                <h4>Último error</h4>
                                 <p>{{if .CC.LastError}}<b>{{formatTime .CC.LastErrorTime.Time.UTC}}</b> - <code>
                                     {{.CC.LastError}}</code>{{else}}None{{end}}</p>
 
@@ -315,34 +319,34 @@
                                     </div>
                                   
                                     <div class="col-auto">
-                                        <h4>Last run</h4>
-                                        <p>{{if .CC.LastRun.Valid}}{{formatTime .CC.LastRun.Time.UTC}}{{else}}None{{end}}</p>
+                                        <h4>Último uso</h4>
+                                        <p>{{if .CC.LastRun.Valid}}{{formatTime .CC.LastRun.Time.UTC}}{{else}}N/A{{end}}</p>
                                     </div>
                                     {{if (eq .CC.TriggerType 5)}}
                                     <div class="col-auto">
-                                        <h4>Next scheduled run</h4>
-                                        <p>{{if .CC.NextRun.Valid}}{{formatTime .CC.NextRun.Time.UTC}}{{else}}None{{end}}</p>
+                                        <h4>Próxima ejecución programada</h4>
+                                        <p>{{if .CC.NextRun.Valid}}{{formatTime .CC.NextRun.Time.UTC}}{{else}}N/A{{end}}</p>
                                     </div>
                                     {{end}}
                                 </div>
 
-                                <h4>Output errors as command response</h4>
+                                <h4>Mostrar errores como respuesta al comando</h4>
                                 {{checkbox "show_errors" "show_errors" "" .CC.ShowErrors}}
                             </div>
                             <div id="cc-extra-settings" class="col-sm-6">
-                                <h3>Channel/User role restrictions</h3>
+                                <h3>Restricciones por canal y rol</h3>
                                 <div class="radio">
                                     <label>
                                         <input id="require-role-mode" type="radio" name="require_roles" value="on"
                                             {{if .CC.RolesWhitelistMode}}checked{{end}}>
-                                        Require at least one of the roles in the following lists
+                                        Requiere al menos un rol de la siguiente lista
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
                                         <input id="ignore-role-mode" type="radio" name="require_roles" value=""
                                             {{if not .CC.RolesWhitelistMode}}checked{{end}}>
-                                        Ignore the roles in the following list
+                                        Ignora los roles de la siguiente lista
                                     </label>
                                 </div>
                                 <select name="roles" class="multiselect form-control" multiple="multiple"
@@ -356,14 +360,14 @@
                                     <label>
                                         <input id="require-channel-mode" type="radio" name="require_channels" value="on"
                                             {{if .CC.ChannelsWhitelistMode}}checked{{end}}>
-                                        Only run in the following channels
+                                        Solo ejecutar en los canales de la siguiente lista
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
                                         <input id="ignore-channel-mode" type="radio" name="require_channels" value=""
                                             {{if not .CC.ChannelsWhitelistMode}}checked{{end}}>
-                                        Ignore the channels in the following list
+                                        Ignorar los canales de la siguiente lista
                                     </label>
                                 </div>
                                 <select name="channels" class="multiselect form-control" multiple="multiple"
@@ -392,7 +396,7 @@
                                     formaction="/manage/{{$guild}}/customcommands/commands/{{.CC.LocalID}}/update_and_run">Run now</button>
                             </div>
                         </div>
-                        <p class="help-block">Tip: Alt + Shift + S also saves the custom command </p>
+                        <p class="help-block">Pro Tip: Puedes guardar el comando personalizado con <b>Alt + Shift + S</b></p>
                     </form>
                 </div>
             </div>
@@ -403,16 +407,16 @@
 <div id="cc-help-modal" class="modal-block modal-header-color modal-block-info mfp-hide">
     <section class="card">
         <header class="card-header">
-            <h2 class="card-title">Custom Command Information</h2>
+            <h2 class="card-title">Información</h2>
         </header>
         <div class="card-body">
             <div class="modal-wrapper">
                 <div class="modal-text">
-                    <p class="help-block">Available template data is {{template "template_helper_user"}} (and much
-                        more)
+                    <p class="help-block">Los datos de plantilla disponibles son {{template "template_helper_user"}} (y mucho
+                        más)
                     </p>
-                    <p class="help-block">Execute bot commands using
-                        <code>{{`{{exec "command" "arg1" "arg2"}}`}}</code>, Example:
+                    <p class="help-block">Ejecutar comandos del bot con
+                        <code>{{`{{exec "command" "arg1" "arg2"}}`}}</code>, Ejemplo:
                         <code>{{"{{exec \"role\" \"yagpdb\"}}"}}</code> will be the same as the user typing
                         <code>(mention or prefix) role yagpdb</code></p>
                     <p class="help-block">Arguments are available in a string array: <code>.CmdArgs</code><br>

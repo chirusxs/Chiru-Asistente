@@ -1466,7 +1466,7 @@ func (c *Context) tmplCurrentUserAgeHuman() string {
 
 	humanized := common.HumanizeDuration(common.DurationPrecisionHours, time.Since(t))
 	if humanized == "" {
-		humanized = "Less than an hour"
+		humanized = "Menos de una hora"
 	}
 
 	return humanized
