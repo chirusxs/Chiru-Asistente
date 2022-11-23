@@ -54,10 +54,10 @@ type ConfigFormData struct {
 }
 
 var (
-	panelLogKeyUpdatedSettings   = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "logs_settings_updated", FormatString: "Updated logging settings"})
-	panelLogKeyDeletedMessageLog = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "logs_deleted_message_log", FormatString: "Deleted a message log: %d"})
-	panelLogKeyDeletedMessage    = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "logs_deleted_message", FormatString: "Deleted a message from a message log: %d"})
-	panelLogKeyDeletedAll        = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "logs_deleted_all", FormatString: "Deleted %d message logs"})
+	panelLogKeyUpdatedSettings   = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "logs_settings_updated", FormatString: "Se cambiaron los ajustes del registro"})
+	panelLogKeyDeletedMessageLog = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "logs_deleted_message_log", FormatString: "Se eliminó un registro: %d"})
+	panelLogKeyDeletedMessage    = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "logs_deleted_message", FormatString: "Se eliminó un mensaje de un registro: %d"})
+	panelLogKeyDeletedAll        = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "logs_deleted_all", FormatString: "Se eliminaron %d mensajes del registro"})
 )
 
 func (lp *Plugin) InitWeb() {

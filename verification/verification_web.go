@@ -43,7 +43,7 @@ type FormData struct {
 	LogChannel          int64  `valid:"channel,true"`
 }
 
-var panelLogKey = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "verification_updated_settings", FormatString: "Updated verification settings"})
+var panelLogKey = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "verification_updated_settings", FormatString: "Se cambiaron los ajustes de verificación"})
 
 func (p *Plugin) InitWeb() {
 	web.AddHTMLTemplate("verification/assets/verification_control_panel.html", PageHTMLControlPanel)

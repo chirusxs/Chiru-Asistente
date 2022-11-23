@@ -17,35 +17,31 @@
                 </header>
                 <div class="card-body">
                     <div class="form-group">
-                        <label>Allow people with the following roles <code>read</code> access the control panel
-                            <b>(beta)</b></label><br>
+                        <label>Otorgar permiso de <code>lectura</code> a miembros con los siguientes roles</label><br>
                         <select class="multiselect" name="AllowedReadOnlyRoles" data-plugin-multiselect
                             multiple="multiple">
                             {{roleOptionsMulti .ActiveGuild.Roles nil .CoreConfig.AllowedReadOnlyRoles}}
                         </select>
-                        <p class="help-block">Members with <code>Manage Server</code> perms can always access the
-                            control panel</p>
+                        <p class="help-block">Los miembros con el permiso <code>Gestionar servidor</code> siempre podrán acceder al panel con permisos de <code>lectura</code></p>
                     </div>
 
-                    {{checkbox "AllowAllMembersReadOnly" "AllowAllMembersReadOnly" "Allow all members of your server read only access" .CoreConfig.AllowAllMembersReadOnly}}
-                    {{checkbox "AllowNonMembersReadOnly" "AllowNonMembersReadOnly" "Allow users not part of your server, including users not logged in, read only access" .CoreConfig.AllowNonMembersReadOnly}}
+                    {{checkbox "AllowAllMembersReadOnly" "AllowAllMembersReadOnly" "Otorgar permiso de lectura a todo el servidor" .CoreConfig.AllowAllMembersReadOnly}}
+                    {{checkbox "AllowNonMembersReadOnly" "AllowNonMembersReadOnly" "Otorgar permiso de lectura a todo el mundo, incluyendo usuarios que no han iniciado sesión" .CoreConfig.AllowNonMembersReadOnly}}
 
                     <hr />
 
                     <div class="form-group">
-                        <label>Allow people with the following roles <code>write</code> access the control
-                            panel</label><br>
+                        <label>Otorgar permiso de <code>escritura</code> a miembros con los siguientes roles</label><br>
                         <select class="multiselect" name="AllowedWriteRoles" data-plugin-multiselect
                             multiple="multiple">
                             {{roleOptionsMulti .ActiveGuild.Roles nil .CoreConfig.AllowedWriteRoles}}
                         </select>
-                        <p class="help-block">Members with <code>Manage Server</code> perms can always access the
-                            control panel</p>
+                        <p class="help-block">Los miembros con el permiso <code>Gestionar servidor</code> siempre podrán acceder al panel con permisos de <code>escritura</code></p>
                     </div>
 
                     <hr />
 
-                    <button type="submit" class="btn btn-success btn-lg btn-block">Save</button>
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Guardar</button>
                 </div>
             </div>
             <!-- /.panel -->

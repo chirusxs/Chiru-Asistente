@@ -22,7 +22,7 @@ type GeneralForm struct {
 	Enabled bool
 }
 
-var panelLogKeyUpdatedSettings = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "automod_legacy_settings_updated", FormatString: "Updated legacy automod settings"})
+var panelLogKeyUpdatedSettings = cplogs.RegisterActionFormat(&cplogs.ActionFormat{Key: "automod_legacy_settings_updated", FormatString: "Se cambiaron los ajustes de la automoderación básica"})
 
 func (p *Plugin) InitWeb() {
 	web.AddHTMLTemplate("automod_legacy/assets/automod_legacy.html", PageHTML)
