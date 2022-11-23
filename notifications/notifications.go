@@ -158,8 +158,8 @@ func GetConfig(guildID int64) (*Config, error) {
 		// 	log.WithError(err).Error("Failed retrieving config")
 		// }
 		return &Config{
-			JoinServerMsgs: []string{"<@{{.User.ID}}> Joined!"},
-			LeaveMsgs:      []string{"**{{.User.Username}}** Left... :'("},
+			JoinServerMsgs: []string{"¡<@{{.User.ID}}> ingresó al servidor!"},
+			LeaveMsgs:      []string{"**{{.User.Username}}** abandonó el servidor... :'("},
 		}, nil
 	}
 
