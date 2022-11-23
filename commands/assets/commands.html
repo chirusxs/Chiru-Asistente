@@ -184,13 +184,13 @@
     {{if not .Override.Global}}
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label>Channels this override affects</label><br>
+            <label>Canales afectados por el ajuste</label><br>
             <select multiple="multiple" class="form-control" data-plugin-multiselect name="Channels">
                 {{textChannelOptionsMulti .ActiveGuild.Channels .Override.Channels }}
             </select>
         </div>
         <div class="form-group col-md-6">
-            <label>Include current and future channels from the following categories</label><br>
+            <label>Incluir canales actuales y futuros de las siguientes categorías</label><br>
             <select multiple="multiple" class="form-control" data-plugin-multiselect name="ChannelCategories">
                 {{catChannelOptionsMulti .ActiveGuild.Channels .Override.ChannelCategories}}
             </select>
