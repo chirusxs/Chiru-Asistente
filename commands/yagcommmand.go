@@ -32,31 +32,31 @@ const (
 var (
 	CategoryGeneral = &dcmd.Category{
 		Name:        "General",
-		Description: "General & informational commands",
+		Description: "Comandos generales",
 		HelpEmoji:   "ℹ️",
 		EmbedColor:  0xe53939,
 	}
 	CategoryTool = &dcmd.Category{
-		Name:        "Tools & Utilities",
-		Description: "Various miscellaneous commands",
+		Name:        "Herramientas & Utilidades",
+		Description: "Comandos útiles",
 		HelpEmoji:   "🔨",
 		EmbedColor:  0xeaed40,
 	}
 	CategoryModeration = &dcmd.Category{
-		Name:        "Moderation",
-		Description: "Moderation commands",
+		Name:        "Moderación",
+		Description: "Comandos moderativos",
 		HelpEmoji:   "👮",
 		EmbedColor:  0xdb0606,
 	}
 	CategoryFun = &dcmd.Category{
-		Name:        "Fun",
-		Description: "Various commands meant for entertainment",
+		Name:        "Diversión",
+		Description: "Comandos divertidos",
 		HelpEmoji:   "🎉",
 		EmbedColor:  0x5ae26c,
 	}
 	CategoryDebug = &dcmd.Category{
-		Name:        "Debug & Maintenance",
-		Description: "Debug and other commands to inspect the bot",
+		Name:        "Depuración & Mantenimiento",
+		Description: "Comandos técnicos",
 		HelpEmoji:   "🖥",
 		EmbedColor:  0,
 	}

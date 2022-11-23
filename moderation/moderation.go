@@ -24,7 +24,7 @@ type Plugin struct{}
 
 func (p *Plugin) PluginInfo() *common.PluginInfo {
 	return &common.PluginInfo{
-		Name:     "Moderation",
+		Name:     "Moderación",
 		SysName:  "moderation",
 		Category: common.PluginCategoryModeration,
 	}

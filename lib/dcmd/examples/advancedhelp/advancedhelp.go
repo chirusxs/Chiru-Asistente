@@ -14,7 +14,7 @@ import (
 
 func main() {
 	modCat := &dcmd.Category{
-		Name:        "Moderation",
+		Name:        "Moderación",
 		Description: "Moderation commands",
 		HelpEmoji:   "👮",
 		EmbedColor:  0xdb0606,
