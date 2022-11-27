@@ -27,14 +27,14 @@ func (m ModlogAction) String() string {
 }
 
 var (
-	MAMute           = ModlogAction{Prefix: "Muted", Emoji: "🔇", Color: 0x57728e}
-	MAUnmute         = ModlogAction{Prefix: "Unmuted", Emoji: "🔊", Color: 0x62c65f}
-	MAKick           = ModlogAction{Prefix: "Kicked", Emoji: "👢", Color: 0xf2a013}
-	MABanned         = ModlogAction{Prefix: "Banned", Emoji: "🔨", Color: 0xd64848}
-	MAUnbanned       = ModlogAction{Prefix: "Unbanned", Emoji: "🔓", Color: 0x62c65f}
-	MAWarned         = ModlogAction{Prefix: "Warned", Emoji: "⚠", Color: 0xfca253}
-	MATimeoutAdded   = ModlogAction{Prefix: "Timed out", Emoji: "⏱", Color: 0x9b59b6}
-	MATimeoutRemoved = ModlogAction{Prefix: "Timeout removed from", Emoji: "⏱", Color: 0x9b59b6}
+	MAMute           = ModlogAction{Prefix: "Silenciaste a", Emoji: "🔇", Color: 0x57728e}
+	MAUnmute         = ModlogAction{Prefix: "Desilenciaste a", Emoji: "🔊", Color: 0x62c65f}
+	MAKick           = ModlogAction{Prefix: "Expulsate a", Emoji: "🛑", Color: 0xf2a013}
+	MABanned         = ModlogAction{Prefix: "Baneaste a", Emoji: "⛔", Color: 0xd64848}
+	MAUnbanned       = ModlogAction{Prefix: "Desbaneaste a", Emoji: "🔓", Color: 0x62c65f}
+	MAWarned         = ModlogAction{Prefix: "Advertiste a", Emoji: "⚠", Color: 0xfca253}
+	MATimeoutAdded   = ModlogAction{Prefix: "Aislaste a", Emoji: "⏱", Color: 0x9b59b6}
+	MATimeoutRemoved = ModlogAction{Prefix: "Quitaste el aislamiento a", Emoji: "⏱", Color: 0x9b59b6}
 	MAGiveRole       = ModlogAction{Prefix: "", Emoji: "➕", Color: 0x53fcf9}
 	MARemoveRole     = ModlogAction{Prefix: "", Emoji: "➖", Color: 0x53fcf9}
 )
