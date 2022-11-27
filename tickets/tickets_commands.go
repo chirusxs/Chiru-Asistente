@@ -42,7 +42,7 @@ func (p *Plugin) AddCommands() {
 	// }
 
 	cmdOpenTicket := &commands.YAGCommand{
-		CmdCategory:  categoryTickets,
+		// CmdCategory:  categoryTickets,
 		Name:         "Open",
 		Aliases:      []string{"create", "new", "make"},
 		Description:  "Opens a new ticket",
@@ -74,7 +74,7 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdAddParticipant := &commands.YAGCommand{
-		CmdCategory:  categoryTickets,
+		// CmdCategory:  categoryTickets,
 		Name:         "AddUser",
 		Description:  "Adds a user to the ticket in this channel",
 		RequiredArgs: 1,
@@ -108,7 +108,7 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdRemoveParticipant := &commands.YAGCommand{
-		CmdCategory:  categoryTickets,
+		// CmdCategory:  categoryTickets,
 		Name:         "RemoveUser",
 		Description:  "Removes a user from the ticket",
 		RequiredArgs: 1,
@@ -148,7 +148,7 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdRenameTicket := &commands.YAGCommand{
-		CmdCategory:  categoryTickets,
+		// CmdCategory:  categoryTickets,
 		Name:         "Rename",
 		Description:  "Renames the ticket",
 		RequiredArgs: 1,
@@ -187,7 +187,7 @@ func (p *Plugin) AddCommands() {
 	var closingTicketsLock sync.Mutex
 
 	cmdCloseTicket := &commands.YAGCommand{
-		CmdCategory: categoryTickets,
+		// CmdCategory: categoryTickets,
 		Name:        "Close",
 		Aliases:     []string{"end", "delete"},
 		Description: "Closes the ticket",
@@ -248,7 +248,7 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdAdminsOnly := &commands.YAGCommand{
-		CmdCategory: categoryTickets,
+		// CmdCategory: categoryTickets,
 		Name:        "AdminsOnly",
 		Aliases:     []string{"adminonly", "ao"},
 		Description: "Toggle admins only mode for this ticket",
