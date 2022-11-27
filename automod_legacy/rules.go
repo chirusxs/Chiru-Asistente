@@ -434,7 +434,7 @@ func (w *SitesRule) GetCompiled() []string {
 }
 
 func (s *SitesRule) Check(evt *discordgo.Message, cs *dstate.ChannelState) (del bool, punishment Punishment, msg string, err error) {
-	banned, item, threatList := s.checkMessage(forwardSlashReplacer.Replace(evt.Content))
+	banned, item := s.checkMessage(forwardSlashReplacer.Replace(evt.Content))
 	if !banned {
 		return
 	}
