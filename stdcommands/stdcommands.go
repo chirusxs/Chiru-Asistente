@@ -12,14 +12,12 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/catfact"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/ccreqs"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/createinvite"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/currentshard"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/customembed"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/dcallvoice"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/define"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/dogfact"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/findserver"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/globalrl"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/guildunavailable"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/info"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/leaveserver"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/listflags"
@@ -40,7 +38,6 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/topgames"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/topic"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/unbanserver"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/viewperms"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/weather"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/yagstatus"
 )
@@ -80,7 +77,6 @@ func (p *Plugin) AddCommands() {
 		simpleembed.Command,
 		memstats.Command,
 		poll.Command,
-		viewperms.Command,
 		topgames.Command,
 
 		// Maintenance
@@ -91,8 +87,6 @@ func (p *Plugin) AddCommands() {
 		unbanserver.Command,
 		topcommands.Command,
 		topevents.Command,
-		currentshard.Command,
-		guildunavailable.Command,
 		yagstatus.Command,
 		setstatus.Command,
 		createinvite.Command,
