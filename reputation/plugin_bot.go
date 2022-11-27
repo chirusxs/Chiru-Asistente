@@ -356,7 +356,7 @@ var cmds = []*commands.YAGCommand{
 				}
 			}
 
-			rankStr := "#ω"
+			rankStr := "0"
 			if rank != -1 {
 				rankStr = strconv.FormatInt(int64(rank), 10)
 			}
