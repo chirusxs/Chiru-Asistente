@@ -124,9 +124,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "Ban",
-		Aliases:       []string{"banid"},
-		Description:   "Bans a member, specify number of days of messages to delete with -ddays (0 to 7)",
+		Name:          "ban",
+		Description:   "Banea a un(a) miembro del servidor",
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -179,9 +178,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "Unban",
-		Aliases:       []string{"unbanid"},
-		Description:   "Unbans a user. Reason requirement is same as ban command setting.",
+		Name:          "unban",
+		Description:   "Desbanea a un(a) miembro del servidor",
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -229,8 +227,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "Kick",
-		Description:   "Kicks a member",
+		Name:          "kick",
+		Description:   "Expulsa a un(a) miembro del servidor",
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -285,8 +283,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "Mute",
-		Description:   "Mutes a member",
+		Name:          "mute",
+		Description:   "Mutea a un(a) miembro del servidor",
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
 			{Name: "Duration", Type: &commands.DurationArg{}},
@@ -345,8 +343,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "Unmute",
-		Description:   "Unmutes a member",
+		Name:          "unmute",
+		Description:   "Desmutea a un(a) miembro del servidor",
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -393,8 +391,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "Timeout",
-		Description:   "Timeout a member",
+		Name:          "aislar",
+		Description:   "Aisla a un(a) miembro del servidor",
 		Aliases:       []string{"to"},
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -448,9 +446,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	}, {
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "RemoveTimeout",
-		Aliases:       []string{"untimeout", "cleartimeout", "deltimeout", "rto"},
-		Description:   "Removes a member's timeout",
+		Name:          "desaislar",
+		Description:   "Elimina un aislamiento a un(a) miembro del servidor",
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -492,88 +489,10 @@ var ModerationCommands = []*commands.YAGCommand{
 		},
 	},
 	{
-		CustomEnabled: true,
-		Cooldown:      5,
-		CmdCategory:   commands.CategoryModeration,
-		Name:          "Report",
-		Description:   "Reports a member to the server's staff",
-		RequiredArgs:  2,
-		Arguments: []*dcmd.ArgDef{
-			{Name: "User", Type: dcmd.UserID},
-			{Name: "Reason", Type: dcmd.String},
-		},
-		SlashCommandEnabled: true,
-		DefaultEnabled:      false,
-		IsResponseEphemeral: true,
-		RunFunc: func(parsed *dcmd.Data) (interface{}, error) {
-			config, _, err := MBaseCmd(parsed, 0)
-			if err != nil {
-				return nil, err
-			}
-
-			_, err = MBaseCmdSecond(parsed, "", true, 0, nil, config.ReportEnabled)
-			if err != nil {
-				return nil, err
-			}
-
-			temp, err := bot.GetMember(parsed.GuildData.GS.ID, parsed.Args[0].Int64())
-			if err != nil || temp == nil {
-				return nil, err
-			}
-
-			target := temp.User
-
-			if target.ID == parsed.Author.ID {
-				return "You can't report yourself, silly.", nil
-			}
-
-			logLink := CreateLogs(parsed.GuildData.GS.ID, parsed.GuildData.CS.ID, parsed.Author)
-
-			channelID := config.IntReportChannel()
-			if channelID == 0 {
-				return "No report channel set up", nil
-			}
-
-			topContent := fmt.Sprintf("%s reported **%s#%s (ID %d)**", parsed.Author.Mention(), target.Username, target.Discriminator, target.ID)
-
-			embed := &discordgo.MessageEmbed{
-				Author: &discordgo.MessageEmbedAuthor{
-					Name:    fmt.Sprintf("%s#%s (ID %d)", parsed.Author.Username, parsed.Author.Discriminator, parsed.Author.ID),
-					IconURL: discordgo.EndpointUserAvatar(parsed.Author.ID, parsed.Author.Avatar),
-				},
-				Description: fmt.Sprintf("🔍**Reported** %s#%s *(ID %d)*\n📄**Reason:** %s ([Logs](%s))\n**Channel:** <#%d>", target.Username, target.Discriminator, target.ID, parsed.Args[1].Value, logLink, parsed.ChannelID),
-				Color:       0xee82ee,
-				Thumbnail: &discordgo.MessageEmbedThumbnail{
-					URL: discordgo.EndpointUserAvatar(target.ID, target.Avatar),
-				},
-			}
-
-			send := &discordgo.MessageSend{
-				Content: topContent,
-				Embeds:  []*discordgo.MessageEmbed{embed},
-				AllowedMentions: discordgo.AllowedMentions{
-					Parse: []discordgo.AllowedMentionType{discordgo.AllowedMentionTypeUsers},
-				},
-			}
-
-			_, err = common.BotSession.ChannelMessageSendComplex(channelID, send)
-			if err != nil {
-				return "Something went wrong while sending your report!", err
-			}
-
-			// Don't bother sending confirmation if it is done in the report channel
-			if channelID != parsed.ChannelID || parsed.SlashCommandTriggerData != nil {
-				return "User reported to the proper authorities!", nil
-			}
-
-			return nil, nil
-		},
-	},
-	{
 		CustomEnabled:   true,
 		CmdCategory:     commands.CategoryModeration,
-		Name:            "Clean",
-		Description:     "Delete the last number of messages from chat, optionally filtering by user, max age and regex or ignoring pinned messages.",
+		Name:            "limpiar",
+		Description:     "Elimina con múltiples opciones los últimos mensajes de un canal",
 		LongDescription: "Specify a regex with \"-r regex_here\" and max age with \"-ma 1h10m\"\nYou can invert the regex match (i.e. only clear messages that do not match the given regex) by supplying the `-im` flag\nNote: Will only look in the last 1k messages",
 		Aliases:         []string{"clear", "cl"},
 		RequiredArgs:    1,
@@ -724,8 +643,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "Reason",
-		Description:   "Add/Edit a modlog reason",
+		Name:          "razon",
+		Description:   "Agrega o edita una razón a una sanción",
 		RequiredArgs:  2,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Message-ID", Type: dcmd.BigInt},
@@ -775,8 +694,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "Warn",
-		Description:   "Warns a user, warnings are saved using the bot. Use -warnings to view them.",
+		Name:          "warn",
+		Description:   "Advierte a un(a) miembro del servidor",
 		RequiredArgs:  2,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -816,8 +735,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "Warnings",
-		Description:   "Lists warning of a user.",
+		Name:          "advertencias",
+		Description:   "Muestra tus advertencias en el servidor",
 		Aliases:       []string{"Warns"},
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
@@ -872,8 +791,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "EditWarning",
-		Description:   "Edit a warning, id is the first number of each warning from the warnings command",
+		Name:          "editaradvertencia",
+		Description:   "Edita una advertencia",
 		RequiredArgs:  2,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Id", Type: dcmd.Int},
@@ -906,9 +825,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "DelWarning",
-		Aliases:       []string{"dw", "delwarn", "deletewarning"},
-		Description:   "Deletes a warning, id is the first number of each warning from the warnings command",
+		Name:          "eliminaradvertencia",
+		Description:   "Elimina una advertencia",
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Id", Type: dcmd.Int},
@@ -938,9 +856,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "ClearWarnings",
-		Aliases:       []string{"clw"},
-		Description:   "Clears the warnings of a user",
+		Name:          "limpiaradvertencias",
+		Description:   "Limpia las advertencias de un(a) miembro del servidor",
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -968,9 +885,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	},
 	{
 		CmdCategory: commands.CategoryModeration,
-		Name:        "TopWarnings",
-		Aliases:     []string{"topwarns"},
-		Description: "Shows ranked list of warnings on the server",
+		Name:        "topadvertencias",
+		Description: "Muestra los miembros con más advertencias en el servidor",
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Page", Type: dcmd.Int, Default: 0},
 		},
@@ -1037,9 +953,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "GiveRole",
-		Aliases:       []string{"grole", "arole", "addrole"},
-		Description:   "Gives a role to the specified member, with optional expiry",
+		Name:          "darrol",
+		Description:   "Da un rol al/a la miembro especificado/a",
 
 		RequiredArgs: 2,
 		Arguments: []*dcmd.ArgDef{
@@ -1114,9 +1029,8 @@ var ModerationCommands = []*commands.YAGCommand{
 	{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "RemoveRole",
-		Aliases:       []string{"rrole", "takerole", "trole"},
-		Description:   "Removes the specified role from the target",
+		Name:          "quitarrol",
+		Description:   "Quita un rol al/a la miembro especificado/a",
 
 		RequiredArgs: 2,
 		Arguments: []*dcmd.ArgDef{

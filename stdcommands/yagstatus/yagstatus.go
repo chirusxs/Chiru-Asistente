@@ -17,9 +17,8 @@ import (
 var Command = &commands.YAGCommand{
 	Cooldown:    5,
 	CmdCategory: commands.CategoryDebug,
-	Name:        "Yagstatus",
-	Aliases:     []string{"status"},
-	Description: "Shows yagpdb status, version, uptime, memory stats, and so on",
+	Name:        "estadotecnico",
+	Description: "Muestra información técnica acerca del estado del bot",
 	RunInDM:     true,
 	RunFunc:     cmdFuncYagStatus,
 }
@@ -63,16 +62,16 @@ func cmdFuncYagStatus(data *dcmd.Data) (interface{}, error) {
 			Name:    botUser.Username,
 			IconURL: discordgo.EndpointUserAvatar(botUser.ID, botUser.Avatar),
 		},
-		Title: "YAGPDB Status, version " + common.VERSION,
+		Title: "Chiru Asistente - Versión " + common.VERSION,
 		Fields: []*discordgo.MessageEmbedField{
-			&discordgo.MessageEmbedField{Name: "Servers", Value: fmt.Sprint(servers), Inline: true},
-			&discordgo.MessageEmbedField{Name: "Go Version", Value: runtime.Version(), Inline: true},
-			&discordgo.MessageEmbedField{Name: "Uptime", Value: common.HumanizeDuration(common.DurationPrecisionSeconds, uptime), Inline: true},
-			&discordgo.MessageEmbedField{Name: "Goroutines", Value: fmt.Sprint(numGoroutines), Inline: true},
-			&discordgo.MessageEmbedField{Name: "GC Pause Fraction", Value: fmt.Sprintf("%.3f%%", memStats.GCCPUFraction*100), Inline: true},
-			&discordgo.MessageEmbedField{Name: "Process Mem (alloc, sys, freed)", Value: fmt.Sprintf("%.1fMB, %.1fMB, %.1fMB", float64(memStats.Alloc)/1000000, float64(memStats.Sys)/1000000, (float64(memStats.TotalAlloc)/1000000)-allocated), Inline: true},
-			&discordgo.MessageEmbedField{Name: "System Mem (used, total)", Value: sysMemStats, Inline: true},
-			&discordgo.MessageEmbedField{Name: "System Load (1, 5, 15)", Value: sysLoadStats, Inline: true},
+			&discordgo.MessageEmbedField{Name: "Servidores", Value: fmt.Sprint(servers), Inline: true},
+			&discordgo.MessageEmbedField{Name: "Versión de GoLang", Value: runtime.Version(), Inline: true},
+			&discordgo.MessageEmbedField{Name: "Tiempo en línea", Value: common.HumanizeDuration(common.DurationPrecisionSeconds, uptime), Inline: true},
+			&discordgo.MessageEmbedField{Name: "GoRutinas", Value: fmt.Sprint(numGoroutines), Inline: true},
+			&discordgo.MessageEmbedField{Name: "Fracción de pausa de GC", Value: fmt.Sprintf("%.3f%%", memStats.GCCPUFraction*100), Inline: true},
+			&discordgo.MessageEmbedField{Name: "Memoria del proceso (asign, sist, liber)", Value: fmt.Sprintf("%.1fMB, %.1fMB, %.1fMB", float64(memStats.Alloc)/1000000, float64(memStats.Sys)/1000000, (float64(memStats.TotalAlloc)/1000000)-allocated), Inline: true},
+			&discordgo.MessageEmbedField{Name: "Memoria del sistema (usada, total)", Value: sysMemStats, Inline: true},
+			&discordgo.MessageEmbedField{Name: "Carga del sistema (1, 5, 15)", Value: sysLoadStats, Inline: true},
 		},
 	}
 

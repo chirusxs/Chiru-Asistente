@@ -50,8 +50,8 @@ func (p *Plugin) StopBot(wg *sync.WaitGroup) {
 var roleCommands = []*commands.YAGCommand{
 	{
 		CmdCategory: commands.CategoryDebug,
-		Name:        "Roledbg",
-		Description: "Debug debug debug autorole assignment",
+		Name:        "roldebug",
+		Description: "Depura la asignación del autorol",
 		RunFunc: func(parsed *dcmd.Data) (interface{}, error) {
 			var processing int
 			err := common.RedisPool.Do(radix.Cmd(&processing, "GET", KeyProcessing(parsed.GuildData.GS.ID)))

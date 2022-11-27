@@ -21,14 +21,14 @@ import (
 func (p *Plugin) AddCommands() {
 
 	cmdToggleRuleset := &commands.YAGCommand{
-		Name:         "Toggle",
+		Name:         "alternar",
 		Aliases:      []string{"t"},
 		CmdCategory:  commands.CategoryModeration,
 		RequiredArgs: 1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Ruleset-Name", Type: dcmd.String},
 		},
-		Description:         "Toggles a ruleset on/off",
+		Description:         "Activa o desactiva una regla",
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer, discordgo.PermissionAdministrator, discordgo.PermissionBanMembers},
 		RunFunc: func(data *dcmd.Data) (interface{}, error) {
 			rulesetName := data.Args[0].Str()
@@ -57,10 +57,9 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdViewRulesets := &commands.YAGCommand{
-		Name:                "Rulesets",
-		Aliases:             []string{"r", "list", "l"},
+		Name:                "reglas",
 		CmdCategory:         commands.CategoryModeration,
-		Description:         "Lists all rulesets and their status",
+		Description:         "Muestra todas las reglas y sus estados",
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer, discordgo.PermissionAdministrator, discordgo.PermissionBanMembers},
 		RunFunc: func(data *dcmd.Data) (interface{}, error) {
 			rulesets, err := models.AutomodRulesets(qm.Where("guild_id = ?", data.GuildData.GS.ID), qm.OrderBy("id asc")).AllG(data.Context())
@@ -89,10 +88,9 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdLogs := &commands.YAGCommand{
-		Name:        "Logs",
-		Aliases:     []string{"log"},
+		Name:        "registros",
 		CmdCategory: commands.CategoryModeration,
-		Description: "Shows the log of the last triggered automod rules, optionally filtering by user",
+		Description: "Muestra el registro de una regla",
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Page", Type: &dcmd.IntArg{Max: 10000}, Default: 0},
 		},
@@ -145,8 +143,8 @@ func (p *Plugin) AddCommands() {
 	cmdListVLC := &commands.YAGCommand{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "ListViolationsCount",
-		Description:   "Lists Violations summary in entire server or of specified user optionally filtered by max violation age.\n Specify number of violations to skip while fetching using -skip flag ; max entries fetched 500",
+		Name:          "contador",
+		Description:   "Muestra la cantidad de violaciones de un(a) miembro en especifico",
 		Aliases:       []string{"ViolationsCount", "VCount"},
 		RequiredArgs:  0,
 		Arguments: []*dcmd.ArgDef{
@@ -216,8 +214,8 @@ func (p *Plugin) AddCommands() {
 	cmdListV := &commands.YAGCommand{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "ListViolations",
-		Description:   "Lists Violations of specified user \n old flag posts oldest violations in first page ( from oldest to newest ).",
+		Name:          "violaciones",
+		Description:   "Muestra las violaciones de un(a) miembro en especifico",
 		Aliases:       []string{"Violations", "ViolationLogs", "VLogs", "VLog"},
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
@@ -271,8 +269,8 @@ func (p *Plugin) AddCommands() {
 	cmdDelV := &commands.YAGCommand{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "DeleteViolation",
-		Description:   "Deletes a Violation with the specified ID. ID is the first number of each Violation in the ListViolations command.",
+		Name:          "eliminarviolacion",
+		Description:   "Elimina una violación",
 		Aliases:       []string{"DelViolation", "DelV", "DV"},
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
@@ -297,8 +295,8 @@ func (p *Plugin) AddCommands() {
 	cmdClearV := &commands.YAGCommand{
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryModeration,
-		Name:          "ClearViolations",
-		Description:   "Clears Violations of specified user (or global if User ID = 0 or unspecified) optionally filtered by Name, Min/Max age and other conditions. By default, more recent violations are preferentially cleared. Maximum of 2000 can be cleared at a time.",
+		Name:          "limpiar",
+		Description:   "Limpia las violaciones de un(a) miembro en especifico",
 		Aliases:       []string{"ClearV", "ClrViolations", "ClrV"},
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Default: 0, Type: dcmd.UserID},
