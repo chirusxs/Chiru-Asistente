@@ -48,8 +48,7 @@ func (p *Plugin) AddCommands() {
 		CustomEnabled: true,
 		CmdCategory:   commands.CategoryTool,
 		Cooldown:      5,
-		Name:          "estadísticas",
-		Aliases:     []string{"estadisticas"},
+		Name:          "estadisticas",
 		Description:   "Muestra las estadísticas del servidor",
 		RunFunc: func(data *dcmd.Data) (interface{}, error) {
 			config, err := GetConfig(data.Context(), data.GuildData.GS.ID)
