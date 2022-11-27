@@ -43,10 +43,10 @@ func (p *Plugin) BotInit() {
 var cmdLogs = &commands.YAGCommand{
 	Cooldown:        5,
 	CmdCategory:     commands.CategoryTool,
-	Name:            "Logs",
-	Aliases:         []string{"log"},
-	Description:     "Creates a log of the last messages in the current channel.",
-	LongDescription: "This includes deleted messages within an hour (or 12 hours for premium servers)",
+	Name:            "crearregistros",
+	Aliases:         []string{"logs"},
+	Description:     "Crea un registro de los últimos mensajes en un canal.",
+	LongDescription: "Esto incluye mensajes eliminados recientes",
 	Arguments: []*dcmd.ArgDef{
 		{Name: "Count", Default: 100, Type: &dcmd.IntArg{Min: 2, Max: 250}},
 	},
@@ -87,9 +87,8 @@ var cmdLogs = &commands.YAGCommand{
 
 var cmdWhois = &commands.YAGCommand{
 	CmdCategory: commands.CategoryTool,
-	Name:        "Whois",
-	Description: "Shows information about a user",
-	Aliases:     []string{"whoami"},
+	Name:        "infomiembro",
+	Description: "Muestra información acerca de alguien",
 	RunInDM:     false,
 	Arguments: []*dcmd.ArgDef{
 		{Name: "User", Type: &commands.MemberArg{}},
@@ -140,7 +139,7 @@ var cmdWhois = &commands.YAGCommand{
 		}
 
 		var memberStatus string
-		state := [6]string{"Playing", "Streaming", "Listening", "Watching", "Custom", "Competing"}
+		state := [6]string{"Jugando a", "Transmitiendo", "Escuchando", "Viendo", "Custom", "Competing"}
 		if member.Presence == nil || member.Presence.Game == nil {
 			memberStatus = "Has no active status, is invisible/offline or is not in the bot's cache."
 		} else {
@@ -158,40 +157,36 @@ var cmdWhois = &commands.YAGCommand{
 
 		embed := &discordgo.MessageEmbed{
 			Title: fmt.Sprintf("%s#%s%s", member.User.Username, member.User.Discriminator, nick),
+			Color: 0xFF498D,
 			Fields: []*discordgo.MessageEmbedField{
 				{
-					Name:   "ID",
+					Name:   "Id.",
 					Value:  discordgo.StrID(member.User.ID),
 					Inline: true,
 				},
 				{
 					Name:   "Avatar",
-					Value:  "[Link](" + member.User.AvatarURL("256") + ")",
+					Value:  "[Enlace](" + member.User.AvatarURL("256") + ")",
 					Inline: true,
 				},
 				{
-					Name:   "Account Created",
+					Name:   "Cuenta creada",
 					Value:  t.UTC().Format(time.RFC822),
 					Inline: true,
 				},
 				{
-					Name:   "Account Age",
+					Name:   "Edad de la cuenta",
 					Value:  createdDurStr,
 					Inline: true,
 				},
 				{
-					Name:   "Joined Server At",
+					Name:   "Ingresó al servidor",
 					Value:  joinedAtStr,
 					Inline: true,
 				},
 				{
-					Name:   "Join Server Age",
+					Name:   "Tiempo en el servidor",
 					Value:  joinedAtDurStr,
-					Inline: true,
-				},
-				{
-					Name:   "Status",
-					Value:  memberStatus,
 					Inline: true,
 				},
 			},
@@ -214,13 +209,13 @@ var cmdWhois = &commands.YAGCommand{
 				usernamesStr += "```"
 
 				embed.Fields = append(embed.Fields, &discordgo.MessageEmbedField{
-					Name:  "5 last usernames",
+					Name:  "Los 5 nombres de usuario más recientes",
 					Value: usernamesStr,
 				})
 			} else {
 				embed.Fields = append(embed.Fields, &discordgo.MessageEmbedField{
-					Name:  "Usernames",
-					Value: "Username tracking disabled",
+					Name:  "Nombres de usuario",
+					Value: "El seguimiento de nombres de usuario ha sido deshabilitado",
 				})
 			}
 
@@ -233,7 +228,7 @@ var cmdWhois = &commands.YAGCommand{
 
 				nicknameStr := "```\n"
 				if len(nicknames) < 1 {
-					nicknameStr += "No nicknames tracked"
+					nicknameStr += "No hay apodos para mostrar"
 				} else {
 					for _, v := range nicknames {
 						nicknameStr += fmt.Sprintf("%20s: %s\n", v.CreatedAt.Time.UTC().Format(time.RFC822), v.Nickname.String)
@@ -242,13 +237,13 @@ var cmdWhois = &commands.YAGCommand{
 				nicknameStr += "```"
 
 				embed.Fields = append(embed.Fields, &discordgo.MessageEmbedField{
-					Name:  "5 last nicknames",
+					Name:  "Los 5 apodos más recientes",
 					Value: nicknameStr,
 				})
 			} else {
 				embed.Fields = append(embed.Fields, &discordgo.MessageEmbedField{
-					Name:  "Nicknames",
-					Value: "Nickname tracking disabled",
+					Name:  "Apodos",
+					Value: "El seguimiento de apodos ha sido deshabilitado",
 				})
 			}
 		}
@@ -258,9 +253,8 @@ var cmdWhois = &commands.YAGCommand{
 
 var cmdUsernames = &commands.YAGCommand{
 	CmdCategory: commands.CategoryTool,
-	Name:        "Usernames",
-	Description: "Shows past usernames of a user.",
-	Aliases:     []string{"unames", "un"},
+	Name:        "nombres",
+	Description: "Muestra los nombres de usuario anteriores de alguien.",
 	RunInDM:     true,
 	Arguments: []*dcmd.ArgDef{
 		{Name: "User", Type: dcmd.User},
@@ -274,7 +268,7 @@ var cmdUsernames = &commands.YAGCommand{
 			}
 
 			if !config.UsernameLoggingEnabled.Bool {
-				return "Username logging is disabled on this server", nil
+				return "El registro de nombres de usuario ha sido deshabilitado.", nil
 			}
 
 			gID = parsed.GuildData.GS.ID
@@ -296,19 +290,19 @@ var cmdUsernames = &commands.YAGCommand{
 				return nil, paginatedmessages.ErrNoResults
 			}
 
-			out := fmt.Sprintf("Past username of **%s#%s** ```\n", target.Username, target.Discriminator)
+			out := fmt.Sprintf("Nombres de usuario anteriores de **%s#%s** ```\n", target.Username, target.Discriminator)
 			for _, v := range usernames {
 				out += fmt.Sprintf("%20s: %s\n", v.CreatedAt.Time.UTC().Format(time.RFC822), v.Username.String)
 			}
 			out += "```"
 
 			if len(usernames) < 1 {
-				out = `No logged usernames`
+				out = `No hay registro de ningún nombre de usuario...`
 			}
 
 			embed := &discordgo.MessageEmbed{
 				Color:       0x277ee3,
-				Title:       "Usernames of " + target.Username + "#" + target.Discriminator,
+				Title:       "Nombres de usuario de " + target.Username + "#" + target.Discriminator,
 				Description: out,
 			}
 
@@ -321,9 +315,8 @@ var cmdUsernames = &commands.YAGCommand{
 
 var cmdNicknames = &commands.YAGCommand{
 	CmdCategory: commands.CategoryTool,
-	Name:        "Nicknames",
-	Description: "Shows past nicknames of a user.",
-	Aliases:     []string{"nn"},
+	Name:        "apodos",
+	Description: "Muestra los apodos anteriores de alguien.",
 	RunInDM:     false,
 	Arguments: []*dcmd.ArgDef{
 		{Name: "User", Type: dcmd.User},
@@ -340,7 +333,7 @@ var cmdNicknames = &commands.YAGCommand{
 		}
 
 		if !config.NicknameLoggingEnabled.Bool {
-			return "Nickname logging is disabled on this server", nil
+			return "El registro de apodos ha sido deshabilitado.", nil
 		}
 
 		_, err = paginatedmessages.CreatePaginatedMessage(parsed.GuildData.GS.ID, parsed.ChannelID, 1, 0, func(p *paginatedmessages.PaginatedMessage, page int) (*discordgo.MessageEmbed, error) {
@@ -356,19 +349,19 @@ var cmdNicknames = &commands.YAGCommand{
 				return nil, paginatedmessages.ErrNoResults
 			}
 
-			out := fmt.Sprintf("Past nicknames of **%s#%s** ```\n", target.Username, target.Discriminator)
+			out := fmt.Sprintf("Apodos anteriores de **%s#%s** ```\n", target.Username, target.Discriminator)
 			for _, v := range nicknames {
 				out += fmt.Sprintf("%20s: %s\n", v.CreatedAt.Time.UTC().Format(time.RFC822), v.Nickname.String)
 			}
 			out += "```"
 
 			if len(nicknames) < 1 {
-				out = `No nicknames tracked`
+				out = `No hay registro de ningún apodo...`
 			}
 
 			embed := &discordgo.MessageEmbed{
 				Color:       0x277ee3,
-				Title:       "Nicknames of " + target.Username + "#" + target.Discriminator,
+				Title:       "Apodos de " + target.Username + "#" + target.Discriminator,
 				Description: out,
 			}
 

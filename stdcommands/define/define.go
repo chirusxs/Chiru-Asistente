@@ -16,9 +16,9 @@ import (
 
 var Command = &commands.YAGCommand{
 	CmdCategory:  commands.CategoryFun,
-	Name:         "Define",
-	Aliases:      []string{"df"},
-	Description:  "Look up an urban dictionary definition, default paginated view.",
+	Name:         "definir",
+	Aliases:      []string{"define"},
+	Description:  "Busca una definición en un diccionario urbano.",
 	RequiredArgs: 1,
 	Arguments: []*dcmd.ArgDef{
 		{Name: "Topic", Type: dcmd.String},
@@ -36,7 +36,7 @@ var Command = &commands.YAGCommand{
 
 		qResp, err := urbandictionary.Query(data.Args[0].Str())
 		if err != nil {
-			return "Failed querying :(", err
+			return "Ocurrió un error desconocido... :(", err
 		}
 
 		if len(qResp.Results) < 1 {

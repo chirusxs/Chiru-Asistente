@@ -10,10 +10,9 @@ import (
 
 var Command = &commands.YAGCommand{
 	CmdCategory:         commands.CategoryTool,
-	Name:                "CustomEmbed",
-	Aliases:             []string{"ce"},
-	Description:         "Creates an embed from what you give it in json form: https://docs.yagpdb.xyz/others/custom-embeds",
-	LongDescription:     "Example: `-ce {\"title\": \"hello\", \"description\": \"wew\"}`",
+	Name:                "customembed",
+	Description:         "Crea un embed con formato json",
+	LongDescription:     "Ejemplos: `-ce {\"title\": \"¡Esto es un título!\", \"description\": \"Qué linda descripción.\"}`",
 	RequiredArgs:        1,
 	RequireDiscordPerms: []int64{discordgo.PermissionManageMessages},
 	Arguments: []*dcmd.ArgDef{

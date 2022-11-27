@@ -119,9 +119,9 @@ type DelayedRunCCData struct {
 
 var cmdListCommands = &commands.YAGCommand{
 	CmdCategory:    commands.CategoryTool,
-	Name:           "CustomCommands",
+	Name:           "customcommands",
 	Aliases:        []string{"cc"},
-	Description:    "Shows a custom command specified by id or trigger, or lists them all",
+	Description:    "Gestiona los comandos personalizados del bot",
 	ArgumentCombos: [][]int{{0}, {1}, {}},
 	Arguments: []*dcmd.ArgDef{
 		{Name: "ID", Type: dcmd.Int},

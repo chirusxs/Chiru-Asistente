@@ -29,9 +29,8 @@ func (p *Plugin) BotInit() {
 func (p *Plugin) AddCommands() {
 	commands.AddRootCommands(p, &commands.YAGCommand{
 		CmdCategory: commands.CategoryTool,
-		Name:        "settimezone",
-		Aliases:     []string{"setz", "tzset"},
-		Description: "Sets your timezone, used for various purposes such as auto conversion. Give it your country.",
+		Name:        "zonahoraria",
+		Description: "Cambia y revisa tu zona horaria.",
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Timezone", Type: dcmd.String},
 		},
@@ -57,7 +56,7 @@ func (p *Plugin) AddCommands() {
 				humanizeOffset += fmt.Sprintf(":%d", int(math.Abs(float64(userOffset%3600/60))))
 			}
 
-			userTZ := fmt.Sprintf("Your current time zone is %s: `%s` %s (UTC%s)", tzState, localTZ, userZone, humanizeOffset)
+			userTZ := fmt.Sprintf("Tu zona horaria actual es %s: `%s` %s (UTC%s)", tzState, localTZ, userZone, humanizeOffset)
 
 			if parsed.Switches["u"].Value != nil && parsed.Switches["u"].Value.(bool) {
 				return userTZ, nil
@@ -74,16 +73,16 @@ func (p *Plugin) AddCommands() {
 					if err != nil {
 						return nil, err
 					}
-					return "Deleted", nil
+					return "¡Zona horaria eliminada!", nil
 				} else {
-					return "You don't have a registered time zone", nil
+					return "No tienes una zona horaria registrada.", nil
 				}
 			}
 
 			zones := FindZone(parsed.Args[0].Str())
 			// No zones matching user input
 			if len(zones) < 1 {
-				return fmt.Sprintf("Unknown timezone, enter a country or timezone (not abbreviation like CET). there's a timezone picker here: <https://kevinnovak.github.io/Time-Zone-Picker/> you can use, enter the `Area/City` result\n\n%s", userTZ), nil
+				return fmt.Sprintf("Zona horaria desconocida, ingresa un país o una zona horaria válida (sin abrev. UCT/GMT).\n\n%s", userTZ), nil
 			}
 			// Multiple zones matching user input
 			note := ""
@@ -114,11 +113,11 @@ func (p *Plugin) AddCommands() {
 						// Select matching zone
 						zone = zones[n]
 						// Set a note for the user
-						note = "Other matching timezones were found, you can reuse the command with any of them:\n" + matches
+						note = "Se encontraron varias zonas horarias\n" + matches
 					}
 				}
 				if !found {
-					out := "More than 1 result, reuse the command with one of the following:\n" + matches + "\n" + userTZ
+					out := "Se encontraron varias zonas horarias, vuelve a utilizar el comando:\n" + matches + "\n" + userTZ
 					return out, nil
 				}
 			} else {
@@ -129,7 +128,7 @@ func (p *Plugin) AddCommands() {
 			// Either way, `zone` is already set to the proper value
 			loc, err := time.LoadLocation(zone)
 			if err != nil {
-				return fmt.Sprintf("Unknown timezone `%s`", zone), nil
+				return fmt.Sprintf("Zona horaria `%s` desconocida", zone), nil
 			}
 
 			name, _ := time.Now().In(loc).Zone()
@@ -144,14 +143,14 @@ func (p *Plugin) AddCommands() {
 				return nil, err
 			}
 
-			return fmt.Sprintf("Set your timezone to `%s`: %s\n%s", zone, name, note), nil
+			return fmt.Sprintf("Estableciste tu zona horaria a `%s`: %s\n%s", zone, name, note), nil
 			// Note that an empty "note" variable will be invisible, since Discord trims trailing message whitespace
 		},
 	}, &commands.YAGCommand{
 		CmdCategory:         commands.CategoryTool,
-		Name:                "ToggleTimeConversion",
-		Aliases:             []string{"toggletconv", "ttc"},
-		Description:         "Toggles automatic time conversion for people with registered timezones (setz) in this channel, it's on by default, toggle all channels by giving it `all`",
+		Name:                "alternarconversión",
+		Aliases:             []string{"alternarconversion"},
+		Description:         "Alterna la conversión automática de hora y fecha en el canal actual.",
 		RequireDiscordPerms: []int64{discordgo.PermissionManageMessages, discordgo.PermissionManageServer},
 		Arguments: []*dcmd.ArgDef{
 			&dcmd.ArgDef{Name: "flags", Type: dcmd.String},

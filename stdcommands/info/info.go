@@ -10,15 +10,15 @@ import (
 
 var Command = &commands.YAGCommand{
 	CmdCategory: commands.CategoryGeneral,
-	Name:        "Info",
-	Description: "Responds with bot information",
+	Name:        "info",
+	Description: "Muestra información del bot",
 	RunInDM:     true,
 	RunFunc: func(data *dcmd.Data) (interface{}, error) {
-		info := fmt.Sprintf(`**YAGPDB - Yet Another General Purpose Discord Bot**
-This bot focuses on being configurable and therefore is one of the most advanced bots.
-It can perform a range of general purpose functionality (Reddit feeds, various commands, moderation utilities, automoderator functionality and so on) and it's configured through a web control panel.
-The bot is run by Botlabs but is open source (<https://github.com/botlabs-gg/yagpdb>), so if you know Go and want to make some contributions, feel free to make a PR.
-Control panel: <https://%s/manage>
+		info := fmt.Sprintf(`**Chiru Asistente - Instancia privada de YAGPDB**
+Este bot es utilizado principalmente como herramienta de organización y moderación por el personal de la comunidad.
+Sus sistemas ofrecen desde comandos de moderación hasta notificaciones de redes sociales.
+Este bot es de código abierto y puedes encontrar su repositorio de GitHub en (<https://github.com/chirusxs/Chiru-Asistente>).
+Sitio web (solo para ver información): <https://%s/manage>
 				`, common.ConfHost.GetString())
 
 		return info, nil

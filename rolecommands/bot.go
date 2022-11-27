@@ -32,8 +32,8 @@ func (p *Plugin) AddCommands() {
 	commands.AddRootCommands(p,
 		&commands.YAGCommand{
 			CmdCategory: commands.CategoryTool,
-			Name:        "Role",
-			Description: "Toggle a role on yourself or list all available roles, they have to be set up in the control panel first, under 'rolecommands' ",
+			Name:        "rol",
+			Description: "Muestra los roles autoasignables ",
 			Arguments: []*dcmd.ArgDef{
 				{Name: "Role", Type: dcmd.String},
 			},
@@ -43,9 +43,8 @@ func (p *Plugin) AddCommands() {
 		})
 
 	cmdCreate := &commands.YAGCommand{
-		Name:                "Create",
+		Name:                "crear",
 		CmdCategory:         categoryRoleMenu,
-		Aliases:             []string{"c"},
 		Description:         "Set up a role menu.",
 		LongDescription:     "Specify a message with -m to use an existing message instead of having the bot make one\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
@@ -63,9 +62,8 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdRemoveRoleMenu := &commands.YAGCommand{
-		Name:                "Remove",
+		Name:                "eliminar",
 		CmdCategory:         categoryRoleMenu,
-		Aliases:             []string{"rm"},
 		Description:         "Removes a rolemenu from a message.",
 		LongDescription:     "The message won't be deleted and the bot will not do anything with reactions on that message\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
@@ -77,7 +75,7 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdUpdate := &commands.YAGCommand{
-		Name:                "Update",
+		Name:                "actualizar",
 		CmdCategory:         categoryRoleMenu,
 		Aliases:             []string{"u"},
 		Description:         "Updates a rolemenu, toggling the provided flags and adding missing options, aswell as updating the order.",
@@ -95,9 +93,8 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdResetReactions := &commands.YAGCommand{
-		Name:                "ResetReactions",
+		Name:                "reiniciar",
 		CmdCategory:         categoryRoleMenu,
-		Aliases:             []string{"reset"},
 		Description:         "Removes all reactions on the specified menu message and re-adds them.",
 		LongDescription:     "Can be used to fix the order after updating it.\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
@@ -109,9 +106,8 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdEditOption := &commands.YAGCommand{
-		Name:                "EditOption",
+		Name:                "editar",
 		CmdCategory:         categoryRoleMenu,
-		Aliases:             []string{"edit"},
 		Description:         "Allows you to reassign the emoji of an option, tip: use ResetReactions afterwards.",
 		LongDescription:     "\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
@@ -123,9 +119,8 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdFinishSetup := &commands.YAGCommand{
-		Name:                "Complete",
+		Name:                "finalizar",
 		CmdCategory:         categoryRoleMenu,
-		Aliases:             []string{"finish"},
 		Description:         "Marks the menu as done.",
 		LongDescription:     "\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
@@ -137,9 +132,8 @@ func (p *Plugin) AddCommands() {
 	}
 
 	cmdListGroups := &commands.YAGCommand{
-		Name:                "Listgroups",
+		Name:                "lista",
 		CmdCategory:         categoryRoleMenu,
-		Aliases:             []string{"list", "groups"},
 		Description:         "Lists all role groups",
 		RequireDiscordPerms: []int64{discordgo.PermissionManageGuild},
 		RunFunc:             cmdFuncRoleMenuListGroups,
@@ -245,7 +239,7 @@ func CmdFuncListCommands(parsed *dcmd.Data) (interface{}, error) {
 		return "Failed retrieving role commands", err
 	}
 
-	output := "Here is a list of available roles:\n"
+	output := "Lista de roles autoasignables:\n"
 
 	didListCommands := false
 	for group, cmds := range grouped {
@@ -262,12 +256,12 @@ func CmdFuncListCommands(parsed *dcmd.Data) (interface{}, error) {
 	if len(ungrouped) > 0 {
 		didListCommands = true
 
-		output += "**Ungrouped roles**\n"
+		output += "**Roles sin grupo**\n"
 		output += StringCommands(ungrouped)
 	}
 
 	if !didListCommands {
-		output += "No role commands (self assignable roles) set up. You can set them up in the control panel."
+		output += "Actualmente no hay roles autoasignables disponibles."
 	}
 
 	return output, nil

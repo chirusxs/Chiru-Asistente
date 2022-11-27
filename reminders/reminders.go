@@ -61,7 +61,8 @@ func (r *Reminder) Trigger() error {
 
 	logger.WithFields(logrus.Fields{"channel": r.ChannelID, "user": r.UserID, "message": r.Message, "id": r.ID}).Info("Triggered reminder")
 	embed := &discordgo.MessageEmbed{
-		Title:       "Reminder from YAGPDB",
+		Title:       "Recordatorio de Chiru Asistente",
+		Color: 0xFF498D,
 		Description: common.ReplaceServerInvites(r.Message, r.GuildID, "(removed-invite)"),
 	}
 
@@ -72,7 +73,7 @@ func (r *Reminder) Trigger() error {
 		GuildID:      r.GuildID,
 		ChannelID:    r.ChannelIDInt(),
 		MessageEmbed: embed,
-		MessageStr:   "**Reminder** for <@" + r.UserID + ">",
+		MessageStr:   "**Recordatorio** para <@" + r.UserID + ">",
 		AllowedMentions: discordgo.AllowedMentions{
 			Users: []int64{r.UserIDInt()},
 		},
