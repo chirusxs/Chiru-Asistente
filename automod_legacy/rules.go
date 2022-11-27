@@ -137,7 +137,7 @@ func (s *SpamRule) Check(evt *discordgo.Message, cs *dstate.ChannelState) (del b
 		return
 	}
 
-	msg = "Sending messages too fast."
+	msg = "Enviar mensajes demasiado rápido."
 
 	return
 }
@@ -182,7 +182,7 @@ func (i *InviteRule) Check(evt *discordgo.Message, cs *dstate.ChannelState) (del
 		return
 	}
 
-	msg = "Sending server invites to another server."
+	msg = "Enviar una invitación a un servidor externo."
 	return
 }
 
@@ -326,7 +326,7 @@ func (m *MentionRule) Check(evt *discordgo.Message, cs *dstate.ChannelState) (de
 	if err != nil {
 		return
 	}
-	msg = "Sending too many mentions."
+	msg = "Enviar demasiadas menciones."
 	return
 }
 
@@ -346,7 +346,7 @@ func (l *LinksRule) Check(evt *discordgo.Message, cs *dstate.ChannelState) (del 
 		return
 	}
 
-	msg = "You do not have permission to send links"
+	msg = "Enviar un enlace sin permisos"
 
 	return
 }
@@ -383,7 +383,7 @@ func (w *WordsRule) Check(evt *discordgo.Message, cs *dstate.ChannelState) (del 
 	del = true
 	punishment, err = w.PushViolation(KeyViolations(cs.GuildID, evt.Author.ID, "badword"))
 
-	msg = fmt.Sprintf("The word `%s` is banned, watch your language.", word)
+	msg = fmt.Sprintf("Enviar una palabra baneada (`%s`).", word)
 	return
 }
 
@@ -445,7 +445,7 @@ func (s *SitesRule) Check(evt *discordgo.Message, cs *dstate.ChannelState) (del 
 		extraInfo = "(sb: " + threatList + ")"
 	}
 
-	msg = fmt.Sprintf("The website `%s` is banned %s", item, extraInfo)
+	msg = fmt.Sprintf("Enviar un enlace baneado (`%s`)", item)
 	del = true
 	return
 }
