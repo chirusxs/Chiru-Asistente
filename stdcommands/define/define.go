@@ -18,7 +18,7 @@ var Command = &commands.YAGCommand{
 	CmdCategory:  commands.CategoryFun,
 	Name:         "definir",
 	Aliases:      []string{"define"},
-	Description:  "Busca una definición en un diccionario urbano.",
+	Description:  "Busca una definición en un diccionario urbano en inglés.",
 	RequiredArgs: 1,
 	Arguments: []*dcmd.ArgDef{
 		{Name: "Topic", Type: dcmd.String},

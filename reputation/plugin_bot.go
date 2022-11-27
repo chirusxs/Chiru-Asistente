@@ -102,9 +102,9 @@ func handleMessageCreate(evt *eventsystem.EventData) {
 var cmds = []*commands.YAGCommand{
 	{
 		CmdCategory:  commands.CategoryFun,
-		Name:         "TakeRep",
+		Name:         "quitarrep",
 		Aliases:      []string{"-", "tr", "trep", "-rep"},
-		Description:  "Takes away rep from someone",
+		Description:  "Quita puntos de reputación a alguien",
 		RequiredArgs: 1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.User},
@@ -122,9 +122,9 @@ var cmds = []*commands.YAGCommand{
 	},
 	{
 		CmdCategory:         commands.CategoryFun,
-		Name:                "GiveRep",
+		Name:                "darrep",
 		Aliases:             []string{"+", "gr", "grep", "+rep"},
-		Description:         "Gives rep to someone",
+		Description:         "Da puntos de reputación a alguien",
 		RequiredArgs:        1,
 		SlashCommandEnabled: true,
 		DefaultEnabled:      false,
@@ -141,9 +141,9 @@ var cmds = []*commands.YAGCommand{
 	},
 	{
 		CmdCategory:         commands.CategoryFun,
-		Name:                "SetRep",
+		Name:                "establecerrep",
 		Aliases:             []string{"SetRepID"}, // alias for legacy reasons, used to be a standalone command
-		Description:         "Sets someones rep, this is an admin command and bypasses cooldowns and other restrictions.",
+		Description:         "Establece la reputación de alguien",
 		RequiredArgs:        2,
 		SlashCommandEnabled: true,
 		DefaultEnabled:      false,
@@ -190,8 +190,8 @@ var cmds = []*commands.YAGCommand{
 	},
 	{
 		CmdCategory:         commands.CategoryFun,
-		Name:                "DelRep",
-		Description:         "Deletes someone from the reputation list completely, this cannot be undone.",
+		Name:                "eliminarrep",
+		Description:         "Elimina a alguien de la lista de reputación",
 		RequiredArgs:        1,
 		SlashCommandEnabled: true,
 		DefaultEnabled:      false,
@@ -224,9 +224,9 @@ var cmds = []*commands.YAGCommand{
 	},
 	{
 		CmdCategory:         commands.CategoryFun,
-		Name:                "RepLog",
+		Name:                "registrorep",
 		Aliases:             []string{"replogs"},
-		Description:         "Shows the rep log for the specified user.",
+		Description:         "Muestra los registros de reputación de alguien",
 		SlashCommandEnabled: true,
 		DefaultEnabled:      false,
 		Arguments: []*dcmd.ArgDef{
@@ -328,8 +328,8 @@ var cmds = []*commands.YAGCommand{
 	},
 	{
 		CmdCategory: commands.CategoryFun,
-		Name:        "Rep",
-		Description: "Shows yours or the specified users current rep and rank",
+		Name:        "reputacion",
+		Description: "Muestra tu reputación o la de alguien más",
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.User},
 		},
@@ -366,8 +366,8 @@ var cmds = []*commands.YAGCommand{
 	},
 	{
 		CmdCategory: commands.CategoryFun,
-		Name:        "TopRep",
-		Description: "Shows rep leaderboard on the server",
+		Name:        "toprep",
+		Description: "Muestra el top de reputación del servidor",
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Page", Type: dcmd.Int, Default: 0},
 		},

@@ -21,9 +21,8 @@ var (
 
 var Command = &commands.YAGCommand{
 	CmdCategory:  commands.CategoryFun,
-	Name:         "Weather",
-	Aliases:      []string{"w"},
-	Description:  "Shows the weather somewhere",
+	Name:         "tiempo",
+	Description:  "Muestra el tiempo atmosférico de cualquier lugar",
 	RunInDM:      true,
 	RequiredArgs: 1,
 	Arguments: []*dcmd.ArgDef{

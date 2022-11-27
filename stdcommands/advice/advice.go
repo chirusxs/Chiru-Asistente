@@ -13,8 +13,8 @@ import (
 var Command = &commands.YAGCommand{
 	Cooldown:    5,
 	CmdCategory: commands.CategoryFun,
-	Name:        "Advice",
-	Description: "Don't be afraid to ask for advice!",
+	Name:        "consejo",
+	Description: "¡No tengas pudor de pedir un consejo!",
 	Arguments: []*dcmd.ArgDef{
 		{Name: "What", Type: dcmd.String},
 	},

@@ -10,8 +10,8 @@ import (
 var Command = &commands.YAGCommand{
 	Cooldown:            5,
 	CmdCategory:         commands.CategoryFun,
-	Name:                "Topic",
-	Description:         "Generates a conversation topic to help chat get moving.",
+	Name:                "tema",
+	Description:         "Genera un tema de conversación",
 	DefaultEnabled:      true,
 	SlashCommandEnabled: true,
 	RunFunc: func(data *dcmd.Data) (interface{}, error) {

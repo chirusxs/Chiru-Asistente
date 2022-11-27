@@ -9,9 +9,8 @@ import (
 
 var Command = &commands.YAGCommand{
 	CmdCategory:         commands.CategoryFun,
-	Name:                "CatFact",
-	Aliases:             []string{"cf", "cat", "catfacts"},
-	Description:         "Cat Facts",
+	Name:                "gatos",
+	Description:         "Muestra datos de gatos",
 	DefaultEnabled:      true,
 	SlashCommandEnabled: true,
 
