@@ -82,7 +82,7 @@ WHERE user_id = $2`
 	return
 }
 
-func GetUserStats2(guildID, userID int64) (score int64) {
+func GetUserStats2(guildID, userID int64) (score int64, err error) {
 
 	const query = `SELECT points, position FROM
 (
