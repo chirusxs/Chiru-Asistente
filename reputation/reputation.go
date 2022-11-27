@@ -82,26 +82,6 @@ WHERE user_id = $2`
 	return
 }
 
-func GetUserStats2(guildID, userID int64) (score int64, err error) {
-
-	const query = `SELECT points, position FROM
-(
-	SELECT user_id, points,
-	RANK() OVER(ORDER BY points DESC) AS position
-	FROM reputation_users WHERE guild_id = $1
-) AS w
-WHERE user_id = $2`
-
-	row := common.PQ.QueryRow(query, guildID, userID)
-	err = row.Scan(&score, &rank)
-	if err != nil {
-		if err == sql.ErrNoRows {
-			err = ErrUserNotFound
-		}
-	}
-	return
-}
-
 type RankEntry struct {
 	Rank   int   `json:"rank"`
 	UserID int64 `json:"user_id"`
