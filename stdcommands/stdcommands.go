@@ -14,17 +14,13 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/createinvite"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/currentshard"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/customembed"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/dadjoke"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/dcallvoice"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/define"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/dogfact"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/forex"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/findserver"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/globalrl"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/guildunavailable"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/howlongtobeat"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/info"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/inspire"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/leaveserver"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/listflags"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/memstats"
@@ -43,11 +39,9 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/topevents"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/topgames"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/topic"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/topservers"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/unbanserver"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/viewperms"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/weather"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/wouldyourather"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/xkcd"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/yagstatus"
 )
@@ -78,7 +72,6 @@ func (p *Plugin) AddCommands() {
 		calc.Command,
 		topic.Command,
 		catfact.Command,
-		dadjoke.Command,
 		dogfact.Command,
 		advice.Command,
 		ping.Command,
@@ -87,14 +80,9 @@ func (p *Plugin) AddCommands() {
 		customembed.Command,
 		simpleembed.Command,
 		memstats.Command,
-		wouldyourather.Command,
 		poll.Command,
 		viewperms.Command,
 		topgames.Command,
-		xkcd.Command,
-		howlongtobeat.Command,
-		inspire.Command,
-		forex.Command,
 
 		// Maintenance
 		stateinfo.Command,
@@ -102,7 +90,6 @@ func (p *Plugin) AddCommands() {
 		banserver.Command,
 		allocstat.Command,
 		unbanserver.Command,
-		topservers.Command,
 		topcommands.Command,
 		topevents.Command,
 		currentshard.Command,

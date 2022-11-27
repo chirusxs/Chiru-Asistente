@@ -20,7 +20,6 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/automod_legacy"
 	"github.com/botlabs-gg/yagpdb/v2/autorole"
 	"github.com/botlabs-gg/yagpdb/v2/aylien"
-	"github.com/botlabs-gg/yagpdb/v2/cah"
 	"github.com/botlabs-gg/yagpdb/v2/commands"
 	"github.com/botlabs-gg/yagpdb/v2/customcommands"
 	"github.com/botlabs-gg/yagpdb/v2/discordlogger"
@@ -78,7 +77,6 @@ func main() {
 	soundboard.RegisterPlugin()
 	youtube.RegisterPlugin()
 	rolecommands.RegisterPlugin()
-	cah.RegisterPlugin()
 	tickets.RegisterPlugin()
 	verification.RegisterPlugin()
 	premium.RegisterPlugin()
