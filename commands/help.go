@@ -113,7 +113,7 @@ Si necesitas ayuda, abre un ticket en el canal <#832033137742708737>
 
 	var pageLayout strings.Builder
 	for i, v := range helpEmbeds {
-		pageLayout.WriteString(fmt.Sprintf("**Página %d**: %s\n ", i+2, v.Title))
+		pageLayout.WriteString(fmt.Sprintf("**Página %d**: %s \n", i+2, v.Title))
 	}
 	firstPage.Fields = []*discordgo.MessageEmbedField{
 		{Name: "Páginas de ayuda", Value: pageLayout.String()},
