@@ -113,7 +113,7 @@ func CreatePaginatedMessage(guildID, channelID int64, initPage, maxPages int, pa
 		return nil, err
 	}
 
-	footer := "Page " + strconv.Itoa(initPage)
+	footer := "Página " + strconv.Itoa(initPage)
 	nextButtonDisabled := false
 	if pm.MaxPage > 0 {
 		footer += "/" + strconv.Itoa(pm.MaxPage)
@@ -188,7 +188,7 @@ func (p *PaginatedMessage) HandlePageButtonClick(ic *discordgo.InteractionCreate
 	p.lastUpdateTime = time.Now()
 
 	p.CurrentPage = newPage
-	footer := "Page " + strconv.Itoa(newPage)
+	footer := "Página " + strconv.Itoa(newPage)
 	nextButtonDisabled := false
 	if p.MaxPage > 0 {
 		footer += "/" + strconv.Itoa(p.MaxPage)
@@ -237,7 +237,7 @@ OUTER:
 
 		// remove the navigation buttons
 		lastMessage := p.LastResponse
-		footer := "Page " + strconv.Itoa(p.CurrentPage)
+		footer := "Página " + strconv.Itoa(p.CurrentPage)
 		if p.MaxPage > 0 {
 			footer += "/" + strconv.Itoa(p.MaxPage)
 		}
