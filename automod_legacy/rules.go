@@ -440,6 +440,10 @@ func (s *SitesRule) Check(evt *discordgo.Message, cs *dstate.ChannelState) (del 
 	}
 
 	punishment, err = s.PushViolation(KeyViolations(cs.GuildID, evt.Author.ID, "badlink"))
+	extraInfo := ""
+	if threatList != "" {
+		extraInfo = "(sb: " + threatList + ")"
+	}
 
 	msg = fmt.Sprintf("Enviar un enlace baneado (`%s`)", item)
 	del = true
