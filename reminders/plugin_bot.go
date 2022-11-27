@@ -37,9 +37,9 @@ func (p *Plugin) BotInit() {
 var cmds = []*commands.YAGCommand{
 	{
 		CmdCategory:  commands.CategoryTool,
-		Name:         "Remindme",
-		Description:  "Schedules a reminder, example: 'remindme 1h30min are you still alive?'",
-		Aliases:      []string{"remind", "reminder"},
+		Name:         "recordatorio",
+		Description:  "Programa un recordatorio para el futuro",
+		Aliases:      []string{"recordar", "recordarme"},
 		RequiredArgs: 2,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Time", Type: &commands.DurationArg{}},
@@ -53,7 +53,7 @@ var cmds = []*commands.YAGCommand{
 		RunFunc: func(parsed *dcmd.Data) (interface{}, error) {
 			currentReminders, _ := GetUserReminders(parsed.Author.ID)
 			if len(currentReminders) >= 25 {
-				return "You can have a maximum of 25 active reminders, list your reminders with the `reminders` command", nil
+				return "¡Has alcanzado tu límite de 25 recordatorios simultáneos!", nil
 			}
 
 			fromNow := parsed.Args[0].Value.(time.Duration)
@@ -72,11 +72,11 @@ var cmds = []*commands.YAGCommand{
 
 				hasPerms, err := bot.AdminOrPermMS(parsed.GuildData.GS.ID, id, parsed.GuildData.MS, discordgo.PermissionSendMessages|discordgo.PermissionReadMessages)
 				if err != nil {
-					return "Failed checking permissions, please try again or join the support server.", err
+					return "Ocurrió un error desconocido... :(", err
 				}
 
 				if !hasPerms {
-					return "You do not have permissions to send messages there", nil
+					return "No tienes permisos para enviar mensajes en ese canal.", nil
 				}
 			}
 
@@ -85,13 +85,13 @@ var cmds = []*commands.YAGCommand{
 				return nil, err
 			}
 
-			return "Set a reminder in " + durString + " from now (<t:" + tUnix + ":f>)\nView reminders with the `Reminders` command", nil
+			return "¡Estableciste un recordatorio en " + durString + " a partir de ahora! (<t:" + tUnix + ":f>)\nPuedes revisar tus recordatorios con el comando `recordatorios`", nil
 		},
 	},
 	{
 		CmdCategory:         commands.CategoryTool,
-		Name:                "Reminders",
-		Description:         "Lists your active reminders",
+		Name:                "recordatorios",
+		Description:         "Muestra tus recordatorios activos",
 		SlashCommandEnabled: true,
 		DefaultEnabled:      true,
 		RunFunc: func(parsed *dcmd.Data) (interface{}, error) {
@@ -100,17 +100,16 @@ var cmds = []*commands.YAGCommand{
 				return nil, err
 			}
 
-			out := "Your reminders:\n"
+			out := "Tus recordatorios:\n"
 			out += stringReminders(currentReminders, false)
-			out += "\nRemove a reminder with `delreminder/rmreminder (id)` where id is the first number for each reminder above.\nTo clear all reminders, use `delreminder` with the `-a` switch."
+			out += "\nPuedes eliminar un recordatorio con el comando `recordatorioeliminar (id)`.\nPara eliminar todos los recordatorios, utiliza `recordatorioeliminar -a`."
 			return out, nil
 		},
 	},
 	{
 		CmdCategory:         commands.CategoryTool,
-		Name:                "CReminders",
-		Aliases:             []string{"channelreminders"},
-		Description:         "Lists reminders in channel, only users with 'manage channel' permissions can use this.",
+		Name:                "revisarrecordatorios",
+		Description:         "Mostrar recordatorios en un canal.",
 		SlashCommandEnabled: true,
 		DefaultEnabled:      true,
 		RunFunc: func(parsed *dcmd.Data) (interface{}, error) {
@@ -119,7 +118,7 @@ var cmds = []*commands.YAGCommand{
 				return nil, err
 			}
 			if !ok {
-				return "You do not have access to this command (requires manage channel permission)", nil
+				return "¡No tienes acceso a ese comando!", nil
 			}
 
 			currentReminders, err := GetChannelReminders(parsed.ChannelID)
@@ -127,17 +126,16 @@ var cmds = []*commands.YAGCommand{
 				return nil, err
 			}
 
-			out := "Reminders in this channel:\n"
+			out := "Recordatorios en este canal:\n"
 			out += stringReminders(currentReminders, true)
-			out += "\nRemove a reminder with `delreminder/rmreminder (id)` where id is the first number for each reminder above"
+			out += "\nPuedes eliminar un recordatorio usando `recordatorioeliminar (id)`"
 			return out, nil
 		},
 	},
 	{
 		CmdCategory:  commands.CategoryTool,
-		Name:         "DelReminder",
-		Aliases:      []string{"rmreminder"},
-		Description:  "Deletes a reminder. You can delete reminders from other users provided you are running this command in the same guild the reminder was created in and have the Manage Channel permission in the channel the reminder was created in.",
+		Name:         "recordatorioeliminar",
+		Description:  "Comando para eliminar recordatorios.",
 		RequiredArgs: 0,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "ID", Type: dcmd.Int},
@@ -155,39 +153,39 @@ var cmds = []*commands.YAGCommand{
 				db := common.GORM.Where("user_id = ?", parsed.Author.ID).Delete(&reminder)
 				err := db.Error
 				if err != nil {
-					return "Error clearing reminders", err
+					return "Ocurrió un error desconocido... :(", err
 				}
 
 				count := db.RowsAffected
 				if count == 0 {
-					return "No reminders to clear", nil
+					return "No hay recordatorios para eliminar.", nil
 				}
-				return fmt.Sprintf("Cleared %d reminders", count), nil
+				return fmt.Sprintf("¡Se eliminaron %d recordatorios!", count), nil
 			}
 
 			if len(parsed.Args) == 0 || parsed.Args[0].Value == nil {
-				return "No reminder ID provided", nil
+				return "¡Introduce una Id. de recordatorio válida!", nil
 			}
 
 			err := common.GORM.Where(parsed.Args[0].Int()).First(&reminder).Error
 			if err != nil {
 				if err == gorm.ErrRecordNotFound {
-					return "No reminder by that id found", nil
+					return "No se encontró un recordatorio con esa Id.", nil
 				}
-				return "Error retrieving reminder", err
+				return "Ocurrió un error desconocido... :(", err
 			}
 
 			// Check perms
 			if reminder.UserID != discordgo.StrID(parsed.Author.ID) {
 				if reminder.GuildID != parsed.GuildData.GS.ID {
-					return "You can only delete reminders that are not your own in the guild the reminder was originally created", nil
+					return "¡No puedes eliminar ese recordatorio!", nil
 				}
 				ok, err := bot.AdminOrPermMS(reminder.GuildID, reminder.ChannelIDInt(), parsed.GuildData.MS, discordgo.PermissionManageChannels)
 				if err != nil {
 					return nil, err
 				}
 				if !ok {
-					return "You need manage channel permission in the channel the reminder is in to delete reminders that are not your own", nil
+					return "¡No puedes eliminar un recordatorio creado por alguien más!", nil
 				}
 			}
 
@@ -203,7 +201,7 @@ var cmds = []*commands.YAGCommand{
 				return nil, err
 			}
 
-			delMsg := fmt.Sprintf("Deleted reminder **#%d**: '%s'", reminder.ID, limitString(reminder.Message))
+			delMsg := fmt.Sprintf("Se eliminaron **#%d** recordatorios: '%s'", reminder.ID, limitString(reminder.Message))
 
 			// If there is another reminder with the same timestamp, do not remove the scheduled event
 			for _, v := range currentReminders {
@@ -227,14 +225,14 @@ func stringReminders(reminders []*Reminder, displayUsernames bool) string {
 		timeFromNow := common.HumanizeTime(common.DurationPrecisionMinutes, t)
 		if !displayUsernames {
 			channel := "<#" + discordgo.StrID(parsedCID) + ">"
-			out += fmt.Sprintf("**%d**: %s: '%s' - %s from now (<t:%d:f>)\n", v.ID, channel, limitString(v.Message), timeFromNow, tUnix)
+			out += fmt.Sprintf("**%d**: %s: '%s' - %s a partir de ahora (<t:%d:f>)\n", v.ID, channel, limitString(v.Message), timeFromNow, tUnix)
 		} else {
 			member, _ := bot.GetMember(v.GuildID, v.UserIDInt())
-			username := "Unknown user"
+			username := "Miembro desconocido/a"
 			if member != nil {
 				username = member.User.Username
 			}
-			out += fmt.Sprintf("**%d**: %s: '%s' - %s from now (<t:%d:f>)\n", v.ID, username, limitString(v.Message), timeFromNow, tUnix)
+			out += fmt.Sprintf("**%d**: %s: '%s' - %s a partir de ahora (<t:%d:f>)\n", v.ID, username, limitString(v.Message), timeFromNow, tUnix)
 		}
 	}
 	return out

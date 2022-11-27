@@ -19,9 +19,8 @@ var replacer = strings.NewReplacer("x", "*", "×", "*", "÷", "/", "++", "+", "-
 
 var Command = &commands.YAGCommand{
 	CmdCategory:  commands.CategoryTool,
-	Name:         "Calc",
-	Aliases:      []string{"c", "calculate"},
-	Description:  "Calculator 2+2=5",
+	Name:         "calcular",
+	Description:  "Calcula operaciones matemáticas",
 	RunInDM:      true,
 	RequiredArgs: 1,
 	Arguments: []*dcmd.ArgDef{

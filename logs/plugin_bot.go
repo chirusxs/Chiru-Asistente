@@ -374,8 +374,8 @@ var cmdNicknames = &commands.YAGCommand{
 
 var cmdClearNames = &commands.YAGCommand{
 	CmdCategory: commands.CategoryTool,
-	Name:        "ResetPastNames",
-	Description: "Reset your past usernames/nicknames.",
+	Name:        "eliminarnombres",
+	Description: "Elimina tu historial de tus nombres y apodos anteriores.",
 	RunInDM:     true,
 	// Cooldown:    100,
 	RunFunc: func(parsed *dcmd.Data) (interface{}, error) {
@@ -388,11 +388,11 @@ var cmdClearNames = &commands.YAGCommand{
 		for _, v := range queries {
 			_, err := common.PQ.Exec(v, parsed.Author.ID)
 			if err != nil {
-				return "An error occurred, join the support server for help", err
+				return "Ocurrió un error desconocido... :(", err
 			}
 		}
 
-		return "Doneso! Your past nicknames and usernames have been cleared!", nil
+		return "¡Éxito! Tu historial de nombres y apodos ha sido eliminado.", nil
 	},
 }
 

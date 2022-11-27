@@ -15,9 +15,8 @@ import (
 
 var Command = &commands.YAGCommand{
 	CmdCategory:         commands.CategoryTool,
-	Name:                "SimpleEmbed",
-	Aliases:             []string{"se"},
-	Description:         "A more simpler version of CustomEmbed, controlled completely using switches.",
+	Name:                "simpleembed",
+	Description:         "Genera embeds de una manera sencilla",
 	RequireDiscordPerms: []int64{discordgo.PermissionManageMessages},
 	ArgSwitches: []*dcmd.ArgDef{
 		{Name: "channel", Help: "Optional channel to send in", Type: dcmd.Channel},

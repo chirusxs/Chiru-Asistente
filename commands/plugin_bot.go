@@ -378,8 +378,8 @@ func ensureEmbedLimits(embed *discordgo.MessageEmbed) {
 }
 
 var cmdPrefix = &YAGCommand{
-	Name:        "Prefix",
-	Description: "Shows command prefix of the current server, or the specified server",
+	Name:        "prefijo",
+	Description: "Muestra el prefijo actual",
 	CmdCategory: CategoryTool,
 	Arguments: []*dcmd.ArgDef{
 		{Name: "Server-ID", Type: dcmd.BigInt, Default: 0},
