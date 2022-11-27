@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	ErrNoComboFound       = NewSimpleUserError("No matching combo found")
+	ErrNoComboFound       = NewSimpleUserError("¡Te faltan argumentos en el comando o introduciste uno inválido!")
 	ErrNotEnoughArguments = NewSimpleUserError("¡Te faltan argumentos en el comando!")
 )
 
