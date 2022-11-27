@@ -103,7 +103,7 @@ var cmds = []*commands.YAGCommand{
 	{
 		CmdCategory:  commands.CategoryFun,
 		Name:         "quitarrep",
-		Aliases:      []string{"-", "tr", "trep", "-rep"},
+		Aliases:      []string{"-rep"},
 		Description:  "Quita puntos de reputación a alguien",
 		RequiredArgs: 1,
 		Arguments: []*dcmd.ArgDef{
@@ -123,7 +123,7 @@ var cmds = []*commands.YAGCommand{
 	{
 		CmdCategory:         commands.CategoryFun,
 		Name:                "darrep",
-		Aliases:             []string{"+", "gr", "grep", "+rep"},
+		Aliases:             []string{"+rep"},
 		Description:         "Da puntos de reputación a alguien",
 		RequiredArgs:        1,
 		SlashCommandEnabled: true,
@@ -142,7 +142,7 @@ var cmds = []*commands.YAGCommand{
 	{
 		CmdCategory:         commands.CategoryFun,
 		Name:                "establecerrep",
-		Aliases:             []string{"SetRepID"}, // alias for legacy reasons, used to be a standalone command
+		// Aliases:             []string{"SetRepID"}, // alias for legacy reasons, used to be a standalone command
 		Description:         "Establece la reputación de alguien",
 		RequiredArgs:        2,
 		SlashCommandEnabled: true,
