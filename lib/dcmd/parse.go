@@ -18,7 +18,7 @@ func ArgParserMW(inner RunFunc) RunFunc {
 		err := ParseCmdArgs(data)
 		if err != nil {
 			if IsUserError(err) {
-				return "Invalid arguments provided: " + err.Error(), nil
+				return err.Error(), nil
 			}
 
 			return nil, err
