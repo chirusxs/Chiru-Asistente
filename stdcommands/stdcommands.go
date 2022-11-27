@@ -26,10 +26,8 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/howlongtobeat"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/info"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/inspire"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/invite"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/leaveserver"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/listflags"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/listroles"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/memstats"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/owldictionary"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/ping"
@@ -48,7 +46,6 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/topic"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/topservers"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/unbanserver"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/undelete"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/viewperms"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/weather"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/wouldyourather"
@@ -75,7 +72,6 @@ func (p *Plugin) AddCommands() {
 	commands.AddRootCommands(p,
 		// Info
 		info.Command,
-		invite.Command,
 
 		// Standard
 		define.Command,
@@ -92,11 +88,9 @@ func (p *Plugin) AddCommands() {
 		customembed.Command,
 		simpleembed.Command,
 		currenttime.Command,
-		listroles.Command,
 		memstats.Command,
 		wouldyourather.Command,
 		poll.Command,
-		undelete.Command,
 		viewperms.Command,
 		topgames.Command,
 		xkcd.Command,
