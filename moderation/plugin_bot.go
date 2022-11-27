@@ -626,7 +626,7 @@ func handleScheduledUnmute(evt *seventsmodels.ScheduledEvent, data interface{}) 
 		return scheduledevents2.CheckDiscordErrRetry(err), err
 	}
 
-	err = MuteUnmuteUser(nil, false, evt.GuildID, nil, nil, common.BotUser, "Mute Duration Expired", member, 0)
+	err = MuteUnmuteUser(nil, false, evt.GuildID, nil, nil, common.BotUser, "La sanción ha expirado", member, 0)
 	if errors.Cause(err) != ErrNoMuteRole {
 		return scheduledevents2.CheckDiscordErrRetry(err), err
 	}

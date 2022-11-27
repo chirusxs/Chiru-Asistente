@@ -192,7 +192,7 @@ func sendPunishDM(config *Config, dmMsg string, action ModlogAction, gs *dstate.
 	}
 
 	if duration < 1 {
-		ctx.Data["HumanDuration"] = "permanently"
+		ctx.Data["HumanDuration"] = "¡Para siempre!"
 	}
 
 	executed, err := ctx.Execute(dmMsg)

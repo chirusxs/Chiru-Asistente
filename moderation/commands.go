@@ -60,10 +60,10 @@ func MBaseCmdSecond(cmdData *dcmd.Data, reason string, reasonArgOptional bool, n
 
 	if strings.TrimSpace(reason) == "" {
 		if !reasonArgOptional {
-			return oreason, commands.NewUserError("A reason has been set to be required for this command by the server admins, see help for more info.")
+			return oreason, commands.NewUserError("¡Debes especificar una razón para la sanción!")
 		}
 
-		oreason = "(No reason specified)"
+		oreason = "Sin razón especificada"
 	}
 
 	member := cmdData.GuildData.MS

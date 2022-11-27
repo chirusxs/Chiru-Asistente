@@ -274,9 +274,9 @@ func (yc *YAGCommand) humanizeError(err error) string {
 
 	switch t := cause.(type) {
 	case PublicError:
-		return "The command returned an error: " + t.Error()
+		return "Ocurrió un error: " + t.Error()
 	case UserError:
-		return "Unable to run the command: " + t.Error()
+		return t.Error()
 	case *discordgo.RESTError:
 		if t.Message != nil && t.Message.Message != "" {
 			if t.Message.Message == "Unknown Message" {
