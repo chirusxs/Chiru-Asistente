@@ -341,7 +341,7 @@ var cmds = []*commands.YAGCommand{
 				target = parsed.Args[0].Value.(*discordgo.User)
 			}
 
-			score, rank, err := GetUserStats(parsed.GuildData.GS.ID, target.ID)
+			score, err := GetUserStats(parsed.GuildData.GS.ID, target.ID)
 
 			if err != nil {
 				if err == ErrUserNotFound {
