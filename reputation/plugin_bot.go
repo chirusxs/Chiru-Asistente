@@ -341,7 +341,7 @@ var cmds = []*commands.YAGCommand{
 				target = parsed.Args[0].Value.(*discordgo.User)
 			}
 
-			conf, err := GetConfig(parsed.Context(), parsed.GuildData.GS.ID)
+			conf, err := ""
 			if err != nil {
 				return "An error occurred finding the server config", err
 			}
@@ -361,7 +361,7 @@ var cmds = []*commands.YAGCommand{
 				rankStr = strconv.FormatInt(int64(rank), 10)
 			}
 
-			return fmt.Sprintf("Reputación de **%s**: **%d** %s (#**%s**)", target.Username, score, conf.PointsName, rankStr), nil
+			return fmt.Sprintf("Reputación de **%s**: **%d**%s (#**%s**)", target.Username, score, conf.PointsName, rankStr), nil
 		},
 	},
 	{
