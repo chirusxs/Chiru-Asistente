@@ -138,22 +138,22 @@ var cmdWhois = &commands.YAGCommand{
 			createdDurStr = "Less than an hour ago"
 		}
 
-		var memberStatus string
-		state := [6]string{"Jugando a", "Transmitiendo", "Escuchando", "Viendo", "Custom", "Competing"}
-		if member.Presence == nil || member.Presence.Game == nil {
-			memberStatus = "Has no active status, is invisible/offline or is not in the bot's cache."
-		} else {
-			if member.Presence.Game.Type == 4 {
-				memberStatus = fmt.Sprintf("%s: %s", member.Presence.Game.Name, member.Presence.Game.State)
-			} else {
-				presenceName := "Unknown"
-				if member.Presence.Game.Type >= 0 && len(state) > int(member.Presence.Game.Type) {
-					presenceName = state[member.Presence.Game.Type]
-				}
+		// var memberStatus string
+		// state := [6]string{"Jugando a", "Transmitiendo", "Escuchando", "Viendo", "Custom", "Competing"}
+		// if member.Presence == nil || member.Presence.Game == nil {
+		// 	memberStatus = "Has no active status, is invisible/offline or is not in the bot's cache."
+		// } else {
+		// 	if member.Presence.Game.Type == 4 {
+		// 		memberStatus = fmt.Sprintf("%s: %s", member.Presence.Game.Name, member.Presence.Game.State)
+		// 	} else {
+		// 		presenceName := "Unknown"
+		// 		if member.Presence.Game.Type >= 0 && len(state) > int(member.Presence.Game.Type) {
+		// 			presenceName = state[member.Presence.Game.Type]
+		// 		}
 
-				memberStatus = fmt.Sprintf("%s: %s", presenceName, member.Presence.Game.Name)
-			}
-		}
+		// 		memberStatus = fmt.Sprintf("%s: %s", presenceName, member.Presence.Game.Name)
+		// 	}
+		// }
 
 		embed := &discordgo.MessageEmbed{
 			Title: fmt.Sprintf("%s#%s%s", member.User.Username, member.User.Discriminator, nick),
