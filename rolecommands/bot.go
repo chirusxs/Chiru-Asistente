@@ -45,7 +45,7 @@ func (p *Plugin) AddCommands() {
 	cmdCreate := &commands.YAGCommand{
 		Name:                "crear",
 		CmdCategory:         categoryRoleMenu,
-		Description:         "Set up a role menu.",
+		Description:         "Crea un menú de rol.",
 		LongDescription:     "Specify a message with -m to use an existing message instead of having the bot make one\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
 		RequiredArgs:        1,
@@ -64,7 +64,7 @@ func (p *Plugin) AddCommands() {
 	cmdRemoveRoleMenu := &commands.YAGCommand{
 		Name:                "eliminar",
 		CmdCategory:         categoryRoleMenu,
-		Description:         "Removes a rolemenu from a message.",
+		Description:         "Elimina un menú de rol de un mensaje",
 		LongDescription:     "The message won't be deleted and the bot will not do anything with reactions on that message\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
 		RequiredArgs:        1,
@@ -77,8 +77,7 @@ func (p *Plugin) AddCommands() {
 	cmdUpdate := &commands.YAGCommand{
 		Name:                "actualizar",
 		CmdCategory:         categoryRoleMenu,
-		Aliases:             []string{"u"},
-		Description:         "Updates a rolemenu, toggling the provided flags and adding missing options, aswell as updating the order.",
+		Description:         "Actualiza un menú de rol",
 		LongDescription:     "\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
 		RequiredArgs:        1,
@@ -95,7 +94,7 @@ func (p *Plugin) AddCommands() {
 	cmdResetReactions := &commands.YAGCommand{
 		Name:                "reiniciar",
 		CmdCategory:         categoryRoleMenu,
-		Description:         "Removes all reactions on the specified menu message and re-adds them.",
+		Description:         "Elimina todas las reacciones de un menú de rol",
 		LongDescription:     "Can be used to fix the order after updating it.\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
 		RequiredArgs:        1,
@@ -108,7 +107,7 @@ func (p *Plugin) AddCommands() {
 	cmdEditOption := &commands.YAGCommand{
 		Name:                "editar",
 		CmdCategory:         categoryRoleMenu,
-		Description:         "Allows you to reassign the emoji of an option, tip: use ResetReactions afterwards.",
+		Description:         "Te permite cambiar el emoji de una opción",
 		LongDescription:     "\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
 		RequiredArgs:        1,
@@ -121,7 +120,7 @@ func (p *Plugin) AddCommands() {
 	cmdFinishSetup := &commands.YAGCommand{
 		Name:                "finalizar",
 		CmdCategory:         categoryRoleMenu,
-		Description:         "Marks the menu as done.",
+		Description:         "Marca el menú como finalizado",
 		LongDescription:     "\n\n" + msgIDDocs,
 		RequireDiscordPerms: []int64{discordgo.PermissionManageServer},
 		RequiredArgs:        1,
@@ -134,7 +133,7 @@ func (p *Plugin) AddCommands() {
 	cmdListGroups := &commands.YAGCommand{
 		Name:                "lista",
 		CmdCategory:         categoryRoleMenu,
-		Description:         "Lists all role groups",
+		Description:         "Muestra todos los menús de rol",
 		RequireDiscordPerms: []int64{discordgo.PermissionManageGuild},
 		RunFunc:             cmdFuncRoleMenuListGroups,
 	}

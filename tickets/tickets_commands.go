@@ -34,12 +34,12 @@ func createTicketsDisabledError(guild *dcmd.GuildContextData) string {
 
 func (p *Plugin) AddCommands() {
 
-	categoryTickets := &dcmd.Category{
-		Name:        "Tickets",
-		Description: "Ticket commands",
-		HelpEmoji:   "🎫",
-		EmbedColor:  0x42b9f4,
-	}
+	// categoryTickets := &dcmd.Category{
+	// 	Name:        "Tickets",
+	// 	Description: "Ticket commands",
+	// 	HelpEmoji:   "🎫",
+	// 	EmbedColor:  0x42b9f4,
+	// }
 
 	cmdOpenTicket := &commands.YAGCommand{
 		CmdCategory:  categoryTickets,

@@ -393,7 +393,6 @@ var ModerationCommands = []*commands.YAGCommand{
 		CmdCategory:   commands.CategoryModeration,
 		Name:          "aislar",
 		Description:   "Aisla a un(a) miembro del servidor",
-		Aliases:       []string{"to"},
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
 			{Name: "Duration", Type: &commands.DurationArg{}},
@@ -494,7 +493,6 @@ var ModerationCommands = []*commands.YAGCommand{
 		Name:            "limpiar",
 		Description:     "Elimina con múltiples opciones los últimos mensajes de un canal",
 		LongDescription: "Specify a regex with \"-r regex_here\" and max age with \"-ma 1h10m\"\nYou can invert the regex match (i.e. only clear messages that do not match the given regex) by supplying the `-im` flag\nNote: Will only look in the last 1k messages",
-		Aliases:         []string{"clear", "cl"},
 		RequiredArgs:    1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Num", Type: &dcmd.IntArg{Min: 1, Max: 100}},
@@ -737,7 +735,6 @@ var ModerationCommands = []*commands.YAGCommand{
 		CmdCategory:   commands.CategoryModeration,
 		Name:          "advertencias",
 		Description:   "Muestra tus advertencias en el servidor",
-		Aliases:       []string{"Warns"},
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID, Default: 0},

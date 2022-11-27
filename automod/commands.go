@@ -22,7 +22,6 @@ func (p *Plugin) AddCommands() {
 
 	cmdToggleRuleset := &commands.YAGCommand{
 		Name:         "alternar",
-		Aliases:      []string{"t"},
 		CmdCategory:  commands.CategoryModeration,
 		RequiredArgs: 1,
 		Arguments: []*dcmd.ArgDef{
@@ -145,7 +144,6 @@ func (p *Plugin) AddCommands() {
 		CmdCategory:   commands.CategoryModeration,
 		Name:          "contador",
 		Description:   "Muestra la cantidad de violaciones de un(a) miembro en especifico",
-		Aliases:       []string{"ViolationsCount", "VCount"},
 		RequiredArgs:  0,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -216,7 +214,6 @@ func (p *Plugin) AddCommands() {
 		CmdCategory:   commands.CategoryModeration,
 		Name:          "violaciones",
 		Description:   "Muestra las violaciones de un(a) miembro en especifico",
-		Aliases:       []string{"Violations", "ViolationLogs", "VLogs", "VLog"},
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
@@ -271,7 +268,6 @@ func (p *Plugin) AddCommands() {
 		CmdCategory:   commands.CategoryModeration,
 		Name:          "eliminarviolacion",
 		Description:   "Elimina una violación",
-		Aliases:       []string{"DelViolation", "DelV", "DV"},
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "ID", Type: dcmd.Int},
@@ -297,7 +293,6 @@ func (p *Plugin) AddCommands() {
 		CmdCategory:   commands.CategoryModeration,
 		Name:          "limpiar",
 		Description:   "Limpia las violaciones de un(a) miembro en especifico",
-		Aliases:       []string{"ClearV", "ClrViolations", "ClrV"},
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Default: 0, Type: dcmd.UserID},
 			{Name: "Violation-Name", Type: dcmd.String},
