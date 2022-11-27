@@ -130,7 +130,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
 			{Name: "Duration", Type: &commands.DurationArg{}, Default: time.Duration(0)},
-			{Name: "Reason", Type: dcmd.String},
+			{Name: "Razón", Type: dcmd.String},
 		},
 		ArgSwitches: []*dcmd.ArgDef{
 			{Name: "ddays", Help: "Number of days of messages to delete", Type: dcmd.Int},
@@ -183,7 +183,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
-			{Name: "Reason", Type: dcmd.String},
+			{Name: "Razón", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "BanMembers or ManageServer",
 		RequireBotPerms:          [][]int64{{discordgo.PermissionAdministrator}, {discordgo.PermissionManageServer}, {discordgo.PermissionBanMembers}},
@@ -232,7 +232,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
-			{Name: "Reason", Type: dcmd.String},
+			{Name: "Razón", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "KickMembers or ManageServer",
 		ArgSwitches: []*dcmd.ArgDef{
@@ -288,7 +288,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
 			{Name: "Duration", Type: &commands.DurationArg{}},
-			{Name: "Reason", Type: dcmd.String},
+			{Name: "Razón", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "KickMembers or ManageServer",
 		RequireBotPerms:          [][]int64{{discordgo.PermissionAdministrator}, {discordgo.PermissionManageServer}, {discordgo.PermissionManageRoles}},
@@ -348,7 +348,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
-			{Name: "Reason", Type: dcmd.String},
+			{Name: "Razón", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "KickMembers or ManageServer",
 		RequireBotPerms:          [][]int64{{discordgo.PermissionAdministrator}, {discordgo.PermissionManageServer}, {discordgo.PermissionManageRoles}},
@@ -396,7 +396,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
 			{Name: "Duration", Type: &commands.DurationArg{}},
-			{Name: "Reason", Type: dcmd.String},
+			{Name: "Razón", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "TimeoutMembers/ModerateMembers or ManageServer",
 		RequireBotPerms:          [][]int64{{discordgo.PermissionAdministrator}, {discordgo.PermissionManageServer}, {discordgo.PermissionModerateMembers}},
@@ -450,7 +450,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
-			{Name: "Reason", Type: dcmd.String},
+			{Name: "Razón", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "TimeoutMember/ModerateMember or ManageServer",
 		RequireBotPerms:          [][]int64{{discordgo.PermissionAdministrator}, {discordgo.PermissionManageServer}, {discordgo.PermissionModerateMembers}},
@@ -646,7 +646,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		RequiredArgs:  2,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "Message-ID", Type: dcmd.BigInt},
-			{Name: "Reason", Type: dcmd.String},
+			{Name: "Razón", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "KickMembers or ManageServer",
 		SlashCommandEnabled:      true,
@@ -697,7 +697,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		RequiredArgs:  2,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
-			{Name: "Reason", Type: dcmd.String},
+			{Name: "Razón", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "ManageMessages or ManageServer",
 		SlashCommandEnabled:      true,

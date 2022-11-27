@@ -695,7 +695,7 @@ func (u *UserArg) ParseFromInteraction(def *ArgDef, data *Data, options *SlashCo
 }
 
 func (u *UserArg) HelpName() string {
-	return "User"
+	return "Miembro"
 }
 
 func (u *UserArg) SlashCommandOptions(def *ArgDef) []*discordgo.ApplicationCommandOption {
@@ -832,7 +832,7 @@ func (u *UserIDArg) ParseFromInteraction(def *ArgDef, data *Data, options *Slash
 }
 
 func (u *UserIDArg) HelpName() string {
-	return "Mention/ID"
+	return "Mención/Id"
 }
 
 func (u *UserIDArg) SlashCommandOptions(def *ArgDef) []*discordgo.ApplicationCommandOption {

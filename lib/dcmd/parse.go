@@ -9,7 +9,7 @@ import (
 
 var (
 	ErrNoComboFound       = NewSimpleUserError("No matching combo found")
-	ErrNotEnoughArguments = NewSimpleUserError("Not enough arguments passed")
+	ErrNotEnoughArguments = NewSimpleUserError("¡Te faltan argumentos en el comando!")
 )
 
 func ArgParserMW(inner RunFunc) RunFunc {
