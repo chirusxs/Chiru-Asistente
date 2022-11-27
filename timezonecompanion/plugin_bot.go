@@ -148,8 +148,7 @@ func (p *Plugin) AddCommands() {
 		},
 	}, &commands.YAGCommand{
 		CmdCategory:         commands.CategoryTool,
-		Name:                "alternarconversión",
-		Aliases:             []string{"alternarconversion"},
+		Name:                "alternarconversion",
 		Description:         "Alterna la conversión automática de hora y fecha en el canal actual.",
 		RequireDiscordPerms: []int64{discordgo.PermissionManageMessages, discordgo.PermissionManageServer},
 		Arguments: []*dcmd.ArgDef{
