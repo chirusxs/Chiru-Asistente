@@ -341,7 +341,7 @@ var cmds = []*commands.YAGCommand{
 				target = parsed.Args[0].Value.(*discordgo.User)
 			}
 
-			conf, err := "", ""
+			conf, err := GetConfig(parsed.Context(), parsed.GuildData.GS.ID)
 			if err != nil {
 				return "An error occurred finding the server config", err
 			}
