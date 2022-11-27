@@ -104,9 +104,9 @@ func SafeArgString(data *dcmd.Data, arg int) string {
 }
 
 func GenericCmdResp(action ModlogAction, target *discordgo.User, duration time.Duration, zeroDurPermanent bool, noDur bool) string {
-	durStr := " indefinitely"
+	durStr := " indefinidamente"
 	if duration > 0 || !zeroDurPermanent {
-		durStr = " for `" + common.HumanizeDuration(common.DurationPrecisionMinutes, duration) + "`"
+		durStr = " durante `" + common.HumanizeDuration(common.DurationPrecisionMinutes, duration) + "`"
 	}
 	if noDur {
 		durStr = ""
