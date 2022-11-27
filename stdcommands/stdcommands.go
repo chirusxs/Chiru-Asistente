@@ -13,7 +13,6 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/ccreqs"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/createinvite"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/currentshard"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/currenttime"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/customembed"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/dadjoke"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/dcallvoice"
@@ -87,7 +86,6 @@ func (p *Plugin) AddCommands() {
 		roll.Command,
 		customembed.Command,
 		simpleembed.Command,
-		currenttime.Command,
 		memstats.Command,
 		wouldyourather.Command,
 		poll.Command,
