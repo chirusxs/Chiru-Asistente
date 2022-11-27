@@ -129,11 +129,11 @@ var ModerationCommands = []*commands.YAGCommand{
 		RequiredArgs:  1,
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
-			{Name: "Duration", Type: &commands.DurationArg{}, Default: time.Duration(0)},
+			{Name: "Duracion", Type: &commands.DurationArg{}, Default: time.Duration(0)},
 			{Name: "Razon", Type: dcmd.String},
 		},
 		ArgSwitches: []*dcmd.ArgDef{
-			{Name: "ddays", Help: "Number of days of messages to delete", Type: dcmd.Int},
+			{Name: "dias", Help: "Cantidad de días para borrar mensajes", Type: dcmd.Int},
 		},
 		RequiredDiscordPermsHelp: "BanMembers or ManageServer",
 		RequireBotPerms:          [][]int64{{discordgo.PermissionAdministrator}, {discordgo.PermissionManageServer}, {discordgo.PermissionBanMembers}},
@@ -157,9 +157,9 @@ var ModerationCommands = []*commands.YAGCommand{
 				return "Error: Reason too long (can be max 470 characters).", nil
 			}
 
-			ddays := int(config.DefaultBanDeleteDays.Int64)
-			if parsed.Switches["ddays"].Value != nil {
-				ddays = parsed.Switches["ddays"].Int()
+			dias := int(config.DefaultBanDeleteDays.Int64)
+			if parsed.Switches["dias"].Value != nil {
+				dias = parsed.Switches["dias"].Int()
 			}
 			banDuration := parsed.Args[1].Value.(time.Duration)
 
@@ -167,7 +167,7 @@ var ModerationCommands = []*commands.YAGCommand{
 			if parsed.TraditionalTriggerData != nil {
 				msg = parsed.TraditionalTriggerData.Message
 			}
-			err = BanUserWithDuration(config, parsed.GuildData.GS.ID, parsed.GuildData.CS, msg, parsed.Author, reason, target, banDuration, ddays)
+			err = BanUserWithDuration(config, parsed.GuildData.GS.ID, parsed.GuildData.CS, msg, parsed.Author, reason, target, banDuration, dias)
 			if err != nil {
 				return nil, err
 			}
@@ -287,7 +287,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		Description:   "Mutea a un(a) miembro del servidor",
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
-			{Name: "Duration", Type: &commands.DurationArg{}},
+			{Name: "Duracion", Type: &commands.DurationArg{}},
 			{Name: "Razon", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "KickMembers or ManageServer",
@@ -395,7 +395,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		Description:   "Aisla a un(a) miembro del servidor",
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
-			{Name: "Duration", Type: &commands.DurationArg{}},
+			{Name: "Duracion", Type: &commands.DurationArg{}},
 			{Name: "Razon", Type: dcmd.String},
 		},
 		RequiredDiscordPermsHelp: "TimeoutMembers/ModerateMembers or ManageServer",
@@ -957,7 +957,7 @@ var ModerationCommands = []*commands.YAGCommand{
 		Arguments: []*dcmd.ArgDef{
 			{Name: "User", Type: dcmd.UserID},
 			{Name: "Role", Type: &commands.RoleArg{}},
-			{Name: "Duration", Type: &commands.DurationArg{}, Default: time.Duration(0)},
+			{Name: "Duracion", Type: &commands.DurationArg{}, Default: time.Duration(0)},
 		},
 		RequiredDiscordPermsHelp: "ManageRoles or ManageServer",
 		RequireBotPerms:          [][]int64{{discordgo.PermissionAdministrator}, {discordgo.PermissionManageServer}, {discordgo.PermissionManageRoles}},

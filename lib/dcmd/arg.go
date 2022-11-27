@@ -634,7 +634,7 @@ func (s *StringArg) ParseFromInteraction(def *ArgDef, data *Data, options *Slash
 }
 
 func (s *StringArg) HelpName() string {
-	return "Text"
+	return "Texto"
 }
 
 func (s *StringArg) SlashCommandOptions(def *ArgDef) []*discordgo.ApplicationCommandOption {
