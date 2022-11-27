@@ -42,7 +42,6 @@ import (
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/unbanserver"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/viewperms"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/weather"
-	"github.com/botlabs-gg/yagpdb/v2/stdcommands/xkcd"
 	"github.com/botlabs-gg/yagpdb/v2/stdcommands/yagstatus"
 )
 
