@@ -83,7 +83,6 @@ func main() {
 	patreonpremiumsource.RegisterPlugin()
 	scheduledevents2.RegisterPlugin()
 	twitter.RegisterPlugin()
-	rsvp.RegisterPlugin()
 	timezonecompanion.RegisterPlugin()
 	admin.RegisterPlugin()
 	internalapi.RegisterPlugin()
