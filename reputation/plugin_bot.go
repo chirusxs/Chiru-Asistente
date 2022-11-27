@@ -341,15 +341,7 @@ var cmds = []*commands.YAGCommand{
 				target = parsed.Args[0].Value.(*discordgo.User)
 			}
 
-			score, err := GetUserStats(parsed.GuildData.GS.ID, target.ID)
-
-			if err != nil {
-				if err == ErrUserNotFound {
-					rank = -1
-				} else {
-					return nil, err
-				}
-			}
+			score, err := GetUserStats2(parsed.GuildData.GS.ID, target.ID)
 
 			return fmt.Sprintf("Reputación de **%s**: %s", target.Username, score), nil
 		},
