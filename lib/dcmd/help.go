@@ -148,7 +148,7 @@ func GenerateHelp(d *Data, container *Container, formatter HelpFormatter) (embed
 		}
 
 		embed := &discordgo.MessageEmbed{
-			Title: cName + "Help",
+			Title: cName,
 			Color: set.Color(),
 			Footer: &discordgo.MessageEmbedFooter{
 				Text: "Do `" + invoked + "help cmd/container` for more detailed information on a command/group of commands",
