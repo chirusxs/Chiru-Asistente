@@ -361,7 +361,7 @@ var cmds = []*commands.YAGCommand{
 				rankStr = strconv.FormatInt(int64(rank), 10)
 			}
 
-			return fmt.Sprintf("Reputación de **%s**: **%d**%s (#**%s**)", target.Username, score, conf.PointsName, rankStr), nil
+			return fmt.Sprintf("Reputación de **%s**: **%d** %s (#**%s**)", target.Username, score, conf.PointsName, rankStr), nil
 		},
 	},
 	{
