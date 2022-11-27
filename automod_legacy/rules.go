@@ -445,7 +445,7 @@ func (s *SitesRule) Check(evt *discordgo.Message, cs *dstate.ChannelState) (del 
 		extraInfo = "(sb: " + threatList + ")"
 	}
 
-	msg = fmt.Sprintf("Enviar un enlace baneado (`%s`) %s", item, extraInfo)
+	msg = fmt.Sprintf("Enviar un enlace baneado (%s) %s", item, extraInfo)
 	del = true
 	return
 }
